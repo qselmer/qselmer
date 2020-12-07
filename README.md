@@ -1,6 +1,6 @@
 ### Here is What I'm Working On! 👋
 
-<img src="https://github.com/qselmer/qselmer/blob/main/89859869_101705864804613_1689198607313403904_n.jpg" alt="Reddy Prasad" align="left" width="400" height="400">
+<img src="https://github.com/qselmer/qselmer/blob/main/89859869_101705864804613_1689198607313403904_n.jpg" alt="Reddy Prasad" align="right" width="400" height="400">
 
 ![](https://komarev.com/ghpvc/?username=reddyprasade&style=flat-square&color=EA4AAA)
 
