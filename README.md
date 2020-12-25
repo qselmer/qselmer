@@ -12,7 +12,7 @@
 
 ---
 
-<p>Elmer Quispe Salazar works as <b> Machine Learning Scientist</b> </p>
+<p>Elmer Quispe Salazar works as <b>  </p>
 
 -----
 Last Edited on: 30/08/2020
