@@ -28,7 +28,7 @@
 <br>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent)&langs_count=4" alt="Top Languages"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent)&langs_count=3" alt="Top Languages"/>
   <img src="https://github-readme-stats.vercel.app/api?username=qselmer&theme=transparent)&line_height=27&rank_icon=github" alt="GitHub Stats"/>
 </div>
 
