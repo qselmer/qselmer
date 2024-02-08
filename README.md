@@ -30,6 +30,9 @@
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent)&langs_count=5" alt="Top Languages"/>
   <img src="https://github-readme-stats.vercel.app/api?username=qselmer&theme=transparent)&line_height=27&rank_icon=github" alt="GitHub Stats"/>
+  ![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=qselmer&show_icons=true&include_all_commits=true&count_private=true&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&theme=transparent)
+  ![](http://github-profile-summary-cards.vercel.app/api/cards/stats?username=qselmer&show_icons=true&include_all_commits=true&count_private=true&role=OWNER,ORGANIZATION_MEMBER,COLLABORATOR&theme=transparent)
+  ![](http://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=qselmer&theme=transparent)
 </div>
 
 ## My Interests
