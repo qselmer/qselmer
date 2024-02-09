@@ -17,10 +17,13 @@
   <a href="https://orcid.org/0000-0001-9229-6379">
     <img src="http://img.shields.io/badge/-ORCID-2088FF?style=flat&logo=ORCID&logoColor=ffffff" alt="ORCID"/>
   </a>
-  <a href="https://publons.com/researcher/3415841/benjamin-staton">
-    <img src="http://img.shields.io/badge/-Publons-2088FF?style=flat&logo=Publons&logoColor=ffffff" alt="Publons"/>
+  <a href="https://www.webofscience.com/wos/author/record/AEA-6138-2022">
+    <img src="http://img.shields.io/badge/-Clarivate-2088FF?style=flat&logo=Clarivate&logoColor=ffffff" alt="Clarivate"/>
   </a>
-  <a href="https://twitter.com/bstat0n">
+    <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/">
+    <img src="http://img.shields.io/badge/-Linkedin-2088FF?style=flat&logo=Linkedin&logoColor=ffffff" alt="Linkedin"/>
+  </a>
+  <a href="https://twitter.com/e4fish">
     <img src="http://img.shields.io/badge/-Twitter-2088FF?style=flat&logo=Twitter&logoColor=ffffff" alt="Twitter"/>
   </a>
 </p>
