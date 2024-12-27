@@ -1,6 +1,6 @@
 <h2 align="center">Quantitative Ecology and Fisheries Scientist</h2>
 <p align="justify">
-  <em>My research interests focus on theoretical and applied issues in marine resource ecology and their management. My research includes population and community dynamics models, stock assessments, spatio-temporal analyses, and life history analyses. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations </em> 🌊📚💻
+  <em>My research interests focus on theoretical and applied issues in marine resource ecology and their management. This includes developing  population and community dynamics models, stock assessments, spatio-temporal analyses, and life history analyses. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations </em> 🌊📚💻
 </p>
 
 <p align="center">
@@ -23,7 +23,7 @@
     <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/">
     <img src="http://img.shields.io/badge/-Linkedin-2088FF?style=flat&logo=Linkedin&logoColor=ffffff" alt="Linkedin"/>
   </a>
-  <a href="https://twitter.com/e4fish">
+  <a href="https://x.com/elmerseascient">
     <img src="http://img.shields.io/badge/-Twitter-2088FF?style=flat&logo=Twitter&logoColor=ffffff" alt="Twitter"/>
   </a>
 </p>
@@ -40,7 +40,7 @@
 -   **Population dynamics** and models that describe them
 -   **Methods for counting animals** (generally :fish:) and the models
     we use to make sense of the data
--   **Bayesian analysis** as a means to quantify knowledge and
+-   **Statistical analysis** as a means to quantify knowledge and
     uncertainty
 -   **State-space models** as a means to disentangle biological and
     observational processes
@@ -53,19 +53,19 @@
 For more information about me and the things I work on, you can view my
 [curriculum vitae](https://github.com/bstaton1/bstaton1/blob/master/assets/CV.pdf).
 
-I also operate a small consulting company (Quantitative Ecological
-Services, LLC) – please email me at <qselmers@gmail.com> for more
-details.
+I also run a project called **r4fish**:r4🐟, an initiative focused on scientific outreach and activities related to the sea. For more details, please contact me at <qselmers@gmail.com>.
 
 ## Commonly Used Tools/Languages
 
-> *In decreasing order of how awful it would be if they were to
-> disappear*
+> *Ranked in decreasing order of their impact on my 
+> work*
 
 <p>
 <a href="https://www.google.com">
 <img src="http://img.shields.io/badge/-Google-2088FF?style=flat&amp;logo=Google&amp;logoColor=ffffff" alt="Google"/>
 </a>
+</p>
+<p>
 <a href="https://www.r-project.org/">
 <img src="http://img.shields.io/badge/-R-2088FF?style=flat&amp;logo=R&amp;logoColor=ffffff" alt="R"/>
 </a>
