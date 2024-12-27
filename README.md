@@ -69,13 +69,24 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 <a href="https://www.r-project.org/">
 <img src="http://img.shields.io/badge/-R-2088FF?style=flat&amp;logo=R&amp;logoColor=ffffff" alt="R"/>
 </a>
-<a href="http://mcmc-jags.sourceforge.net/">
-<img src="http://img.shields.io/badge/-JAGS-2088FF?style=flat" alt="JAGS"/>
+<a href="https://rstudio.com/">
+<img src="http://img.shields.io/badge/-C++-2088FF?style=flat&amp;logo=RStudio&amp;logoColor=ffffff" alt="RStudio"/>
+</a>
+<a href="https://rstudio.com/">
+<img src="http://img.shields.io/badge/-Python-2088FF?style=flat&amp;logo=RStudio&amp;logoColor=ffffff" alt="RStudio"/>
 </a>
 <a href="https://rstudio.com/">
 <img src="http://img.shields.io/badge/-RStudio-2088FF?style=flat&amp;logo=RStudio&amp;logoColor=ffffff" alt="RStudio"/>
 </a>
-<a href="https://github.com/bstaton1">
+<a href="http://mcmc-jags.sourceforge.net/">
+<img src="http://img.shields.io/badge/-C++-2088FF?style=flat" alt="JAGS"/>
+</a>
+</p>
+<p>
+<a href="https://www.gnu.org/software/bash/">
+<img src="http://img.shields.io/badge/-Bash-2088FF?style=flat&amp;logo=gnu-bash&amp;logoColor=ffffff" alt="Bash"/>
+</a>
+<a href="https://github.com/qselmer">
 <img src="http://img.shields.io/badge/-GitHub-2088FF?style=flat&amp;logo=github&amp;logoColor=ffffff" alt="GitHub"/>
 </a>
 <a href="https://www.markdownguide.org/">
@@ -84,12 +95,10 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 <a href="https://www.latex-project.org/">
 <img src="http://img.shields.io/badge/-LaTeX-2088FF?style=flat&amp;logo=latex&amp;logoColor=ffffff" alt="LaTeX"/>
 </a>
-<a href="https://www.gnu.org/software/bash/">
-<img src="http://img.shields.io/badge/-Bash-2088FF?style=flat&amp;logo=gnu-bash&amp;logoColor=ffffff" alt="Bash"/>
-</a>
 </p>
 
-## Tools I'd Like to Learn
+
+## Tools I'm Learning
 
 <p>
 <a href="https://mc-stan.org/">
@@ -97,6 +106,9 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 </a>
 <a href="https://github.com/kaskr/adcomp/wiki">
 <img src="http://img.shields.io/badge/-TMB-2088FF?style=flat" alt="TMB"/>
+</a>
+<a href="http://mcmc-jags.sourceforge.net/">
+<img src="http://img.shields.io/badge/-JAGS-2088FF?style=flat" alt="JAGS"/>
 </a>
 </p>
 
