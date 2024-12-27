@@ -57,9 +57,6 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 
 ## Commonly Used Tools/Languages
 
-> *Ranked in decreasing order of their impact on my 
-> work*
-
 <p>
 <a href="https://www.google.com">
 <img src="http://img.shields.io/badge/-Google-2088FF?style=flat&amp;logo=Google&amp;logoColor=ffffff" alt="Google"/>
@@ -67,14 +64,20 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 </p>
 
 <p>
+ <a href="https://code.visualstudio.com/">
+    <img src="http://img.shields.io/badge/-Visual%20Studio%20Code-2088FF?style=flat&amp;logo=visualstudiocode&amp;logoColor=ffffff" alt="Visual Studio Code"/>
+  </a>
 <a href="https://www.r-project.org/">
 <img src="http://img.shields.io/badge/-R-2088FF?style=flat&amp;logo=R&amp;logoColor=ffffff" alt="R"/>
 </a>
 <a href="https://rstudio.com/">
-<img src="http://img.shields.io/badge/-C++-2088FF?style=flat&amp;logo=C++&amp;logoColor=ffffff" alt="RStudio"/>
+<img src="http://img.shields.io/badge/-C++-2088FF?style=flat&amp;logo=cplusplus&amp;logoColor=ffffff" alt="RStudio"/>
 </a>
 <a href="https://rstudio.com/">
 <img src="http://img.shields.io/badge/-Python-2088FF?style=flat&amp;logo=Python&amp;logoColor=ffffff" alt="RStudio"/>
+</a>
+<a href="https://jupyter.org/">
+    <img src="http://img.shields.io/badge/-Jupyter-2088FF?style=flat&amp;logo=jupyter&amp;logoColor=ffffff" alt="Jupyter"/>
 </a>
 </p>
 
@@ -83,7 +86,7 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 <img src="http://img.shields.io/badge/-Git-2088FF?style=flat&amp;logo=git&amp;logoColor=ffffff" alt="Bash"/>
 </a>
 <a href="https://www.gnu.org/software/bash/">
-<img src="http://img.shields.io/badge/-GitBash-2088FF?style=flat&amp;logo=git-bash&amp;logoColor=ffffff" alt="Bash"/>
+<img src="http://img.shields.io/badge/-Bash-2088FF?style=flat&amp;logo=gnubash&amp;logoColor=ffffff" alt="Bash"/>
 </a>
 <a href="https://github.com/qselmer">
 <img src="http://img.shields.io/badge/-GitHub-2088FF?style=flat&amp;logo=github&amp;logoColor=ffffff" alt="GitHub"/>
@@ -97,6 +100,10 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 <a href="https://www.latex-project.org/">
 <img src="http://img.shields.io/badge/-LaTeX-2088FF?style=flat&amp;logo=latex&amp;logoColor=ffffff" alt="LaTeX"/>
 </a>
+<a href="https://quarto.org/">
+    <img src="http://img.shields.io/badge/-Quarto-2088FF?style=flat&amp;logo=quarto&amp;logoColor=ffffff" alt="Quarto"/>
+</a>
+
 </p>
 
 
