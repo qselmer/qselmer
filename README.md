@@ -65,7 +65,7 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 
 <p>
  <a href="https://code.visualstudio.com/">
-    <img src="http://img.shields.io/badge/-Visual%20Studio%20Code-2088FF?style=flat&amp;logo=visualstudiocode&amp;logoColor=ffffff" alt="Visual Studio Code"/>
+    <img src="http://img.shields.io/badge/-VS%20Code-2088FF?style=flat&amp;logo=visualstudiocode&amp;logoColor=ffffff" alt="Visual Studio Code"/>
   </a>
 <a href="https://www.r-project.org/">
 <img src="http://img.shields.io/badge/-R-2088FF?style=flat&amp;logo=R&amp;logoColor=ffffff" alt="R"/>
@@ -101,7 +101,13 @@ I also run a project called **r4fish**:r4🐟, an initiative focused on scientif
 <img src="http://img.shields.io/badge/-LaTeX-2088FF?style=flat&amp;logo=latex&amp;logoColor=ffffff" alt="LaTeX"/>
 </a>
 <a href="https://quarto.org/">
-    <img src="http://img.shields.io/badge/-Quarto-2088FF?style=flat&amp;logo=quarto&amp;logoColor=ffffff" alt="Quarto"/>
+<img src="http://img.shields.io/badge/-Quarto-2088FF?style=flat&amp;logo=quarto&amp;logoColor=ffffff" alt="Quarto"/>
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+<img src="http://img.shields.io/badge/-HTML-2088FF?style=flat&amp;logo=html5&amp;logoColor=ffffff" alt="HTML" class="badge"/>
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+<img src="http://img.shields.io/badge/-CSS-2088FF?style=flat&amp;logo=css3&amp;logoColor=ffffff" alt="CSS" class="badge"/>
 </a>
 
 </p>
