@@ -3,15 +3,7 @@ output: github_document
 editor_options: 
   chunk_output_type: console
 params: 
-  do_2017_article_details:
-    value: TRUE
-  do_2019_article_details:
-    value: TRUE
-  do_2020_article_details:
-    value: TRUE
-  do_2021_article_details:
-    value: TRUE
-  do_2022_article_details:
+  do_2025_article_details:
     value: TRUE
 ---
 
@@ -32,11 +24,13 @@ my_journals = unique(unlist(lapply(bib, function(x) x$journal)))
 
 ```{r load-google-scholar-pubs}
 # scrape my publications data from google scholar
-my_pubs = scholar::get_publications("kembVusAAAAJ")
+my_pubs = scholar::get_publications("wz83egoAAAAJ")
 
 # keep only entries that share a journal with those found in my bib file
 # this keeps only peer-reviewed articles found on google scholar and in bib
-my_pubs = my_pubs[my_pubs$journal %in% my_journals,]
+my_pubs = as.data.frame(bib)[, -1]
+my_pubs <- my_pubs[, c("title", "author", "journal", "year")]
+# my_pubs = my_pubs[my_pubs$journal %in% my_journals,]
 
 # replace any punctuation with a space: easier fuzzy matching later
 my_pubs$title = stringr::str_replace_all(my_pubs$title, "[:punct:]", " ")
@@ -46,16 +40,7 @@ my_pubs$title = stringr::str_replace_all(my_pubs$title, "[:punct:]", " ")
 # any string in this vector will be converted to italics
 # in the article details portion of the output
 em_words = c(
-  "Misgurnus Anguillicaudatus",
-  "Misgurnus anguillicaudatus",
-  "M. anguillicaudatus",
-  "Oncorhynchus tshawytscha",
-  "O. mykiss",
-  "Cyprinella caerulea",
-  "Etheostoma brevirostrum",
-  "Etheostoma ditrema",
-  "Elassoma zonatum",
-  "Tenacibaculum maritimum",
+  "Engraulis ringens",
   "Piscine orthoreovirus"
   )
 ```
@@ -68,63 +53,89 @@ em_words = c(
 
 # a closed lock: used for denoting paywall articles/private repos
 lock_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # an open lock: used for denoting open-access articles/public repos
 open_lock_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-open.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-open-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # inline versions of these lock icons
-lock_img_inline = HTML("<img src=https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-dark.svg#gh-dark-mode-only height=15/>")
-open_lock_img_inline = HTML("<img src=https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-open.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/lock-open-dark.svg#gh-dark-mode-only height=15/>")
+lock_img_inline = HTML("<img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only height=15/>")
+open_lock_img_inline = HTML("<img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bqselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only height=15/>")
 
 # a closed book: used to represent a journal
 book_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/book.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/book-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # an open book: used to represent an abstract
 book_reader_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/book-reader.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/book-reader-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # code icon: used to represent locations of archived/open source code/data
 code_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/code.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/code-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/code.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/code-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # users icon: used to represent author list
 users_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/users.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/users-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/users.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/users-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # quote icon: used to represent how to cite
 quote_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/quote-left.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/quote-left-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/quote-left.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/quote-left-dark.svg#gh-dark-mode-only", height = "15")
 )
 
 # comment icon: used to represent citations
 comment_img = tagList(
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/comment.svg#gh-light-mode-only", height = "15"),
-  img(src = "https://raw.githubusercontent.com/bstaton1/bstaton1/master/assets/comment-dark.svg#gh-dark-mode-only", height = "15")
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/comment.svg#gh-light-mode-only", height = "15"),
+  img(src = "https://raw.githubusercontent.com/qselmer/qselmer/master/assets/comment-dark.svg#gh-dark-mode-only", height = "15")
 )
 ```
 
 ```{r greeting}
 # create HTML code to build the greeting header
 tagList(
-  h1("Welcome to My GitHub Profile", align = 'center'),
-  h3("I'm a Quantitative Fisheries Scientist", align = 'center'),
-  p(em("with a focus on assessment, fishery management, and conservation of Pacific salmon"), align = 'center')
+  h2("Quantitative Ecology and Fisheries Scientist", align = 'center'),
+  p(em("My research interests focus on theoretical and applied issues in marine resource ecology and their management. This includes developing  population and community dynamics models, stock assessments, spatio-temporal analyses, and life history analyses. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations 🌊📚💻"), align = 'center')
+)
+
+# create HTML code to build the greeting header with the added information
+tagList(
+  p(align = "justify", 
+    "For more information about me and the things I work on, you can view my ",
+    a(href = "https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf", target = "_blank", "curriculum vitae")
+  ),
+  
+  p(align = "justify", 
+    "I also run a project called ",
+    strong(a(href = "https://linktr.ee/r4fish_?utm_source=linktree_profile_share&ltsid=3440420e-b483-4308-b2cb-87e16d3845ec", target = "_blank", "r4🐟")),
+    ", an initiative focused on scientific outreach and activities related to the sea."
+  ),
+  
+  p(align = "justify", 
+    "For more details, please contact me at ",
+    "qselmers@gmail.com"
+  )
+)
+```
+
+```{r views}
+tagList(
+  p(align = "center", 
+    img(src = "https://komarev.com/ghpvc/?username=qselmer&style=flat-square", alt = "Profile Views")
+  )
 )
 ```
 
@@ -133,7 +144,7 @@ tagList(
 
 # my google scholar info
 google_scholar = a(
-  href = "https://scholar.google.com/citations?user=kembVusAAAAJ&hl=en",
+  href = "https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en",
   img(src = "http://img.shields.io/badge/-Google Scholar-2088FF?style=flat&logo=google-scholar&logoColor=ffffff",
       alt = "GoogleScholar"
   )
@@ -141,7 +152,7 @@ google_scholar = a(
 
 # my research gate info
 research_gate = a(
-  href = "https://www.researchgate.net/profile/Benjamin-Staton",
+  href = "https://www.researchgate.net/profile/Elmer_Quispe",
   img(src = "http://img.shields.io/badge/-ResearchGate-2088FF?style=flat&logo=researchgate&logoColor=ffffff",
       alt = "ResearchGate"
   )
@@ -149,7 +160,7 @@ research_gate = a(
 
 # my orcid info
 orcid = a(
-  href = "https://orcid.org/0000-0002-2342-3482",
+  href = "https://orcid.org/0000-0001-9229-6379",
   img(src = "http://img.shields.io/badge/-ORCID-2088FF?style=flat&logo=ORCID&logoColor=ffffff",
       alt = "ORCID"
   )
@@ -157,142 +168,133 @@ orcid = a(
 
 # my publons info
 publons = a(
-  href = "https://publons.com/researcher/3415841/benjamin-staton",
-  img(src = "http://img.shields.io/badge/-Publons-2088FF?style=flat&logo=Publons&logoColor=ffffff",
-      alt = "Publons"
+  href = "https://www.webofscience.com/wos/author/record/AEA-6138-2022",
+  img(src = "http://img.shields.io/badge/-Clarivate-2088FF?style=flat&logo=Clarivate&logoColor=ffffff",
+      alt = "Clarivate"
+  )
+)
+
+# my Linkedin info
+linkedin = a(
+  href = "https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/",
+  img(src = "http://img.shields.io/badge/-Linkedin-2088FF?style=flat&logo=Linkedin&logoColor=ffffff",
+      alt = "Linkedin"
   )
 )
 
 # my twitter info
 twitter = a(
-  href = "https://twitter.com/bstat0n",
-  img(src = "http://img.shields.io/badge/-Twitter-2088FF?style=flat&logo=Twitter&logoColor=ffffff",
+  href = "https://x.com/elmerseascient",
+  img(src = "http://img.shields.io/badge/-X-2088FF?style=flat&logo=X&logoColor=ffffff",
       alt = "Twitter"
   )
 )
 
 # combine and return them
 tagList(
-  p(google_scholar, research_gate, orcid, publons, twitter, align = "center")
+  p(google_scholar, research_gate, orcid, publons, linkedin, twitter, align = "center")
+)
+```
+
+
+
+```{r Stats}
+tagList(
+  div(align = "center",
+      img(src = "https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent&langs_count=5", alt = "Top Languages"),
+      img(src = "https://github-readme-stats.vercel.app/api?username=qselmer&theme=transparent&line_height=40&rank_icon=github", alt = "GitHub Stats")
+  )
 )
 ```
 
 ## My Interests
 
-* **Population dynamics** and models that describe them
-* **Methods for counting animals** (generally :fish:) and the models we use to make sense of the data
-* **Bayesian analysis** as a means to quantify knowledge and uncertainty
-* **State-space models** as a means to disentangle biological and observational processes
-* **Transparent and data-driven decision processes** because regardless of the outcome, it should always be clear why a choice was made
-* **Reproducible workflows** because analyses are rarely ever \"finished\"
+-   **Population dynamics** and models that describe them
+-   **Methods for counting animals** (generally :fish:) and the models
+    we use to make sense of the data
+-   **Statistical analysis** as a means to quantify knowledge and
+    uncertainty
+-   **State-space models** as a means to disentangle biological and
+    observational processes
+-   **Transparent and data-driven decision processes** because
+    regardless of the outcome, it should always be clear why a choice
+    was made
+-   **Reproducible workflows** because analyses are rarely ever
+    "finished"
 
-For more information about me and the things I work on, you can view my [curriculum vitae](<https://github.com/bstaton1/bstaton1/blob/master/assets/CV.pdf>).
-
-I also operate a small consulting company (Quantitative Ecological Services, LLC) -- please email me at <bstaton.qes@gmail.com> for more details.
 
 ## Commonly Used Tools/Languages
+<p>
+<a href="https://www.google.com">
+<img src="http://img.shields.io/badge/-Google-2088FF?style=flat&amp;logo=Google&amp;logoColor=ffffff" alt="Google"/>
+</a>
+</p>
 
-> _In decreasing order of how awful it would be if they were to disappear_
+<p>
+ <a href="https://code.visualstudio.com/">
+    <img src="http://img.shields.io/badge/-VS%20Code-2088FF?style=flat&amp;logo=visualstudiocode&amp;logoColor=ffffff" alt="Visual Studio Code"/>
+  </a>
+<a href="https://www.r-project.org/">
+<img src="http://img.shields.io/badge/-R-2088FF?style=flat&amp;logo=R&amp;logoColor=ffffff" alt="R"/>
+</a>
+<a href="https://rstudio.com/">
+<img src="http://img.shields.io/badge/-C++-2088FF?style=flat&amp;logo=cplusplus&amp;logoColor=ffffff" alt="RStudio"/>
+</a>
+<a href="https://rstudio.com/">
+<img src="http://img.shields.io/badge/-Python-2088FF?style=flat&amp;logo=Python&amp;logoColor=ffffff" alt="RStudio"/>
+</a>
+<a href="https://jupyter.org/">
+    <img src="http://img.shields.io/badge/-Jupyter-2088FF?style=flat&amp;logo=jupyter&amp;logoColor=ffffff" alt="Jupyter"/>
+</a>
+</p>
 
-```{r used-tools}
-# create the HTML code to build img.shields.io badges for each of my used software tools
+<p>
+<a href="https://www.gnu.org/software/bash/">
+<img src="http://img.shields.io/badge/-Git-2088FF?style=flat&amp;logo=git&amp;logoColor=ffffff" alt="Bash"/>
+</a>
+<a href="https://www.gnu.org/software/bash/">
+<img src="http://img.shields.io/badge/-Bash-2088FF?style=flat&amp;logo=gnubash&amp;logoColor=ffffff" alt="Bash"/>
+</a>
+<a href="https://github.com/qselmer">
+<img src="http://img.shields.io/badge/-GitHub-2088FF?style=flat&amp;logo=github&amp;logoColor=ffffff" alt="GitHub"/>
+</a>
+</p>
 
-# google
-Google = a(
-  href = "https://www.google.com",
-  img(src = "http://img.shields.io/badge/-Google-2088FF?style=flat&logo=Google&logoColor=ffffff",
-      alt = "Google"
-  )
-)
+<p>
+<a href="https://www.markdownguide.org/">
+<img src="http://img.shields.io/badge/-markdown-2088FF?style=flat&amp;logo=markdown&amp;logoColor=ffffff" alt="markdown"/>
+</a>
+<a href="https://www.latex-project.org/">
+<img src="http://img.shields.io/badge/-LaTeX-2088FF?style=flat&amp;logo=latex&amp;logoColor=ffffff" alt="LaTeX"/>
+</a>
+<a href="https://quarto.org/">
+<img src="http://img.shields.io/badge/-Quarto-2088FF?style=flat&amp;logo=quarto&amp;logoColor=ffffff" alt="Quarto"/>
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+<img src="http://img.shields.io/badge/-HTML-2088FF?style=flat&amp;logo=html5&amp;logoColor=ffffff" alt="HTML" class="badge"/>
+</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS">
+<img src="http://img.shields.io/badge/-CSS-2088FF?style=flat&amp;logo=css3&amp;logoColor=ffffff" alt="CSS" class="badge"/>
+</a>
 
-# R
-R = a(
-  href = "https://www.r-project.org/",
-  img(src = "http://img.shields.io/badge/-R-2088FF?style=flat&logo=R&logoColor=ffffff",
-      alt = "R"
-  )
-)
+</p>
 
-# RStudio
-RStudio = a(
-  href = "https://rstudio.com/",
-  img(src = "http://img.shields.io/badge/-RStudio-2088FF?style=flat&logo=RStudio&logoColor=ffffff",
-      alt = "RStudio"
-  )
-)
 
-# JAGS
-JAGS = a(
-  href = "http://mcmc-jags.sourceforge.net/",
-  img(src = "http://img.shields.io/badge/-JAGS-2088FF?style=flat",
-      alt = "JAGS"
-  )
-)
+## Tools I'm Learning
 
-# GitHub
-GitHub = a(
-  href = "https://github.com/bstaton1",
-  img(src = "http://img.shields.io/badge/-GitHub-2088FF?style=flat&logo=github&logoColor=ffffff",
-      alt = "GitHub"
-  )
-)
+<p>
+<a href="https://mc-stan.org/">
+<img src="http://img.shields.io/badge/-Stan-2088FF?style=flat" alt="Stan"/>
+</a>
+<a href="https://github.com/kaskr/adcomp/wiki">
+<img src="http://img.shields.io/badge/-TMB-2088FF?style=flat" alt="TMB"/>
+</a>
+<a href="http://mcmc-jags.sourceforge.net/">
+<img src="http://img.shields.io/badge/-JAGS-2088FF?style=flat" alt="JAGS"/>
+</a>
+</p>
 
-# markdown
-markdown = a(
-  href = "https://www.markdownguide.org/",
-  img(src = "http://img.shields.io/badge/-markdown-2088FF?style=flat&logo=markdown&logoColor=ffffff",
-      alt = "markdown"
-  )
-)
 
-# LaTeX
-LaTeX = a(
-  href = "https://www.latex-project.org/",
-  img(src = "http://img.shields.io/badge/-LaTeX-2088FF?style=flat&logo=latex&logoColor=ffffff",
-      alt = "LaTeX"
-  )
-)
-
-# Bash
-Bash = a(
-  href = "https://www.gnu.org/software/bash/",
-  img(src = "http://img.shields.io/badge/-Bash-2088FF?style=flat&logo=gnu-bash&logoColor=ffffff",
-      alt = "Bash"
-  )
-)
-
-# combine and return them
-tagList(
-  p(Google, R, JAGS, RStudio, GitHub, markdown, LaTeX, Bash)
-)
-```
-
-## Tools I\'d Like to Learn
-
-```{r to-learn}
-# create the HTML code to build img.shields.io badges for each of my used software tools
-
-# Stan
-Stan = a(
-  href = "https://mc-stan.org/",
-  img(src = "http://img.shields.io/badge/-Stan-2088FF?style=flat",
-      alt = "Stan"
-  )
-)
-
-# TMB
-TMB = a(
-  href = "https://github.com/kaskr/adcomp/wiki",
-  img(src = "http://img.shields.io/badge/-TMB-2088FF?style=flat",
-      alt = "TMB"
-  )
-)
-
-# combine and return them
-tagList(
-  p(Stan, TMB)
-)
-```
 
 ## Current Projects
 
@@ -302,13 +304,16 @@ p(open_lock_img, em("and"), lock_img, em("denote public and private repositories
 
 #### Research
 
-* [GR-sslcm](<https://github.com/bstaton1/GR-sslcm>) `r lock_img_inline`: Development of a state-space life cycle model for spring Chinook salmon in the Grande Ronde River basin of northeastern Oregon. _Under active development_.
-* [LKG-RRS-ms-analysis]() `r lock_img_inline`: Analysis for a manuscript that compares the reproductive success (i.e., number of progeny that survive to various stages) of wild-spawning spring Chinook salmon that differ in a range of characteristics including origin, sex, arrival timing, and size. _Under active development_.
-* [inseason-voi-ms-analysis](<https://github.com/bstaton1/inseason-voi-ms-analysis>) `r lock_img_inline`: Analysis for a manuscript that investigates the Value of Information of different data sources used during in-season decision-making regarding total allowable harvest for large in-river subsistence salmon fisheries. _Under active development_.
-* In-season estimation and prediction of effort and harvest for lower Kuskokwim River subsistence salmon fisheries
-  * [KuskoHarvEst](<https://github.com/bstaton1/KuskoHarvEst>) `r open_lock_img_inline`: R package containing tools and an associated workflow for estimating effort and harvest given monitoring data as inputs. Tools can be executed via code-only or interactive (point-and-click) workflows; the interactive workflow automates summary report generation using [Rmarkdown](https://rmarkdown.rstudio.com/) and built-in templates. _Development considered complete at present_.
-  * [KuskoHarvData](<https://github.com/bstaton1/KuskoHarvData>) `r open_lock_img_inline`: R package containing historical data and estimates derived using \'KuskoHarvEst\'. _Under active development_.
-  * [KuskoHarvPred](<https://github.com/bstaton1/KuskoHarvPred>) `r open_lock_img_inline`: R package containing tools for reproducibly conducting regression analyses that seek to predict critical fishery outcomes arising from proposed fishing opportunities. _Under active development_.
+* [pelagicSurvey](<https://github.com/imarpe/pelagicSurveys>) `r lock_img_inline`: This package processes data from scientific surveys on pelagic resources, offering tools for data standardization, validation, analysis, and visualization. It aims to inspire the development of interconnected tools for various ecological data. _Under active development_.
+
+* [retroSurveys]() `r lock_img_inline`: This package enables the comparison of scientific survey, focusing on aspects like spatial behavior, biological data, size structure, and other ecological parameters. It provides comparative analysis to identify similarities and differences across various surveys. _Under active development_.
+
+* [catchSurvey]() `r lock_img_inline`: The package allows for the comparison of predicted catches for a fishing season with those observed by the fleet, based on projections and real data. It provides daily, weekly, monthly, and annual analyses. _Under active development_.
+
+* In-season estimation and prediction of effort and harvest for anchovy, jack mackerel, chub mackerel, and other species, as well as their fisheries.
+  * [ancs-assess](<https://github.com/imarpe/anchS_assessment>) `r lock_img_inline`: Repository containing tools and a workflow for conducting stock assessment of anchovy available in the southern region of the Peruvian sea using SPiCT. The tools can be executed via code-only or interactive (point-and-click) workflows; the interactive workflow automates the generation of summary reports using [Rmarkdown](https://rmarkdown.rstudio.com/) and built-in templates. _Under active development_.
+  * [jjm-nat-assess](<https://github.com/imarpe/anchS_assessment>) `r open_lock_img_inline`: Repository containing tools and an associated workflow for the stock assessment of anchovy in the northern-central region using direct survey observations. _Under active development_.
+  * [](<https://github.com/imarpe/jjm_national_assessment>) `r open_lock_img_inline`: Repository for the population assessment of the Peruvian jack mackerel stock. The assessment uses the Joint Jack Mackerel (JJM) model, developed within the framework of the Scientific Committee meetings of the South Pacific Regional Fisheries Management Organization (CC of the OROP-PS). _Development considered complete at present_
 
 #### General Purpose R Packages
 
@@ -353,10 +358,10 @@ cran_dl_badge("postpack", "2020-09-17", "monthly")
 cran_dl_badge("postpack", "2020-09-17", "total")
 ```
 
-* [postpack](<https://github.com/bstaton1/postpack>) ([website](https://bstaton1.github.io/postpack/)) `r open_lock_img_inline`: Assortment of tools for working with R objects of class `mcmc.list`. _Under active development_. 
-* [msdown](<https://github.com/bstaton1/msdown>) `r lock_img_inline`: Template and utilities for writing clean, reproducible, and version controllable manuscripts built off [bookdown](<https://pkgs.rstudio.com/bookdown>). _Under active development_.
+<!-- * [postpack](<https://github.com/bstaton1/postpack>) ([website](https://bstaton1.github.io/postpack/)) `r open_lock_img_inline`: Assortment of tools for working with R objects of class `mcmc.list`. _Under active development_.  -->
+<!-- * [msdown](<https://github.com/bstaton1/msdown>) `r lock_img_inline`: Template and utilities for writing clean, reproducible, and version controllable manuscripts built off [bookdown](<https://pkgs.rstudio.com/bookdown>). _Under active development_. -->
+Soon you will see this section containing general-purpose R packages.
 
-## Peer-Reviewed Journal Articles
 
 ```{r article-help-text}
 p(em("Click the title of each article to see more information."), open_lock_img, em("and"), lock_img, em("denote open-access and paywall articles, respectively."))
@@ -371,10 +376,10 @@ my_em = function(x) {
 }
 
 my_name_strong = function(x) {
-  stringr::str_replace(x, "B. A. Staton", "<strong>B. A. Staton</strong>") %>%
-    stringr::str_replace("Staton, B. A,", "<strong>Staton, B. A,</strong>") %>%
-    stringr::str_replace("Staton, B,", "<strong>Staton, B,</strong>") %>%
-    stringr::str_replace("B. Staton", "<strong>B. Staton</strong>")
+  stringr::str_replace(x, "Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
+    stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
+    stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
+    stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>")
 }
 
 prep_bibentry = function(key) {
@@ -529,154 +534,49 @@ article_details = function(key, open_access = FALSE, code_repo = NULL, code_doi 
   )
 }
 ```
+## Peer-Reviewed Journal Publications
+### 2025
+```{r 2025-articles-1, eval = params$do_2025_article_details}
 
-### 2022
-
-```{r 2022-articles, eval = params$do_2022_article_details}
-# Lookingglass Creek RRS paper with Hayley
 article_details(
-  key = "nuetzel-etal-2022",
-  open_access = TRUE,
-  code_repo = "bstaton1/LKG-RRS",
-  code_doi = "10.5281/zenodo.6621724"
-)
-
-# ETS-vs-temperature GAM paper with Lindsay
-article_details(
-  key = "horne-etal-2022",
-  open_access = FALSE,
-  code_repo = "bstaton1/ETS-vs-temp-ms-analysis",
-  code_doi = "10.5281/zenodo.7187078"
-)
-
-# Yukon Chinook multi-stock analysis
-article_details(
-  key = "connors-etal-2022",
+  key = "quispe-etal-inprep-2025-2",
   open_access = FALSE, 
-  code_repo = "brendanmichaelconnors/yukon-chinook-diversity",
-  code_doi = "10.5281/zenodo.6625526"
-)
-
-# infectious agents in BC Chinook/Coho
-article_details(
-  key = "bass-etal-2022",
-  open_access = TRUE, 
   code_repo = NULL,
   code_doi = NULL
 )
 
-# snorkel detection probability
+
+```
+
+## Grey Literature Publications
+### 2025
+
+```{r 2025-articles-2, eval = params$do_2025_article_details}
+
 article_details(
-  key = "staton-etal-2022",
+  key = "diaz-etal-inprep-2025",
+  open_access = TRUE,
+  code_repo = NULL,
+  code_doi = NULL
+)
+
+article_details(
+  key = "galarza-etal-inprep-2025",
   open_access = FALSE, 
-  code_repo = "bstaton1/snk-eff-ms-analysis",
-  code_doi = "10.5281/zenodo.3928691"
-)
-```
-
-### 2021
-
-```{r 2021-articles, eval = params$do_2021_article_details}
-# sire age and minijacks
-article_details(
-  key = "galbreath-etal-2021", 
-  open_access = TRUE,
-  code_repo = "bstaton1/cesrf-minijack-rates",
-  code_doi = "10.5281/zenodo.4730682"
-)
-
-# escapement quality
-article_details(
-  key = "staton-etal-2021",
-  open_access = FALSE,
-  code_repo = "bstaton1/esc-qual-ms-analysis",
-  code_doi = "10.5281/zenodo.4382757"
-)
-
-# spatiotemporal growth patterns
-article_details(
-  key = "kaylor-etal-2021",
-  open_access = FALSE,
-  code_repo = "mjkaylor/JoAE_data_archive",
-  code_doi = "10.5281/zenodo.4627774"
-)
-```
-
-### 2020
-
-```{r 2020-articles, eval = params$do_2020_article_details}
-# multi-stock SRA models
-article_details(
-  key = "staton-etal-2020",
-  open_access = FALSE,
-  code_repo = "bstaton1/mixed-stockSRA",
-  code_doi = "10.5281/zenodo.3375006"
-)
-
-# harvest-biodiversity trade-offs
-article_details(
-  key = "connors-etal-2020",
-  open_access = FALSE,
-  code_repo = "brendanmichaelconnors/Kusko-harvest-diversity-tradeoffs",
-  code_doi = "10.5281/zenodo.3375124"
-)
-```
-
-### 2019
-
-```{r 2019-articles, eval = params$do_2019_article_details}
-# in-season updates
-article_details(
-  key = "staton-catalano-2019",
-  open_access = FALSE,
-  code_doi = "inseason-update-ms-analysis",
-  code_repo = "10.5281/zenodo.1467683"
-)
-
-# telemetry
-article_details(
-  key = "moses-etal-2019",
-  open_access = TRUE,
-  code_repo = NULL,
-  code_doi = "10.3996/082018-JFWM-074.S1"
-)
-```
-
-### 2017
-
-```{r 2017-articles, eval = params$do_2017_article_details}
-# run timing forecast
-article_details(
-  key = "staton-etal-2017",
-  open_access = FALSE,
   code_repo = NULL,
   code_doi = NULL
 )
 
-# AFS meetings
 article_details(
-  key = "dippold-etal-2017", 
-  open_access = FALSE,
+  key = "quispe-etal-inprep-2025-1",
+  open_access = FALSE, 
   code_repo = NULL,
   code_doi = NULL
 )
 
-# loaches
-article_details(
-  key = "white-etal-2017", 
-  open_access = TRUE,
-  code_repo = NULL,
-  code_doi = NULL
-)
-
-# integrated vs. sequential
-article_details(
-  key = "staton-etal-2017a", 
-  open_access = FALSE,
-  code_repo = NULL,
-  code_doi = NULL
-)
 ```
+
+
 
 ```{r footnote}
 p(
@@ -685,7 +585,7 @@ p(
       tags$sup(
         em(
           "This file was created by knitting",
-          a("README.Rmd", href = "https://github.com/bstaton1/bstaton1/blob/master/README.Rmd"),
+          a("README.Rmd", href = "https://github.com/qselmer/qselmer/blob/master/README.Rmd"),
           "which makes heavy usage of R packages:",
           a("htmltools", href = "https://rstudio.github.io/htmltools/"), ",",
           a("stringr", href = "https://stringr.tidyverse.org/"), ",",
@@ -699,7 +599,7 @@ p(
     tags$sub(
       tags$sup(
         em(
-          HTML("&#169;"), "Ben Staton under the ", a("MIT license", href = "https://github.com/bstaton1/bstaton1/blob/master/LICENSE")
+          HTML("&#169;"), "Elmer Quispe-Salazar under the ", a("MIT license", href = "https://github.com/qselmer/qselmer/blob/main/LICENSE")
         )
       )
     ),
