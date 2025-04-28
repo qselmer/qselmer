@@ -207,7 +207,7 @@ Soon you will see this section containing general-purpose R packages.
 <summary>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
-<strong></strong>
+<strong>Classification models based on the gonadosomatic index to determine gonadal maturity stages: A case study in the Peruvian anchovy <em>Engraulis ringens</em></strong>
 </summary>
 <p></p>
 <ul>
@@ -218,7 +218,7 @@ Soon you will see this section containing general-purpose R packages.
 </strong>
 <ul>
 <p>
-<em>,</em>
+<em>Scientia Marina,</em>
 In Press
 <br/>
 </p>
@@ -229,7 +229,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p></p>
+<p><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong>, J. Sanchez, and A. Perea de la Matta</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -297,7 +297,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p>Díaz, E., E. Quispe-Salazar, and P. Marin</p>
+<p>Díaz, E., <strong>E. Quispe-Salazar</strong>, and P. Marin</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -360,7 +360,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p>Galarza-Tirado, G. P., E. Quispe-Salazar, J. Limache, and G. M. Correa</p>
+<p>Galarza-Tirado, G. P., <strong>E. Quispe-Salazar</strong>, J. Limache, and G. M. Correa</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -423,7 +423,7 @@ NA
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p><strong><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong></strong>, D. Grados, and M. Pozada-Herrera</p>
+<p><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong>, D. Grados, and M. Pozada-Herrera</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>

@@ -377,7 +377,7 @@ my_em = function(x) {
 
 my_name_strong = function(x) {
   stringr::str_replace(x, "Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
-    stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
+    stringr::str_replace("E. Quispe-Salazar", "<strong>E. Quispe-Salazar</strong>") %>%
     stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>") %>%
     stringr::str_replace("Quispe-Salazar, E.", "<strong>Quispe-Salazar, E.</strong>")
 }
