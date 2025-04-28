@@ -312,8 +312,8 @@ p(open_lock_img, em("and"), lock_img, em("denote public and private repositories
 
 * In-season estimation and prediction of effort and harvest for anchovy, jack mackerel, chub mackerel, and other species, as well as their fisheries.
   * [ancs-assess](<https://github.com/imarpe/anchS_assessment>) `r lock_img_inline`: Repository containing tools and a workflow for conducting stock assessment of anchovy available in the southern region of the Peruvian sea using SPiCT. The tools can be executed via code-only or interactive (point-and-click) workflows; the interactive workflow automates the generation of summary reports using [Rmarkdown](https://rmarkdown.rstudio.com/) and built-in templates. _Under active development_.
-  * [jjm-nat-assess](<https://github.com/imarpe/anchS_assessment>) `r open_lock_img_inline`: Repository containing tools and an associated workflow for the stock assessment of anchovy in the northern-central region using direct survey observations. _Under active development_.
-  * [](<https://github.com/imarpe/jjm_national_assessment>) `r open_lock_img_inline`: Repository for the population assessment of the Peruvian jack mackerel stock. The assessment uses the Joint Jack Mackerel (JJM) model, developed within the framework of the Scientific Committee meetings of the South Pacific Regional Fisheries Management Organization (CC of the OROP-PS). _Development considered complete at present_
+  * [ancnc--assess](<https://github.com/imarpe/anchS_assessment>) `r open_lock_img_inline`: Repository containing tools and an associated workflow for the stock assessment of anchovy in the northern-central region using direct survey observations. _Under active development_.
+  * [jjm-nat-assess](<https://github.com/imarpe/jjm_national_assessment>) `r open_lock_img_inline`: Repository for the population assessment of the Peruvian jack mackerel stock. The assessment uses the Joint Jack Mackerel (JJM) model, developed within the framework of the Scientific Committee meetings of the South Pacific Regional Fisheries Management Organization (CC of the OROP-PS). _Development considered complete at present_
 
 #### General Purpose R Packages
 
@@ -540,7 +540,7 @@ article_details = function(key, open_access = FALSE, code_repo = NULL, code_doi 
 
 article_details(
   key = "quispe-etal-inprep-2025-2",
-  open_access = FALSE, 
+  open_access = TRUE, 
   code_repo = NULL,
   code_doi = NULL
 )
@@ -562,14 +562,14 @@ article_details(
 
 article_details(
   key = "galarza-etal-inprep-2025",
-  open_access = FALSE, 
+  open_access = TRUE, 
   code_repo = NULL,
   code_doi = NULL
 )
 
 article_details(
   key = "quispe-etal-inprep-2025-1",
-  open_access = FALSE, 
+  open_access = TRUE, 
   code_repo = NULL,
   code_doi = NULL
 )

@@ -166,12 +166,12 @@ qselmers@gmail.com
     automates the generation of summary reports using
     [Rmarkdown](https://rmarkdown.rstudio.com/) and built-in templates.
     *Under active development*.
-  - [jjm-nat-assess](https://github.com/imarpe/anchS_assessment)
+  - [ancnc–assess](https://github.com/imarpe/anchS_assessment)
     <img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bqselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only height=15/>:
     Repository containing tools and an associated workflow for the stock
     assessment of anchovy in the northern-central region using direct
     survey observations. *Under active development*.
-  - [](https://github.com/imarpe/jjm_national_assessment)
+  - [jjm-nat-assess](https://github.com/imarpe/jjm_national_assessment)
     <img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bqselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only height=15/>:
     Repository for the population assessment of the Peruvian jack
     mackerel stock. The assessment uses the Joint Jack Mackerel (JJM)
@@ -203,9 +203,9 @@ Soon you will see this section containing general-purpose R packages.
 
 <details>
 <summary>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only" height="15"/>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only" height="15"/>
-<strong></strong>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
+<strong>Classification models based on the gonadosomatic index to determine gonadal maturity stages: A case study in the Peruvian anchovy <em>Engraulis ringens</em></strong>
 </summary>
 <p></p>
 <ul>
@@ -216,7 +216,7 @@ Soon you will see this section containing general-purpose R packages.
 </strong>
 <ul>
 <p>
-<em>,</em>
+<em>Scientia Marina,</em>
 In Press
 <br/>
 </p>
@@ -227,7 +227,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p></p>
+<p><strong><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong></strong>, J. Sanchez, and A. Perea de la Matta</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -273,7 +273,7 @@ NA
 <summary>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
-<strong></strong>
+<strong>Assessing the conservation status of the Peruvian anchoveta <em>Engraulis ringens</em> from 1950 to 2022 using a stochastic surplus production model in continuous-time</strong>
 </summary>
 <p></p>
 <ul>
@@ -284,7 +284,7 @@ NA
 </strong>
 <ul>
 <p>
-<em>,</em>
+<em>Bulletin Instituto del Mar del Perú,</em>
 In Press
 <br/>
 </p>
@@ -295,7 +295,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p></p>
+<p>Díaz, E., E. Quispe-Salazar, and P. Marin</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -334,9 +334,9 @@ NA
 </details>
 <details>
 <summary>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only" height="15"/>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only" height="15"/>
-<strong></strong>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
+<strong>Marine fauna associated with the industrial purse seine fishery based on observations from the program ‘Bitácoras de Pesca’</strong>
 </summary>
 <p></p>
 <ul>
@@ -347,7 +347,7 @@ NA
 </strong>
 <ul>
 <p>
-<em>,</em>
+<em>Bulletin Instituto del Mar del Perú,</em>
 In Press
 <br/>
 </p>
@@ -358,7 +358,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p></p>
+<p>Galarza-Tirado, G. P., E. Quispe-Salazar, J. Limache, and G. M. Correa</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
@@ -397,9 +397,9 @@ NA
 </details>
 <details>
 <summary>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only" height="15"/>
-<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only" height="15"/>
-<strong></strong>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
+<img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
+<strong>Aggregative behavior of the Peruvian anchovy (<em>Engraulis ringens</em>): Description of school typology from onboard observations</strong>
 </summary>
 <p></p>
 <ul>
@@ -410,8 +410,8 @@ NA
 </strong>
 <ul>
 <p>
-<em>,</em>
-In Press
+<em>Bulletin Instituto del Mar del Perú,</em>
+40(1): in press
 <br/>
 </p>
 </ul>
@@ -421,7 +421,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p></p>
+<p><strong><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong></strong>, D. Grados, and M. Pozada-Herrera</p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
