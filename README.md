@@ -45,8 +45,8 @@ For more details, please contact me at
 </a>
 </p>
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&amp;theme=transparent&amp;langs_count=5&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000" alt="Top Languages"/>
-<img src="https://github-readme-stats.vercel.app/api?username=qselmer&amp;theme=transparent&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000" alt="GitHub Stats"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&amp;theme=transparent&amp;langs_count=5&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000&amp;text_color=1073f6" alt="Top Languages"/>
+<img src="https://github-readme-stats.vercel.app/api?username=qselmer&amp;theme=transparent&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000&amp;text_color=1073f6" alt="GitHub Stats"/>
 </div>
 
 ## My Interests
