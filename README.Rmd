@@ -115,18 +115,18 @@ tagList(
 tagList(
   p(align = "justify", 
     "For more information about me and the things I work on, you can view my ",
-    a(href = "https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf", target = "_blank", "curriculum vitae")
+    strong(a(href = "https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf", target = "_blank", "curriculum vitae"))
   ),
   
   p(align = "justify", 
     "I also run a project called ",
-    strong(a(href = "https://linktr.ee/r4fish_?utm_source=linktree_profile_share&ltsid=3440420e-b483-4308-b2cb-87e16d3845ec", target = "_blank", "r4🐟")),
+    strong(a(href = "https://linktr.ee/r4fish_?utm_source=linktree_profile_share&ltsid=3440420e-b483-4308-b2cb-87e16d3845ec", target = "_blank", "r4fish")),
     ", an initiative focused on scientific outreach and activities related to the sea."
   ),
   
   p(align = "justify", 
     "For more details, please contact me at ",
-    "qselmers@gmail.com"
+    strong("qselmers@gmail.com")
   )
 )
 ```
@@ -201,8 +201,8 @@ tagList(
 ```{r Stats}
 tagList(
   div(align = "center",
-      img(src = "https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent&langs_count=5", alt = "Top Languages"),
-      img(src = "https://github-readme-stats.vercel.app/api?username=qselmer&theme=transparent&line_height=40&rank_icon=github", alt = "GitHub Stats")
+      img(src = "https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&theme=transparent&langs_count=5&line_height=40&rank_icon=github&title_color=000000", alt = "Top Languages"),
+      img(src = "https://github-readme-stats.vercel.app/api?username=qselmer&theme=transparent&line_height=40&rank_icon=github&title_color=000000", alt = "GitHub Stats")
   )
 )
 ```

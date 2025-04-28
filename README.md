@@ -6,18 +6,20 @@
 </p>
 <p align="justify">
 For more information about me and the things I work on, you can view my 
+<strong>
 <a href="https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf" target="_blank">curriculum vitae</a>
+</strong>
 </p>
 <p align="justify">
 I also run a project called 
 <strong>
-<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">r4🐟</a>
+<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">r4fish</a>
 </strong>
 , an initiative focused on scientific outreach and activities related to the sea.
 </p>
 <p align="justify">
 For more details, please contact me at 
-qselmers@gmail.com
+<strong>qselmers@gmail.com</strong>
 </p>
 <p align="center">
 <img src="https://komarev.com/ghpvc/?username=qselmer&amp;style=flat-square" alt="Profile Views"/>
@@ -43,8 +45,8 @@ qselmers@gmail.com
 </a>
 </p>
 <div align="center">
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&amp;theme=transparent&amp;langs_count=5" alt="Top Languages"/>
-<img src="https://github-readme-stats.vercel.app/api?username=qselmer&amp;theme=transparent&amp;line_height=40&amp;rank_icon=github" alt="GitHub Stats"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&amp;theme=transparent&amp;langs_count=5&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000" alt="Top Languages"/>
+<img src="https://github-readme-stats.vercel.app/api?username=qselmer&amp;theme=transparent&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000" alt="GitHub Stats"/>
 </div>
 
 ## My Interests
@@ -205,7 +207,7 @@ Soon you will see this section containing general-purpose R packages.
 <summary>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only" height="15"/>
-<strong>Classification models based on the gonadosomatic index to determine gonadal maturity stages: A case study in the Peruvian anchovy <em>Engraulis ringens</em></strong>
+<strong></strong>
 </summary>
 <p></p>
 <ul>
@@ -216,7 +218,7 @@ Soon you will see this section containing general-purpose R packages.
 </strong>
 <ul>
 <p>
-<em>Scientia Marina,</em>
+<em>,</em>
 In Press
 <br/>
 </p>
@@ -227,7 +229,7 @@ In Press
 <em>AUTHORS</em>
 </strong>
 <ul>
-<p><strong><strong><strong><strong>Quispe-Salazar, E.</strong></strong></strong></strong>, J. Sanchez, and A. Perea de la Matta</p>
+<p></p>
 </ul>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader.svg#gh-light-mode-only" height="15"/>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/book-reader-dark.svg#gh-dark-mode-only" height="15"/>
