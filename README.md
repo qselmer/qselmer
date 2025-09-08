@@ -2,20 +2,16 @@
 <!-- This document was created by knitting the Rmarkdown file README.rmd -->
 <h2 align="center">Quantitative Ecology and Fisheries Scientist</h2>
 <p align="center">
-<em>My research interests focus on theoretical and applied issues in marine resource ecology and their management. This includes developing  population and community dynamics models, stock assessments, spatio-temporal analyses, and life history analyses. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations 🌊📚💻</em>
+<em>My research focuses on addressing both theoretical and applied questions in marine ecology and resource management. I develop models of population and community dynamics, conduct stock assessments, perform spatio-temporal analyses, and study life history traits. One of my main research lines is centered on the variability of life history traits and how this variability—interacting with environmental and fishing factors—influences stock assessments and the perception of population status. 
+
+My approach integrates scientific programming with advanced statistical methodologies to analyze complex ecological patterns and support more sustainable and adaptive management decisions in the face of environmental variability and climate change 🌊📚💻</em>
 </p>
 <p align="justify">
-For more information about me and the things I work on, you can view my 
+You can learn more about my background and publications in my
 <strong>
 <a href="https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf" target="_blank">curriculum vitae</a>
-</strong>
-</p>
-<p align="justify">
-I also run a project called 
-<strong>
-<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">r4fish</a>
-</strong>
-, an initiative focused on scientific outreach and activities related to the sea.
+</strong>as well as on my personal <strong>
+<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">website</a></strong>—an initiative focused on scientific outreach and promoting knowledge and stewardship of marine ecosystems.
 </p>
 <p align="justify">
 For more details, please contact me at 
