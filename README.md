@@ -1,25 +1,33 @@
 
 <!-- This document was created by knitting the Rmarkdown file README.rmd -->
+
 <h2 align="center">Quantitative Ecology and Fisheries Scientist</h2>
 <p align="center">
-<em>My research focuses on addressing both theoretical and applied questions in marine ecology and resource management. I develop models of population and community dynamics, conduct stock assessments, perform spatio-temporal analyses, and study life history traits. One of my main research lines is centered on the variability of life history traits and how this variability—interacting with environmental and fishing factors—influences stock assessments and the perception of population status. 
-
-My approach integrates scientific programming with advanced statistical methodologies to analyze complex ecological patterns and support more sustainable and adaptive management decisions in the face of environmental variability and climate change 🌊📚💻</em>
+<em>My research interests focus on theoretical and applied issues in marine resource ecology and their management. This includes developing  population and community dynamics models, stock assessments, spatio-temporal analyses, and life history analyses. Specifically, I like to integrate scientific programming with the latest advances in statistical modeling to respond to changes in the structure and functioning of marine ecosystems and populations 🌊📚💻</em>
 </p>
+
 <p align="justify">
-You can learn more about my background and publications in my
+For more information about me and the things I work on, you can view my 
 <strong>
 <a href="https://github.com/qselmer/qselmer/blob/main/assets/CV.pdf" target="_blank">curriculum vitae</a>
-</strong>as well as on my personal <strong>
-<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">website</a></strong>—an initiative focused on scientific outreach and promoting knowledge and stewardship of marine ecosystems.
+</strong>
+</p>
+<p align="justify">
+I also run a project called 
+<strong>
+<a href="https://linktr.ee/r4fish_?utm_source=linktree_profile_share&amp;ltsid=3440420e-b483-4308-b2cb-87e16d3845ec" target="_blank">r4fish</a>
+</strong>
+, an initiative focused on scientific outreach and activities related to the sea.
 </p>
 <p align="justify">
 For more details, please contact me at 
 <strong>qselmers@gmail.com</strong>
 </p>
+
 <p align="center">
 <img src="https://komarev.com/ghpvc/?username=qselmer&amp;style=flat-square" alt="Profile Views"/>
 </p>
+
 <p align="center">
 <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&amp;hl=en">
 <img src="http://img.shields.io/badge/-Google Scholar-2088FF?style=flat&amp;logo=google-scholar&amp;logoColor=ffffff" alt="GoogleScholar"/>
@@ -40,6 +48,7 @@ For more details, please contact me at
 <img src="http://img.shields.io/badge/-X-2088FF?style=flat&amp;logo=X&amp;logoColor=ffffff" alt="Twitter"/>
 </a>
 </p>
+
 <div align="center">
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=qselmer&amp;theme=transparent&amp;langs_count=5&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000&amp;text_color=1073f6" alt="Top Languages"/>
 <img src="https://github-readme-stats.vercel.app/api?username=qselmer&amp;theme=transparent&amp;line_height=40&amp;rank_icon=github&amp;title_color=000000&amp;text_color=1073f6" alt="GitHub Stats"/>
@@ -61,11 +70,14 @@ For more details, please contact me at
 ## Commonly Used Tools/Languages
 
 <p>
+
 <a href="https://www.google.com">
 <img src="http://img.shields.io/badge/-Google-2088FF?style=flat&amp;logo=Google&amp;logoColor=ffffff" alt="Google"/>
 </a>
 </p>
+
 <p>
+
 <a href="https://code.visualstudio.com/">
 <img src="http://img.shields.io/badge/-VS%20Code-2088FF?style=flat&amp;logo=visualstudiocode&amp;logoColor=ffffff" alt="Visual Studio Code"/>
 </a> <a href="https://www.r-project.org/">
@@ -78,7 +90,9 @@ For more details, please contact me at
 <img src="http://img.shields.io/badge/-Jupyter-2088FF?style=flat&amp;logo=jupyter&amp;logoColor=ffffff" alt="Jupyter"/>
 </a>
 </p>
+
 <p>
+
 <a href="https://www.gnu.org/software/bash/">
 <img src="http://img.shields.io/badge/-Git-2088FF?style=flat&amp;logo=git&amp;logoColor=ffffff" alt="Bash"/>
 </a> <a href="https://www.gnu.org/software/bash/">
@@ -87,6 +101,7 @@ For more details, please contact me at
 <img src="http://img.shields.io/badge/-GitHub-2088FF?style=flat&amp;logo=github&amp;logoColor=ffffff" alt="GitHub"/>
 </a>
 </p>
+
 <p>
 
 <a href="https://www.markdownguide.org/">
@@ -106,6 +121,7 @@ For more details, please contact me at
 ## Tools I’m Learning
 
 <p>
+
 <a href="https://mc-stan.org/">
 <img src="http://img.shields.io/badge/-Stan-2088FF?style=flat" alt="Stan"/>
 </a> <a href="https://github.com/kaskr/adcomp/wiki">
@@ -181,6 +197,7 @@ For more details, please contact me at
 #### General Purpose R Packages
 
 <!-- * [postpack](<https://github.com/bstaton1/postpack>) ([website](https://bstaton1.github.io/postpack/)) `<img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/bqselmer/qselmer/master/assets/lock-open-dark.svg#gh-dark-mode-only height=15/>`{=html}: Assortment of tools for working with R objects of class `mcmc.list`. _Under active development_.  -->
+
 <!-- * [msdown](<https://github.com/bstaton1/msdown>) `<img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock.svg#gh-light-mode-only height=15/><img src=https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-dark.svg#gh-dark-mode-only height=15/>`{=html}: Template and utilities for writing clean, reproducible, and version controllable manuscripts built off [bookdown](<https://pkgs.rstudio.com/bookdown>). _Under active development_. -->
 
 Soon you will see this section containing general-purpose R packages.
@@ -330,6 +347,7 @@ NA
 </ul>
 <hr/>
 </details>
+
 <details>
 <summary>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
@@ -393,6 +411,7 @@ NA
 </ul>
 <hr/>
 </details>
+
 <details>
 <summary>
 <img src="https://raw.githubusercontent.com/qselmer/qselmer/master/assets/lock-open.svg#gh-light-mode-only" height="15"/>
@@ -456,6 +475,7 @@ NA
 </ul>
 <hr/>
 </details>
+
 <p align="center">
 <sub>
 <sup>
@@ -490,7 +510,7 @@ Elmer Quispe-Salazar under the
 <sup>
 <em>
 Updated
-2025-04-28
+2025-09-08
 </em>
 </sup>
 </sub>

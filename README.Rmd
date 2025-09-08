@@ -24,7 +24,7 @@ my_journals = unique(unlist(lapply(bib, function(x) x$journal)))
 
 ```{r load-google-scholar-pubs}
 # scrape my publications data from google scholar
-my_pubs = scholar::get_publications("wz83egoAAAAJ")
+# my_pubs = scholar::get_publications("wz83egoAAAAJ")
 
 # keep only entries that share a journal with those found in my bib file
 # this keeps only peer-reviewed articles found on google scholar and in bib
