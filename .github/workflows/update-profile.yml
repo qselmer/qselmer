@@ -1,0 +1,62 @@
+name: Update academic profile
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 08 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/update_profile.py"
+      - "README.md"
+      - ".github/workflows/update-profile.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-academic-profile
+  cancel-in-progress: false
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh publications and statistics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: qselmer
+          ORCID_ID: 0000-0001-9229-6379
+          CROSSREF_MAILTO: qselmers@gmail.com
+          MAX_PUBLICATIONS: "5"
+        run: python scripts/update_profile.py
+
+      - name: Validate generated files
+        run: |
+          test -s README.md
+          test -s assets/data/publications.json
+          test -s assets/generated/top-languages.svg
+          test -s assets/generated/github-stats.svg
+          python -m json.tool assets/data/publications.json >/dev/null
+
+      - name: Commit changes
+        run: |
+          if git diff --quiet; then
+            echo "No profile changes detected."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md assets/data/publications.json assets/generated/*.svg
+          git commit -m "chore: refresh academic profile"
+          git push

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="210" role="img" aria-label="GitHub Profile">
+<style>
+.card{fill:#fff;stroke:#d0d7de}.title{font:600 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0969da}.label{font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#24292f}.value{font:600 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#0969da}@media(prefers-color-scheme:dark){.card{fill:#0d1117;stroke:#30363d}.title,.value{fill:#58a6ff}.label{fill:#c9d1d9}}
+</style>
+<rect class="card" x="0.5" y="0.5" width="409" height="209" rx="8"/>
+<text x="24" y="37" class="title">GitHub Profile</text>
+<text x="24" y="82" class="label">Generated after workflow execution</text>
+<text x="386" y="82" text-anchor="end" class="value">Pending</text>
+</svg>
