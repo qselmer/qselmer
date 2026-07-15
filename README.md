@@ -54,7 +54,7 @@
 | Access | Project | Purpose | Main language | Stage |
 |---|---|---|---|---|
 | 🔓 Public | [`R-LabCore`](https://github.com/qselmer/R-LabCore) | Reusable examples and learning workflows for scientific programming, statistical analysis and reproducible research in R. | R | Educational development |
-| 🔓 Public | [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | Progressive examples for statistical modelling with Template Model Builder, automatic differentiation and R/C++ integration. | R / C++ | Educational development |
+| 🔓 Public | [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | Progressive examples for statistical modelling with Template Model Builder, automatic differentiation and R/C++ integration. | TeX | Educational development |
 <!-- PROJECTS:END -->
 
 ## Recent publications
@@ -62,11 +62,11 @@
 **Output legend:** 📄 published or publicly available scholarly output. Entries are generated in APA style from ORCID and, when a DOI exists, enriched with Crossref metadata. Titles remain plain text and the external link is placed at the end of each reference.
 
 <!-- PUBLICATIONS:START -->
-- 📄 **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
-- 📄 **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View poster](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
-- 📄 **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (*Engraulis ringens*) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View publication](https://zenodo.org/doi/10.5281/zenodo.17452484)
-- 📄 **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: A case study in the Peruvian anchovy *Engraulis ringens*. *Scientia Marina*. [View publication](https://doi.org/10.3989/scimar.05636.117)
-- 📄 **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (*Engraulis ringens*): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View output](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
+- 📄 **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View publication](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
+- 📄 **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View publication](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
+- 📄 **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View publication](https://zenodo.org/doi/10.5281/zenodo.17452484)
+- 📄 **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina*. [View publication](https://doi.org/10.3989/scimar.05636.117)
+- 📄 **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View publication](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
 <!-- PUBLICATIONS:END -->
 
 [View the complete publication record](https://qselmer.github.io/publications/)
@@ -76,8 +76,8 @@
 **Status legend:** 🔓 manuscript in preparation · 🔒 submitted or under review · 💻 planned study. This block is controlled through `assets/data/research-pipeline.json`, so working projects can be updated without modifying the automation code.
 
 <!-- PIPELINE:START -->
-- 🔓 **Quispe-Salazar, E.** (Manuscript in preparation). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *Manuscript in preparation*. [View conference presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
 - 🔓 **Quispe-Salazar, E.** (Manuscript in preparation). Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian sea. *Manuscript in preparation*. [View poster](https://qselmer.github.io/talks/2026-05-08-critical-points-anchovy-stock)
+- 🔓 **Quispe-Salazar, E.** (Manuscript in preparation). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *Manuscript in preparation*. [View conference presentation](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
 - 💻 **Quispe-Salazar, E.** (Planned study). Operational patterns, fishing effort and catch composition of the purse-seine tuna fishery off Peru, 2010–2025. *Planned research article*. [View research projects](https://qselmer.github.io/projects/)
 <!-- PIPELINE:END -->
 
