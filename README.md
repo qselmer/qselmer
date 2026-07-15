@@ -1,10 +1,10 @@
 <h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>
 
-<p align="center">
+<p align="justify">
   I develop and integrate statistical, computational and ecological approaches to assess marine populations, fisheries and ecosystem change. My work combines stock assessment, spatio-temporal modelling, population and community dynamics, life-history theory, environmental information and multidimensional indicators to quantify uncertainty, diagnose changes in stock condition and support adaptive, ecosystem-based decision-making. I focus on small pelagic fish and Eastern Boundary Upwelling Systems (EBUS), while developing transferable methods for highly variable and data-limited marine systems.
 </p>
 
-<p align="center">
+<p align="justify">
   For research collaboration, scholarships or recruitment: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a>
 </p>
 
@@ -29,13 +29,13 @@
 
 ## Research focus
 
-- Quantitative marine ecology, fisheries science and stock assessment.
-- Population and community dynamics, recruitment, growth and life-history variation.
-- Spatio-temporal modelling, statistical ecology and marine ecosystem indicators.
-- Small pelagic fish and ecological responses within Eastern Boundary Upwelling Systems.
-- Multivariate stock-state diagnostics, thresholds, regime shifts and pressure–state relationships.
-- Integration of biological, fishery and environmental evidence for adaptive management advice.
-- Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
+- 🐟 Quantitative marine ecology, fisheries science and stock assessment.
+- 📈 Population and community dynamics, recruitment, growth and life-history variation.
+- 🗺️ Spatio-temporal modelling, statistical ecology and marine ecosystem indicators.
+- 🌊 Small pelagic fish and ecological responses within Eastern Boundary Upwelling Systems.
+- 🧭 Multivariate stock-state diagnostics, thresholds, regime shifts and pressure–state relationships.
+- 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
+- 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
 
 ## Scientific software and educational projects
 
