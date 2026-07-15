@@ -1,6 +1,61 @@
 {
   "orcid": "0000-0001-9229-6379",
-  "updated_at": null,
-  "count": 0,
-  "publications": []
+  "updated_at": "2026-07-15T15:22:36.484337+00:00",
+  "count": 5,
+  "publications": [
+    {
+      "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+      "year": "2026",
+      "journal": "SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium",
+      "type": "Conference-Paper",
+      "doi": "",
+      "url": "https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4",
+      "authors": [],
+      "source": "ORCID"
+    },
+    {
+      "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea",
+      "year": "2026",
+      "journal": "SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium",
+      "type": "Conference-Paper",
+      "doi": "",
+      "url": "https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf",
+      "authors": [],
+      "source": "ORCID"
+    },
+    {
+      "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022",
+      "year": "2025",
+      "journal": "Cybertesis Revistas UNMSM Fondo editorial",
+      "type": "Dissertation-Thesis",
+      "doi": "10.5281/zenodo.17452484",
+      "url": "https://zenodo.org/doi/10.5281/zenodo.17452484",
+      "authors": [],
+      "source": "ORCID"
+    },
+    {
+      "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens",
+      "year": "2025",
+      "journal": "Scientia Marina",
+      "type": "Journal Article",
+      "doi": "10.3989/scimar.05636.117",
+      "url": "https://doi.org/10.3989/scimar.05636.117",
+      "authors": [
+        "Elmer Quispe-Salazar",
+        "Javier Sánchez",
+        "Ángel Perea"
+      ],
+      "source": "ORCID + Crossref"
+    },
+    {
+      "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
+      "year": "2024",
+      "journal": "VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca",
+      "type": "Conference-Output",
+      "doi": "10.13140/rg.2.2.32795.73767",
+      "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767",
+      "authors": [],
+      "source": "ORCID"
+    }
+  ]
 }

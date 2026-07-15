@@ -57,14 +57,12 @@
 ## Recent publications
 
 <!-- PUBLICATIONS:START -->
-- **[Marine fauna associated with the industrial purse seine fishery based on observations from the program Bitácoras de Pesca](https://qselmer.github.io/publications/)**. *Boletín Instituto del Mar del Perú* (2025) — In press.
-  <br><sub>G. P. Galarza-Tirado, Elmer Quispe-Salazar, J. Limache, G. M. Correa</sub>
-- **[Classification models based on the gonadosomatic index to determine gonadal maturity stages: A case study in the Peruvian anchovy Engraulis ringens](https://qselmer.github.io/publications/)**. *Scientia Marina* (2025) — In press.
-  <br><sub>Elmer Quispe-Salazar, J. Sanchez, A. Perea de la Matta</sub>
-- **[Assessing the conservation status of the Peruvian anchoveta Engraulis ringens from 1950 to 2022 using a stochastic surplus production model in continuous time](https://qselmer.github.io/publications/)**. *Boletín Instituto del Mar del Perú* (2025) — In press.
-  <br><sub>E. Díaz, Elmer Quispe-Salazar, P. Marin</sub>
-- **[Aggregative behavior of the Peruvian anchovy Engraulis ringens: Description of school typology from onboard observations](https://qselmer.github.io/publications/)**. *Boletín Instituto del Mar del Perú* (2025) — In press.
-  <br><sub>Elmer Quispe-Salazar, D. Grados, M. Pozada-Herrera</sub>
+- **[Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)**. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium* (2026).
+- **[Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)**. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium* (2026).
+- **[Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022](https://zenodo.org/doi/10.5281/zenodo.17452484)**. *Cybertesis Revistas UNMSM Fondo editorial* (2025).
+- **[Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens](https://doi.org/10.3989/scimar.05636.117)**. *Scientia Marina* (2025).
+  <br><sub>Elmer Quispe-Salazar, Javier Sánchez, Ángel Perea</sub>
+- **[Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)**. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca* (2024).
 <!-- PUBLICATIONS:END -->
 
 [View the complete publication record on my academic website](https://qselmer.github.io/publications/).
