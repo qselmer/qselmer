@@ -1,0 +1,46 @@
+{
+  "sections": [
+    {
+      "title": "Scientific packages",
+      "items": [
+        {
+          "repository": "qselmer/seasignals",
+          "name": "seasignals",
+          "purpose": "Detects and characterizes marine environmental signals, including ENSO-related phase, magnitude and temporal variability.",
+          "language": "R",
+          "visibility": "public",
+          "stage": "v0.1.0 · Active development"
+        },
+        {
+          "repository": "qselmer/oceancube",
+          "name": "oceancube",
+          "purpose": "Builds reproducible oceanographic data cubes for marine ecology, fisheries indicators, climatologies, anomalies and stock-oriented environmental analyses.",
+          "language": "R",
+          "visibility": "public",
+          "stage": "v0.0.0.9000 · Active development"
+        }
+      ]
+    },
+    {
+      "title": "Educational projects",
+      "items": [
+        {
+          "repository": "qselmer/R-LabCore",
+          "name": "R-LabCore",
+          "purpose": "Reusable examples and learning workflows for scientific programming, statistical analysis and reproducible research in R.",
+          "language": "R",
+          "visibility": "public",
+          "stage": "Educational development"
+        },
+        {
+          "repository": "qselmer/TMB-LabCore",
+          "name": "TMB-LabCore",
+          "purpose": "Progressive examples for statistical modelling with Template Model Builder, automatic differentiation and R/C++ integration.",
+          "language": "R / C++",
+          "visibility": "public",
+          "stage": "Educational development"
+        }
+      ]
+    }
+  ]
+}

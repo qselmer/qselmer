@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
+      "status": "in_preparation",
+      "authors": ["Elmer Quispe-Salazar"],
+      "outlet": "Manuscript in preparation",
+      "url": "https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4",
+      "link_label": "View conference presentation"
+    },
+    {
+      "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north–central anchovy stock in the pelagic system of the Peruvian sea",
+      "status": "in_preparation",
+      "authors": ["Elmer Quispe-Salazar"],
+      "outlet": "Manuscript in preparation",
+      "url": "https://qselmer.github.io/talks/2026-05-08-critical-points-anchovy-stock",
+      "link_label": "View poster"
+    },
+    {
+      "title": "Operational patterns, fishing effort and catch composition of the purse-seine tuna fishery off Peru, 2010–2025",
+      "status": "planned",
+      "authors": ["Elmer Quispe-Salazar"],
+      "outlet": "Planned research article",
+      "url": "https://qselmer.github.io/projects/",
+      "link_label": "View research projects"
+    }
+  ]
+}
