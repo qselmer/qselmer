@@ -8,6 +8,9 @@ on:
     branches: [main]
     paths:
       - "scripts/update_profile.py"
+      - "scripts/render_profile.py"
+      - "assets/data/featured-projects.json"
+      - "assets/data/research-pipeline.json"
       - "README.md"
       - ".github/workflows/update-profile.yml"
 
@@ -32,7 +35,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh publications and statistics
+      - name: Refresh publication metadata and statistics
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: qselmer
@@ -41,13 +44,24 @@ jobs:
           MAX_PUBLICATIONS: "5"
         run: python scripts/update_profile.py
 
+      - name: Render APA publications, pipeline and featured projects
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAX_PUBLICATIONS: "5"
+        run: python scripts/render_profile.py
+
       - name: Validate generated files
         run: |
           test -s README.md
           test -s assets/data/publications.json
+          test -s assets/data/featured-projects.json
+          test -s assets/data/research-pipeline.json
           test -s assets/generated/top-languages.svg
           test -s assets/generated/github-stats.svg
           python -m json.tool assets/data/publications.json >/dev/null
+          python -m json.tool assets/data/featured-projects.json >/dev/null
+          python -m json.tool assets/data/research-pipeline.json >/dev/null
+          python -m py_compile scripts/update_profile.py scripts/render_profile.py
 
       - name: Commit changes
         run: |
