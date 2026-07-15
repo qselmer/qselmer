@@ -1,1 +1,11 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
 README.html
+README_files/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+.env
