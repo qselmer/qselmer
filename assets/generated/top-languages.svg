@@ -12,5 +12,5 @@
 </style>
 <rect class="card" x="0.5" y="0.5" width="409" height="209" rx="8"/>
 <text x="24" y="37" class="title">Top Languages</text>
-<text x="24" y="72" class="label">R</text><text x="386" y="72" text-anchor="end" class="value">52.2%</text><text x="24" y="101" class="label">Python</text><text x="386" y="101" text-anchor="end" class="value">20.7%</text><text x="24" y="130" class="label">Jupyter Notebook</text><text x="386" y="130" text-anchor="end" class="value">12.0%</text><text x="24" y="159" class="label">JavaScript</text><text x="386" y="159" text-anchor="end" class="value">10.2%</text><text x="24" y="188" class="label">CSS</text><text x="386" y="188" text-anchor="end" class="value">3.1%</text>
+<text x="24" y="72" class="label">Python</text><text x="386" y="72" text-anchor="end" class="value">67.8%</text><text x="24" y="101" class="label">R</text><text x="386" y="101" text-anchor="end" class="value">20.5%</text><text x="24" y="130" class="label">Jupyter Notebook</text><text x="386" y="130" text-anchor="end" class="value">4.7%</text><text x="24" y="159" class="label">JavaScript</text><text x="386" y="159" text-anchor="end" class="value">4.0%</text><text x="24" y="188" class="label">CSS</text><text x="386" y="188" text-anchor="end" class="value">1.2%</text>
 </svg>
