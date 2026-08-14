@@ -12,5 +12,5 @@
 </style>
 <rect class="card" x="0.5" y="0.5" width="409" height="209" rx="8"/>
 <text x="24" y="37" class="title">GitHub Profile</text>
-<text x="24" y="72" class="label">Public repositories</text><text x="386" y="72" text-anchor="end" class="value">77</text><text x="24" y="101" class="label">Original public repositories</text><text x="386" y="101" text-anchor="end" class="value">21</text><text x="24" y="130" class="label">Repository stars</text><text x="386" y="130" text-anchor="end" class="value">1</text><text x="24" y="159" class="label">Repository forks</text><text x="386" y="159" text-anchor="end" class="value">1</text><text x="24" y="188" class="label">Followers</text><text x="386" y="188" text-anchor="end" class="value">34</text>
+<text x="24" y="72" class="label">Public repositories</text><text x="386" y="72" text-anchor="end" class="value">79</text><text x="24" y="101" class="label">Original public repositories</text><text x="386" y="101" text-anchor="end" class="value">21</text><text x="24" y="130" class="label">Repository stars</text><text x="386" y="130" text-anchor="end" class="value">1</text><text x="24" y="159" class="label">Repository forks</text><text x="386" y="159" text-anchor="end" class="value">1</text><text x="24" y="188" class="label">Followers</text><text x="386" y="188" text-anchor="end" class="value">34</text>
 </svg>
