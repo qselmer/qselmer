@@ -22,7 +22,7 @@
       ]
     },
     {
-      "title": "Educational projects",
+      "title": "Training projects",
       "items": [
         {
           "repository": "qselmer/R-LabCore",
@@ -30,7 +30,7 @@
           "purpose": "Reusable examples and learning workflows for scientific programming, statistical analysis and reproducible research in R.",
           "language": "R",
           "visibility": "public",
-          "stage": "Educational development"
+          "stage": "Training resource"
         },
         {
           "repository": "qselmer/TMB-LabCore",
@@ -38,7 +38,7 @@
           "purpose": "Progressive examples for statistical modelling with Template Model Builder, automatic differentiation and R/C++ integration.",
           "language": "R / C++",
           "visibility": "public",
-          "stage": "Educational development"
+          "stage": "Training resource"
         }
       ]
     }

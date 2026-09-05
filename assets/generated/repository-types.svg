@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="410" height="333" role="img" aria-label="Repository Types">
+<style>
+  .card { fill: #ffffff; stroke: #d0d7de; }
+  .title { font: 600 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0969da; }
+  .label { font: 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #24292f; }
+  .value { font: 600 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; fill: #0969da; }
+  @media (prefers-color-scheme: dark) {
+    .card { fill: #0d1117; stroke: #30363d; }
+    .title, .value { fill: #58a6ff; }
+    .label { fill: #c9d1d9; }
+  }
+</style>
+<rect class="card" x="0.5" y="0.5" width="409" height="332" rx="8"/>
+<text x="24" y="37" class="title">Repository Types</text>
+<text x="24" y="72" class="label">Packages</text><text x="386" y="72" text-anchor="end" class="value">5</text><text x="24" y="101" class="label">Protocols &amp; manuals</text><text x="386" y="101" text-anchor="end" class="value">0</text><text x="24" y="130" class="label">Methods &amp; workflows</text><text x="386" y="130" text-anchor="end" class="value">0</text><text x="24" y="159" class="label">Reports</text><text x="386" y="159" text-anchor="end" class="value">0</text><text x="24" y="188" class="label">Apps &amp; dashboards</text><text x="386" y="188" text-anchor="end" class="value">1</text><text x="24" y="217" class="label">Papers</text><text x="386" y="217" text-anchor="end" class="value">2</text><text x="24" y="246" class="label">Courses &amp; training</text><text x="386" y="246" text-anchor="end" class="value">4</text><text x="24" y="275" class="label">Websites &amp; infrastructure</text><text x="386" y="275" text-anchor="end" class="value">6</text><text x="24" y="304" class="label">Other / legacy</text><text x="386" y="304" text-anchor="end" class="value">4</text>
+</svg>

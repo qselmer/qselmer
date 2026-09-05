@@ -1,6 +1,6 @@
 {
   "orcid": "0000-0001-9229-6379",
-  "updated_at": "2026-09-05T11:49:42.207725+00:00",
+  "updated_at": "2026-09-04T12:43:03.275184+00:00",
   "count": 5,
   "publications": [
     {
@@ -11,7 +11,8 @@
       "doi": "",
       "url": "https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4",
       "authors": [],
-      "source": "ORCID"
+      "source": "ORCID",
+      "output_category": "Conference outputs"
     },
     {
       "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea",
@@ -21,7 +22,8 @@
       "doi": "",
       "url": "https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf",
       "authors": [],
-      "source": "ORCID"
+      "source": "ORCID",
+      "output_category": "Conference outputs"
     },
     {
       "title": "Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022",
@@ -31,7 +33,8 @@
       "doi": "10.5281/zenodo.17452484",
       "url": "https://zenodo.org/doi/10.5281/zenodo.17452484",
       "authors": [],
-      "source": "ORCID"
+      "source": "ORCID",
+      "output_category": "Theses"
     },
     {
       "title": "Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens",
@@ -45,7 +48,8 @@
         "Javier Sánchez",
         "Ángel Perea"
       ],
-      "source": "ORCID + Crossref"
+      "source": "ORCID + Crossref",
+      "output_category": "Journal articles"
     },
     {
       "title": "Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation",
@@ -55,7 +59,20 @@
       "doi": "10.13140/rg.2.2.32795.73767",
       "url": "https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767",
       "authors": [],
-      "source": "ORCID"
+      "source": "ORCID",
+      "output_category": "Conference outputs"
     }
-  ]
+  ],
+  "schema_version": 2,
+  "publishing_since": "2024",
+  "output_counts": {
+    "Journal articles": 1,
+    "Preprints & working papers": 0,
+    "Conference outputs": 3,
+    "Books & chapters": 0,
+    "Theses": 1,
+    "Reports & technical outputs": 0,
+    "Data & software": 0,
+    "Other research outputs": 0
+  }
 }

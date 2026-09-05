@@ -3,15 +3,16 @@ name: Update academic profile
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 08 * * *"
+    # Mondays at 06:27 in Peru (UTC-5).
+    - cron: "27 11 * * 1"
   push:
     branches: [main]
     paths:
       - "scripts/update_profile.py"
       - "scripts/render_profile.py"
-      - "assets/data/featured-projects.json"
       - "assets/data/research-pipeline.json"
-      - "README.md"
+      - "assets/data/repository-types.json"
+      - "TOPICS.md"
       - ".github/workflows/update-profile.yml"
 
 permissions:
@@ -35,33 +36,42 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Refresh publication metadata and statistics
+      - name: Refresh scholarly outputs, research metrics and repository portfolio
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: qselmer
           ORCID_ID: 0000-0001-9229-6379
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           CROSSREF_MAILTO: qselmers@gmail.com
-          MAX_PUBLICATIONS: "5"
         run: python scripts/update_profile.py
 
-      - name: Render APA publications, pipeline and featured projects
+      - name: Render outputs, pipeline and complete repository inventory
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MAX_PUBLICATIONS: "5"
+          # 0 = render every public ORCID work in the profile.
+          MAX_RESEARCH_OUTPUTS: "0"
         run: python scripts/render_profile.py
 
       - name: Validate generated files
         run: |
           test -s README.md
           test -s assets/data/publications.json
-          test -s assets/data/featured-projects.json
+          test -s assets/data/research-metrics.json
+          test -s assets/data/repository-catalog.json
           test -s assets/data/research-pipeline.json
+          test -s assets/data/repository-types.json
           test -s assets/generated/top-languages.svg
+          test -s assets/generated/repository-types.svg
+          test -s assets/generated/research-outputs.svg
+          test -s assets/generated/research-metrics.svg
           test -s assets/generated/github-stats.svg
           python -m json.tool assets/data/publications.json >/dev/null
-          python -m json.tool assets/data/featured-projects.json >/dev/null
+          python -m json.tool assets/data/research-metrics.json >/dev/null
+          python -m json.tool assets/data/repository-catalog.json >/dev/null
           python -m json.tool assets/data/research-pipeline.json >/dev/null
+          python -m json.tool assets/data/repository-types.json >/dev/null
           python -m py_compile scripts/update_profile.py scripts/render_profile.py
+          python -m unittest discover -s tests -v
 
       - name: Commit changes
         run: |
@@ -71,6 +81,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/data/publications.json assets/generated/*.svg
+          git add README.md assets/data/publications.json assets/data/research-metrics.json assets/data/repository-catalog.json assets/generated/*.svg
           git commit -m "chore: refresh academic profile"
           git push

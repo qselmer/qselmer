@@ -5,7 +5,11 @@
 </p>
 
 <p align="justify">
-  For research collaboration, scholarships or recruitment: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a>
+  <strong>Currently seeking PhD opportunities internationally</strong> in quantitative marine ecology, fisheries science, ecological statistics, marine ecosystem modelling and reproducible scientific computing.
+</p>
+
+<p align="justify">
+  For research collaboration, doctoral opportunities or recruitment: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a>
 </p>
 
 <p align="center">
@@ -23,8 +27,8 @@
 </p>
 
 <p align="center">
-  <img src="assets/generated/top-languages.svg" width="410" alt="Top programming languages">
-  <img src="assets/generated/github-stats.svg" width="410" alt="GitHub profile statistics">
+  <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across original public repositories">
+  <img src="assets/generated/repository-types.svg" width="410" alt="Original public repositories by repository type">
 </p>
 
 ## Research focus
@@ -37,36 +41,25 @@
 - 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
 - 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
 
-## Scientific software and educational projects
+## Research outputs & metrics
 
-**Access legend:** 🔓 public repository · 🔒 private repository. The access status and main language are refreshed automatically from the GitHub API; the scientific purpose and development stage remain manually curated.
+<p align="center">
+  <img src="assets/generated/research-outputs.svg" width="410" alt="Public ORCID research outputs by scholarly-output type">
+  <img src="assets/generated/research-metrics.svg" width="410" alt="Research metrics from ORCID and OpenAlex">
+</p>
 
-<!-- PROJECTS:START -->
-### Scientific packages
+<sub>ORCID is the canonical source for the public scholarly-output record and output counts. DOI records are enriched with Crossref metadata. Citation count and h-index are refreshed from the ORCID-matched OpenAlex author record. Google Scholar remains linked above for profile discovery and citation browsing, but is not scraped by the automation.</sub>
 
-| Access | Project | Purpose | Main language | Stage |
-|---|---|---|---|---|
-| 🔓 Public | [`seasignals`](https://github.com/qselmer/seasignals) | Detects and characterizes marine environmental signals, including ENSO-related phase, magnitude and temporal variability. | R | v0.1.0 · Active development |
-| 🔓 Public | [`oceancube`](https://github.com/qselmer/oceancube) | Builds reproducible oceanographic data cubes for marine ecology, fisheries indicators, climatologies, anomalies and stock-oriented environmental analyses. | R | v0.0.0.9000 · Active development |
+## Research outputs
 
-### Educational projects
-
-| Access | Project | Purpose | Main language | Stage |
-|---|---|---|---|---|
-| 🔓 Public | [`R-LabCore`](https://github.com/qselmer/R-LabCore) | Reusable examples and learning workflows for scientific programming, statistical analysis and reproducible research in R. | R | Educational development |
-| 🔓 Public | [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | Progressive examples for statistical modelling with Template Model Builder, automatic differentiation and R/C++ integration. | TeX | Educational development |
-<!-- PROJECTS:END -->
-
-## Recent publications
-
-**Output legend:** 📄 published or publicly available scholarly output. Entries are generated in APA style from ORCID and, when a DOI exists, enriched with Crossref metadata. Titles remain plain text and the external link is placed at the end of each reference.
+**Output legend:** 📄 journal article · 📝 preprint/working paper · 🎤 conference output · 📚 book/chapter · 🎓 thesis · 📋 report/technical output · 💾 data/software · 🔬 other research output. All public ORCID works are retained and classified; DOI records are enriched with Crossref metadata when available.
 
 <!-- PUBLICATIONS:START -->
-- 📄 **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View publication](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
-- 📄 **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View publication](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
-- 📄 **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View publication](https://zenodo.org/doi/10.5281/zenodo.17452484)
-- 📄 **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina*. [View publication](https://doi.org/10.3989/scimar.05636.117)
-- 📄 **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View publication](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
+- 🎤 **Conference output** · **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
+- 🎤 **Conference output** · **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
+- 🎓 **Thesis** · **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View output](https://zenodo.org/doi/10.5281/zenodo.17452484)
+- 📄 **Journal article** · **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina*. [View output](https://doi.org/10.3989/scimar.05636.117)
+- 🎤 **Conference output** · **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View output](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
 <!-- PUBLICATIONS:END -->
 
 [View the complete publication record](https://qselmer.github.io/publications/)
@@ -81,15 +74,24 @@
 - 💻 **Quispe-Salazar, E.** (Planned study). Operational patterns, fishing effort and catch composition of the purse-seine tuna fishery off Peru, 2010–2025. *Planned research article*. [View research projects](https://qselmer.github.io/projects/)
 <!-- PIPELINE:END -->
 
+## Complete public repository portfolio
+
+Every public repository owned by `qselmer` is inventoried automatically so the portfolio can be audited and cleaned systematically. Active original repositories are grouped by repository type; archived repositories and public forks are listed separately. Private repository names and metadata are never exposed. The summary cards above continue to use only active original public repositories so forks and archived material do not distort the PhD-facing portfolio metrics.
+
+<!-- PROJECTS:START -->
+_Repository inventory will be populated on the next profile Action run._
+<!-- PROJECTS:END -->
+
 ## How this profile is automated
 
-A scheduled GitHub Actions workflow maintains the profile each day and can also be executed manually:
+A scheduled GitHub Actions workflow maintains the profile each week and can also be executed manually:
 
-1. **Publications:** ORCID provides the canonical list of scholarly works; DOI records are enriched through Crossref and rendered in APA style with my name highlighted in bold.
-2. **Research pipeline:** planned, in-preparation and under-review manuscripts are read from `assets/data/research-pipeline.json`, keeping unpublished work under manual control.
-3. **Featured projects:** the selected repositories are defined in `assets/data/featured-projects.json`; GitHub supplies their current visibility and primary language.
-4. **Profile metrics:** the GitHub API recalculates repository statistics and language composition, then regenerates the two SVG cards stored in this repository.
-5. **Synchronization:** the canonical publication JSON is used by my academic website, reducing duplicated manual updates between GitHub and the website.
+1. **Research outputs:** ORCID provides the canonical public scholarly record. Every public work is retained, classified by output type and rendered in the profile; DOI records are enriched through Crossref when available.
+2. **Research metrics:** OpenAlex is matched strictly through the ORCID identifier and supplies citation count and h-index; the profile never relies on name-only author matching. Google Scholar is kept as a navigation link rather than an automated data source.
+3. **Research pipeline:** planned, in-preparation and under-review manuscripts are read from `assets/data/research-pipeline.json`, keeping unpublished work under manual control.
+4. **Complete repository inventory:** the GitHub API inventories every public repository owned by `qselmer`; active originals are grouped by repository type, while archived repositories and public forks remain visible in separate cleanup tables. Private repository metadata is never published.
+5. **Repository summary cards:** language composition and repository-type counts use only active original public repositories, preventing forks and archived material from distorting the PhD-facing portfolio.
+6. **Synchronization:** the canonical publication, metric and repository-catalog JSON files can be reused by my academic website, reducing duplicated manual updates between GitHub and the website.
 
 ## Scientific computing
 
@@ -113,4 +115,4 @@ I am open to international research collaboration, doctoral and postdoctoral opp
 
 ---
 
-<sub><a href="https://github.com/qselmer/qselmer/actions/workflows/update-profile.yml"><img src="https://github.com/qselmer/qselmer/actions/workflows/update-profile.yml/badge.svg?branch=main" alt="Update academic profile workflow"></a><br>Automated daily with GitHub Actions using ORCID, Crossref and GitHub metadata, with manually curated controls for the research pipeline and featured projects.</sub>
+<sub><a href="https://github.com/qselmer/qselmer/actions/workflows/update-profile.yml"><img src="https://github.com/qselmer/qselmer/actions/workflows/update-profile.yml/badge.svg?branch=main" alt="Update academic profile workflow"></a><br>Automated weekly with GitHub Actions using ORCID, Crossref, OpenAlex and GitHub metadata, with manual control retained only for the research pipeline and legacy repository-type overrides.</sub>

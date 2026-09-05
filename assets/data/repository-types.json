@@ -1,0 +1,37 @@
+{
+  "schema_version": 2,
+  "canonical_types": {
+    "type-package": "Packages",
+    "type-protocol": "Protocols & manuals",
+    "type-workflow": "Methods & workflows",
+    "type-report": "Reports",
+    "type-app": "Apps & dashboards",
+    "type-dashboard": "Apps & dashboards",
+    "type-paper": "Papers",
+    "type-training": "Courses & training",
+    "type-infrastructure": "Websites & infrastructure"
+  },
+  "overrides": {
+    "qselmer": "type-infrastructure",
+    "qselmer.github.io": "type-infrastructure",
+    ".hub": "type-infrastructure",
+    ".template-fisheries-mse": "type-infrastructure",
+    "template_reportPDF": "type-infrastructure",
+    "template_summaryPDF": "type-infrastructure",
+    "seasignals": "type-package",
+    "oceancube": "type-package",
+    "R-LabCore": "type-training",
+    "TMB-LabCore": "type-training",
+    "training_code_Python": "type-training",
+    "ctd-C-plus-plus": "type-training",
+    "pel-climate-adaptive-management-paper": "type-paper",
+    "pelagicPER-availability-risk-paper": "type-paper",
+    "humboldt-ocean-watch": "type-app",
+    "FisheryClose": "type-package",
+    "fish-byte": "type-package",
+    "postHub": "type-package"
+  },
+  "legacy_type_aliases": {
+    "type-learning": "type-training"
+  }
+}

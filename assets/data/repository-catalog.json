@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "updated_at": null,
+  "owner": "qselmer",
+  "scope": "all public repositories owned by the user; private repositories excluded",
+  "totals": {
+    "public_repositories": 0,
+    "active_original_repositories": 0,
+    "archived_original_repositories": 0,
+    "forks": 0,
+    "other_or_legacy_active": 0
+  },
+  "repositories": []
+}
