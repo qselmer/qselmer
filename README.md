@@ -80,8 +80,8 @@ All **original** repositories visible to the profile inventory are grouped autom
 <sub>To include private repositories, the workflow requires the read-only `PROFILE_REPO_TOKEN` secret. Because this README is public, private repository names become visible when that option is enabled; descriptions, languages and update dates for private repositories are deliberately suppressed.</sub>
 
 <!-- PROJECTS:START -->
-**Inventory:** 22 original repositories · 🔓 22 public · 🔒 0 private · 22 active · 0 archived · 5 other/legacy.
-**Manual taxonomy:** 0/22 active repositories currently use an explicit canonical `type-*` topic.
+**Inventory:** 36 original repositories · 🔓 22 public · 🔒 14 private · 36 active · 0 archived · 12 other/legacy.
+**Manual taxonomy:** 0/36 active repositories currently use an explicit canonical `type-*` topic.
 
 ### Packages (5)
 
@@ -93,17 +93,24 @@ All **original** repositories visible to the profile inventory are grouped autom
 | [`postHub`](https://github.com/qselmer/postHub) | 🔓 Public | — | R | override | 2025-05-03 |
 | [`seasignals`](https://github.com/qselmer/seasignals) | 🔓 Public | — | R | override | 2026-02-06 |
 
-### Apps & dashboards (1)
+### Apps & dashboards (5)
 
 | Repository | Visibility | Description | Main language | Type basis | Updated |
 |---|---|---|---|---|---|
 | [`humboldt-ocean-watch`](https://github.com/qselmer/humboldt-ocean-watch) | 🔓 Public | AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region. | Python | override | 2026-08-03 |
+| [`pelagicPER-observatory-app`](https://github.com/qselmer/pelagicPER-observatory-app) | 🔒 Private | Private repository | — | name inference | — |
+| [`pelagicPER-outlook-app`](https://github.com/qselmer/pelagicPER-outlook-app) | 🔒 Private | Private repository | — | name inference | — |
+| [`pelagicPER-season-benchmark-app`](https://github.com/qselmer/pelagicPER-season-benchmark-app) | 🔒 Private | Private repository | — | name inference | — |
+| [`pelagicPER-season-monitor-app`](https://github.com/qselmer/pelagicPER-season-monitor-app) | 🔒 Private | Private repository | — | name inference | — |
 
-### Papers (1)
+### Papers (4)
 
 | Repository | Visibility | Description | Main language | Type basis | Updated |
 |---|---|---|---|---|---|
 | [`pelagicPER-availability-risk-paper`](https://github.com/qselmer/pelagicPER-availability-risk-paper) | 🔓 Public | — | — | override | 2026-08-07 |
+| [`fishcore-paper`](https://github.com/qselmer/fishcore-paper) | 🔒 Private | Private repository | — | name inference | — |
+| [`pelagicPER-fishery-reorganization-paper`](https://github.com/qselmer/pelagicPER-fishery-reorganization-paper) | 🔒 Private | Private repository | — | name inference | — |
+| [`pelagicPER-season-benchmark-paper`](https://github.com/qselmer/pelagicPER-season-benchmark-paper) | 🔒 Private | Private repository | — | name inference | — |
 
 ### Courses & training (5)
 
@@ -130,7 +137,7 @@ All **original** repositories visible to the profile inventory are grouped autom
 | [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | override | 2026-09-05 |
 | [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | override | 2026-09-05 |
 
-### Other / legacy (5)
+### Other / legacy (12)
 
 <sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>
 
@@ -141,6 +148,13 @@ All **original** repositories visible to the profile inventory are grouped autom
 | [`r4fish`](https://github.com/qselmer/r4fish) | 🔓 Public | — | R | unclassified | 2023-02-21 |
 | [`TestPackage`](https://github.com/qselmer/TestPackage) | 🔓 Public | My R Package | R | unclassified | 2020-09-13 |
 | [`wk-esme`](https://github.com/qselmer/wk-esme) | 🔓 Public | — | — | unclassified | 2023-01-09 |
+| [`anc_nc_sa`](https://github.com/qselmer/anc_nc_sa) | 🔒 Private | Private repository | — | unclassified | — |
+| [`anchNC_get_spawning_biomass`](https://github.com/qselmer/anchNC_get_spawning_biomass) | 🔒 Private | Private repository | — | unclassified | — |
+| [`crs_SMiME`](https://github.com/qselmer/crs_SMiME) | 🔒 Private | Private repository | — | unclassified | — |
+| [`fishcore`](https://github.com/qselmer/fishcore) | 🔒 Private | Private repository | — | unclassified | — |
+| [`fishqc`](https://github.com/qselmer/fishqc) | 🔒 Private | Private repository | — | unclassified | — |
+| [`h4s`](https://github.com/qselmer/h4s) | 🔒 Private | Private repository | — | unclassified | — |
+| [`PSSF`](https://github.com/qselmer/PSSF) | 🔒 Private | Private repository | — | unclassified | — |
 <!-- PROJECTS:END -->
 
 ## How this profile is automated
