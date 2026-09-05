@@ -55,7 +55,7 @@
 - 🏛️ **Conference output** · **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
 - 🏛️ **Conference output** · **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
 - 🎓 **Thesis** · **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View output](https://zenodo.org/doi/10.5281/zenodo.17452484)
-- 📄 **Journal article** · **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina*. [View output](https://doi.org/10.3989/scimar.05636.117)
+- 📄 **Journal article** · **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina, 89*(4), e117. [View output](https://doi.org/10.3989/scimar.05636.117)
 - 🏛️ **Conference output** · **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View output](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
 <!-- PUBLICATIONS:END -->
 
@@ -80,7 +80,67 @@ All **original** repositories visible to the profile inventory are grouped autom
 <sub>To include private repositories, the workflow requires the read-only `PROFILE_REPO_TOKEN` secret. Because this README is public, private repository names become visible when that option is enabled; descriptions, languages and update dates for private repositories are deliberately suppressed.</sub>
 
 <!-- PROJECTS:START -->
-_Repository inventory will be populated on the next profile Action run._
+**Inventory:** 22 original repositories · 🔓 22 public · 🔒 0 private · 22 active · 0 archived · 5 other/legacy.
+**Manual taxonomy:** 0/22 active repositories currently use an explicit canonical `type-*` topic.
+
+### Packages (5)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`fish-byte`](https://github.com/qselmer/fish-byte) | 🔓 Public | HTML, CSS y JavaScript. | CSS | override | 2025-03-05 |
+| [`FisheryClose`](https://github.com/qselmer/FisheryClose) | 🔓 Public | — | R | override | 2025-04-28 |
+| [`oceancube`](https://github.com/qselmer/oceancube) | 🔓 Public | — | R | override | 2026-08-20 |
+| [`postHub`](https://github.com/qselmer/postHub) | 🔓 Public | — | R | override | 2025-05-03 |
+| [`seasignals`](https://github.com/qselmer/seasignals) | 🔓 Public | — | R | override | 2026-02-06 |
+
+### Apps & dashboards (1)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`humboldt-ocean-watch`](https://github.com/qselmer/humboldt-ocean-watch) | 🔓 Public | AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region. | Python | override | 2026-08-03 |
+
+### Papers (1)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`pelagicPER-availability-risk-paper`](https://github.com/qselmer/pelagicPER-availability-risk-paper) | 🔓 Public | — | — | override | 2026-08-07 |
+
+### Courses & training (5)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`ctd-C-plus-plus`](https://github.com/qselmer/ctd-C-plus-plus) | 🔓 Public | — | — | override | 2023-01-06 |
+| [`R-LabCore`](https://github.com/qselmer/R-LabCore) | 🔓 Public | — | — | override | 2025-02-20 |
+| [`skills-introduction-to-github`](https://github.com/qselmer/skills-introduction-to-github) | 🔓 Public | My clone repository | — | name inference | 2025-09-21 |
+| [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | 🔓 Public | TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming. | TeX | override | 2025-02-21 |
+| [`training_code_Python`](https://github.com/qselmer/training_code_Python) | 🔓 Public | training R, python, julia, C++ | Jupyter Notebook | override | 2024-02-10 |
+
+### Templates (2)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`.template-fisheries-mse`](https://github.com/qselmer/.template-fisheries-mse) | 🔓 Public | — | Python | override | 2026-09-02 |
+| [`template_summaryPDF`](https://github.com/qselmer/template_summaryPDF) | 🔓 Public | — | R | override | 2023-04-11 |
+
+### Websites & infrastructure (3)
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`.hub`](https://github.com/qselmer/.hub) | 🔓 Public | Repo for materials of NOAA git & Github training webinar April 2020 | R | override | 2026-07-24 |
+| [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | override | 2026-09-05 |
+| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | override | 2026-09-05 |
+
+### Other / legacy (5)
+
+<sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>
+
+| Repository | Visibility | Description | Main language | Type basis | Updated |
+|---|---|---|---|---|---|
+| [`fisheries-research-workflows-book`](https://github.com/qselmer/fisheries-research-workflows-book) | 🔓 Public | Ecosistema digital para la ciencia pesquera y la ecología cuantitativa | SCSS | unclassified | 2026-07-24 |
+| [`prueba`](https://github.com/qselmer/prueba) | 🔓 Public | — | — | unclassified | 2026-07-24 |
+| [`r4fish`](https://github.com/qselmer/r4fish) | 🔓 Public | — | R | unclassified | 2023-02-21 |
+| [`TestPackage`](https://github.com/qselmer/TestPackage) | 🔓 Public | My R Package | R | unclassified | 2020-09-13 |
+| [`wk-esme`](https://github.com/qselmer/wk-esme) | 🔓 Public | — | — | unclassified | 2023-01-09 |
 <!-- PROJECTS:END -->
 
 ## How this profile is automated
