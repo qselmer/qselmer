@@ -29,16 +29,18 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
       - name: Refresh scholarly outputs, research metrics and repository portfolio
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_REPO_TOKEN: ${{ secrets.PROFILE_REPO_TOKEN }}
+          INCLUDE_PRIVATE_REPOS: "true"
           GITHUB_USER: qselmer
           ORCID_ID: 0000-0001-9229-6379
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}

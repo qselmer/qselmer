@@ -13,7 +13,7 @@ The profile automatically displays two repository cards:
 - **Primary Languages** — language composition across original public repositories.
 - **Repository Types** — counts based on the controlled `type-*` repository taxonomy.
 
-Forks, archived repositories and private repositories are excluded from these two public portfolio statistics. In addition, the README now renders a **complete public repository inventory**: every public repository owned by `qselmer` is shown, with active originals grouped by type and archived repositories/forks separated for cleanup. Private repository metadata is never exposed.
+Forks, archived repositories and private repositories are excluded from the two summary statistics. The README renders the public **original-repository portfolio**: active originals are grouped by type and archived originals are separated for cleanup. Forks and private repository metadata are not rendered.
 
 ### Research outputs
 
@@ -53,10 +53,10 @@ Canonical types are:
 - `type-package` → Packages
 - `type-protocol` → Protocols & manuals
 - `type-workflow` → Methods & workflows
-- `type-report` → Reports
 - `type-app` / `type-dashboard` → Apps & dashboards
 - `type-paper` → Papers
 - `type-training` → Courses & training
+- `type-template` → Templates
 - `type-infrastructure` → Websites & infrastructure
 
 `type-learning` remains only as a compatibility alias for `type-training`.
@@ -94,8 +94,12 @@ For PhD recruitment, pin repositories that demonstrate research independence and
 
 ### Repository hygiene
 
-The complete public repository inventory is intentionally exhaustive during cleanup. Use **Other / legacy**, **Archived repositories** and **Forks** as review queues. Archive or remove obsolete experiments, abandoned tests, duplicated forks and old coursework when they no longer represent the active portfolio. Archived repositories and forks remain visible in the cleanup inventory but are automatically excluded from language/type summary metrics.
+The public original-repository inventory is intentionally exhaustive during cleanup. Use **Other / legacy** and **Archived repositories** as review queues. Forks are deliberately excluded from the public portfolio. Archive or remove obsolete experiments, abandoned tests and old coursework when they no longer represent the active portfolio.
 
 ### Topics
 
 Migrate important active repositories to one canonical `type-*` topic. The override file is a compatibility bridge, not the long-term source of truth.
+
+## v5 audit decisions
+
+The profile now treats ORCID outputs and unpublished research as different objects: public scholarly outputs remain bibliographic records, while active manuscripts/projects are rendered as a compact status table. Repository inventory is original-only; forks are excluded. Private originals may be displayed with a lock when a read-only inventory token is configured, but their descriptive metadata is suppressed. Explicit manual `type-*` topics are the target state for every active repository.

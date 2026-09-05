@@ -7,7 +7,7 @@ The profile is refreshed by `.github/workflows/update-profile.yml` every Monday 
 - **ORCID** — canonical public scholarly-output list.
 - **Crossref** — DOI metadata enrichment when a DOI is registered there.
 - **OpenAlex** — citation count and h-index, matched strictly through the ORCID identifier.
-- **GitHub API** — complete public repository inventory, repository languages and controlled repository-type counts.
+- **GitHub API** — public original-repository inventory, repository languages and controlled repository-type counts.
 - **Google Scholar** — navigation link only; it is not scraped.
 
 ## Optional OpenAlex API key
@@ -44,12 +44,27 @@ assets/generated/github-stats.svg
 
 ## Repository inventory and types
 
-Every public repository owned by `qselmer` is written to `assets/data/repository-catalog.json` and rendered into the README. Active original repositories are grouped by canonical repository type. Archived original repositories and public forks are shown in separate cleanup sections. Private repositories are never written to the public catalog.
+Public original repositories owned by `qselmer` are written to `assets/data/repository-catalog.json` and rendered into the README. Active originals are grouped by canonical repository type and archived originals remain available as a cleanup section. Forks and private repositories are excluded from the public catalog.
 
-The **Primary Languages** and **Repository Types** cards remain PhD-facing summary metrics and therefore use only active original public repositories; forks and archived repositories are excluded from those two cards.
+The **Primary Languages** and **Repository Types** cards use only active original public repositories; archived repositories are excluded from those two cards.
 
 New repositories should have one canonical primary `type-*` topic. See `TOPICS.md`. Repositories without a defensible type remain visible under **Other / legacy** until they are reclassified, archived or removed.
 
 ## Research outputs
 
 Every public ORCID work is retained in `publications.json` and classified into one of eight output groups. By default, the README renders all public ORCID works. To limit the visible list later, set `MAX_RESEARCH_OUTPUTS` in the workflow to a positive integer.
+
+## Complete repository inventory and visibility
+
+The portfolio intentionally excludes forks. With `INCLUDE_PRIVATE_REPOS=true`, private originals are included only when the repository secret `PROFILE_REPO_TOKEN` is configured. Use a fine-grained personal access token owned by `qselmer`, with access to all repositories and read-only repository metadata/content sufficient for listing repositories and topics.
+
+- `🔓 Public` = public original repository.
+- `🔒 Private` = private original repository visible to the read token.
+- Private descriptions, language and update dates are suppressed in the public README.
+- Summary cards count only active public originals.
+
+If `PROFILE_REPO_TOKEN` is missing, the workflow falls back to public originals and prints a warning rather than failing.
+
+## Research outputs versus active manuscripts
+
+`Research outputs` is a bibliographic record generated from public ORCID Works. `Active manuscripts & research projects` is a manually controlled project-status table for work that is unpublished, submitted, in preparation or planned. A conference presentation can therefore be an ORCID output while a manuscript based on the same study remains active in the pipeline.

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-05T14:58:50.690937+00:00",
+  "updated_at": "2026-09-05T09:50:43.103764+00:00",
   "orcid": "0000-0001-9229-6379",
   "public_orcid_works": 5,
   "journal_articles": 1,
@@ -17,7 +17,7 @@
   "openalex": {
     "available": false,
     "source": "OpenAlex",
-    "error": "HTTP Error 404: Not Found"
+    "error": "Refresh pending; GitHub Actions will query the ORCID-matched OpenAlex author record."
   },
   "google_scholar_role": "profile-link-only"
 }

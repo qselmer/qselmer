@@ -9,7 +9,7 @@ The script intentionally uses only the Python standard library. It:
 5. writes canonical publication and research-metric JSON files;
 6. queries all public GitHub repositories owned by the user;
 7. computes language composition and repository-type counts;
-8. writes a complete public repository inventory for README tables;
+8. writes a public original-repository inventory for README tables (forks excluded);
 9. generates repository-owned SVG cards.
 
 README rendering is handled separately by scripts/render_profile.py so that
@@ -41,6 +41,8 @@ SVG_DIR = ROOT / "assets" / "generated"
 GITHUB_USER = os.getenv("GITHUB_USER", "qselmer")
 ORCID_ID = os.getenv("ORCID_ID", "0000-0001-9229-6379")
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+PROFILE_REPO_TOKEN = os.getenv("PROFILE_REPO_TOKEN", "")
+INCLUDE_PRIVATE_REPOS = os.getenv("INCLUDE_PRIVATE_REPOS", "false").strip().lower() in {"1", "true", "yes", "on"}
 OPENALEX_API_KEY = os.getenv("OPENALEX_API_KEY", "")
 CONTACT_EMAIL = os.getenv("CROSSREF_MAILTO", "qselmers@gmail.com")
 USER_AGENT = f"qselmer-academic-profile/3.0 (mailto:{CONTACT_EMAIL})"
@@ -49,10 +51,10 @@ VISIBLE_TYPE_ORDER = [
     "Packages",
     "Protocols & manuals",
     "Methods & workflows",
-    "Reports",
     "Apps & dashboards",
     "Papers",
     "Courses & training",
+    "Templates",
     "Websites & infrastructure",
     "Other / legacy",
 ]
@@ -71,7 +73,9 @@ OUTPUT_TYPE_ORDER = [
 NAME_FALLBACKS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"(?:^|[-_.])paper$", re.I), "type-paper"),
     (re.compile(r"(?:^|[-_.])(app|dashboard)$", re.I), "type-app"),
-    (re.compile(r"(?:^|[-_.])(report|assessment-report)$", re.I), "type-report"),
+    # Template is checked before workflow-like suffixes because names such as
+    # template-analysis describe a scaffold, not an analytical workflow.
+    (re.compile(r"(?:^|[-_.])template(?:[-_.]|$)|^\.template", re.I), "type-template"),
     (re.compile(r"(?:^|[-_.])(workflow|analysis|model|modelling|modeling)$", re.I), "type-workflow"),
     (
         re.compile(
@@ -80,7 +84,7 @@ NAME_FALLBACKS: list[tuple[re.Pattern[str], str]] = [
         ),
         "type-training",
     ),
-    (re.compile(r"(template|\.github\.io$|^qselmer$|^\.hub$|^\.template)", re.I), "type-infrastructure"),
+    (re.compile(r"(\.github\.io$|^qselmer$|^\.hub$)", re.I), "type-infrastructure"),
 ]
 
 
@@ -93,13 +97,14 @@ def request_json(url: str, headers: dict[str, str] | None = None) -> Any:
         return json.load(response)
 
 
-def github_json(path: str) -> Any:
+def github_json(path: str, token: str | None = None) -> Any:
     headers = {
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
     }
-    if GITHUB_TOKEN:
-        headers["Authorization"] = f"Bearer {GITHUB_TOKEN}"
+    auth_token = GITHUB_TOKEN if token is None else token
+    if auth_token:
+        headers["Authorization"] = f"Bearer {auth_token}"
     return request_json(f"https://api.github.com{path}", headers)
 
 
@@ -441,23 +446,46 @@ def write_research_metrics(publications: list[dict[str, Any]], openalex: dict[st
 
 
 def github_repositories() -> list[dict[str, Any]]:
-    """Return repositories visible on the public user endpoint.
+    """Return owned repositories for the profile inventory.
 
-    The public profile intentionally never publishes private-repository metadata.
+    When INCLUDE_PRIVATE_REPOS is enabled and PROFILE_REPO_TOKEN is available,
+    the authenticated /user/repos endpoint is used so private originals can be
+    inventoried. Otherwise the script falls back to the public user endpoint.
+    Forks are filtered later and never rendered in the portfolio.
     """
     repositories: list[dict[str, Any]] = []
     page = 1
-    while True:
-        batch = github_json(
-            f"/users/{GITHUB_USER}/repos?type=owner&sort=updated&per_page=100&page={page}"
+    include_private = INCLUDE_PRIVATE_REPOS and bool(PROFILE_REPO_TOKEN)
+    if INCLUDE_PRIVATE_REPOS and not PROFILE_REPO_TOKEN:
+        print(
+            "Warning: INCLUDE_PRIVATE_REPOS=true but PROFILE_REPO_TOKEN is not configured; "
+            "falling back to public repositories only.",
+            file=sys.stderr,
         )
+
+    while True:
+        if include_private:
+            path = (
+                f"/user/repos?affiliation=owner&visibility=all&sort=updated"
+                f"&per_page=100&page={page}"
+            )
+            batch = github_json(path, PROFILE_REPO_TOKEN)
+        else:
+            path = f"/users/{GITHUB_USER}/repos?type=owner&sort=updated&per_page=100&page={page}"
+            batch = github_json(path, GITHUB_TOKEN)
         if not batch:
             break
         repositories.extend(batch)
         if len(batch) < 100:
             break
         page += 1
-    return repositories
+
+    # Defensive owner filter for authenticated listings.
+    return [
+        repo for repo in repositories
+        if safe_text((repo.get("owner") or {}).get("login")).casefold() == GITHUB_USER.casefold()
+        or not repo.get("owner")
+    ]
 
 
 def original_public_repositories(repositories: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -539,21 +567,21 @@ def repository_classification(repo: dict[str, Any], config: dict[str, Any]) -> t
 
 
 def build_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, Any]:
-    """Build an exhaustive inventory of public repositories owned by the user.
+    """Build an inventory of original repositories visible to the configured token.
 
-    Unlike the summary cards, the inventory intentionally retains public forks and
-    archived repositories so they are visible during portfolio cleanup. Private
-    repository metadata is never written to the public profile.
+    Forks are excluded. Public and private originals are retained when the read
+    token can see them. Summary cards remain based on active public originals.
     """
     config = load_type_config()
     canonical_types = config.get("canonical_types") or {}
     items: list[dict[str, Any]] = []
 
     for repo in repositories:
-        if repo.get("private"):
+        if repo.get("fork"):
             continue
         repo_type, source = repository_classification(repo, config)
         label = canonical_types.get(repo_type, "Other / legacy")
+        private = bool(repo.get("private"))
         item = {
             "name": safe_text(repo.get("name")),
             "full_name": safe_text(repo.get("full_name")),
@@ -562,7 +590,9 @@ def build_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, An
             "language": safe_text(repo.get("language")) or "—",
             "updated_at": safe_text(repo.get("updated_at")),
             "archived": bool(repo.get("archived")),
-            "fork": bool(repo.get("fork")),
+            "private": private,
+            "visibility": "private" if private else "public",
+            "fork": False,
             "repository_type": repo_type or "",
             "repository_type_label": label,
             "classification_source": source,
@@ -570,23 +600,42 @@ def build_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, An
         }
         items.append(item)
 
-    items.sort(key=lambda x: (x.get("fork", False), x.get("archived", False), x.get("repository_type_label", ""), x.get("name", "").casefold()))
-    active_original = [x for x in items if not x["fork"] and not x["archived"]]
-    archived_original = [x for x in items if not x["fork"] and x["archived"]]
-    forks = [x for x in items if x["fork"]]
-    other_legacy = [x for x in active_original if x["repository_type_label"] == "Other / legacy"]
+    items.sort(
+        key=lambda x: (
+            x.get("archived", False),
+            x.get("repository_type_label", ""),
+            x.get("private", False),
+            x.get("name", "").casefold(),
+        )
+    )
+    active = [x for x in items if not x["archived"]]
+    archived = [x for x in items if x["archived"]]
+    public_items = [x for x in items if not x["private"]]
+    private_items = [x for x in items if x["private"]]
+    active_public = [x for x in active if not x["private"]]
+    active_private = [x for x in active if x["private"]]
+    other_legacy = [x for x in active if x["repository_type_label"] == "Other / legacy"]
+    manual_topic = [x for x in active if x["classification_source"] == "topic"]
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "owner": GITHUB_USER,
-        "scope": "all public repositories owned by the user; private repositories excluded",
+        "scope": (
+            "all original repositories visible to PROFILE_REPO_TOKEN; forks excluded"
+            if INCLUDE_PRIVATE_REPOS and PROFILE_REPO_TOKEN
+            else "public original repositories only; forks excluded"
+        ),
         "totals": {
-            "public_repositories": len(items),
-            "active_original_repositories": len(active_original),
-            "archived_original_repositories": len(archived_original),
-            "forks": len(forks),
+            "repositories": len(items),
+            "public_repositories": len(public_items),
+            "private_repositories": len(private_items),
+            "active_original_repositories": len(active),
+            "active_public_original_repositories": len(active_public),
+            "active_private_original_repositories": len(active_private),
+            "archived_original_repositories": len(archived),
             "other_or_legacy_active": len(other_legacy),
+            "manual_type_topics_active": len(manual_topic),
         },
         "repositories": items,
     }
@@ -781,7 +830,6 @@ def main() -> int:
             f"{totals.get('public_repositories', 0)} total | "
             f"{totals.get('active_original_repositories', 0)} active originals | "
             f"{totals.get('archived_original_repositories', 0)} archived | "
-            f"{totals.get('forks', 0)} forks | "
             f"{totals.get('other_or_legacy_active', 0)} other/legacy"
         )
     except Exception:

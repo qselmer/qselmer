@@ -42,6 +42,16 @@ class RepositoryClassificationTests(unittest.TestCase):
         repo = {"name": "advanced-mooc", "topics": []}
         self.assertEqual(update.infer_repo_type(repo, self.config), "type-training")
 
+    def test_name_fallback_detects_template(self):
+        repo = {"name": "template-analysis", "topics": []}
+        self.assertEqual(update.infer_repo_type(repo, self.config), "type-template")
+
+    def test_report_is_not_a_personal_repository_type(self):
+        repo = {"name": "annual-report", "topics": ["type-report"]}
+        repo_type, source = update.repository_classification(repo, self.config)
+        self.assertIsNone(repo_type)
+        self.assertEqual(source, "unclassified")
+
     def test_private_fork_archived_excluded(self):
         repos = [
             {"name": "a", "private": False, "fork": False, "archived": False},
@@ -92,6 +102,7 @@ class ResearchOutputTests(unittest.TestCase):
         }
         text = render.reference(pub, show_output_type=True)
         self.assertIn("Conference output", text)
+        self.assertIn("🏛️", text)
         self.assertIn("Quispe-Salazar", text)
 
 
@@ -124,19 +135,22 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
     def setUp(self):
         self.config = json.loads((ROOT / "assets/data/repository-types.json").read_text())
 
-    def test_catalog_retains_public_forks_and_archived_for_cleanup(self):
+    def test_catalog_excludes_forks_and_retains_public_private_originals(self):
         repos = [
             {"name": "active", "full_name": "qselmer/active", "private": False, "fork": False, "archived": False, "topics": []},
             {"name": "archived", "full_name": "qselmer/archived", "private": False, "fork": False, "archived": True, "topics": []},
             {"name": "forked", "full_name": "qselmer/forked", "private": False, "fork": True, "archived": False, "topics": []},
-            {"name": "secret", "full_name": "qselmer/secret", "private": True, "fork": False, "archived": False, "topics": []},
+            {"name": "secret", "full_name": "qselmer/secret", "private": True, "fork": False, "archived": False, "topics": ["type-workflow"]},
         ]
         catalog = update.build_repository_catalog(repos)
-        self.assertEqual(catalog["totals"]["public_repositories"], 3)
-        self.assertEqual(catalog["totals"]["active_original_repositories"], 1)
+        self.assertEqual(catalog["totals"]["repositories"], 3)
+        self.assertEqual(catalog["totals"]["public_repositories"], 2)
+        self.assertEqual(catalog["totals"]["private_repositories"], 1)
+        self.assertEqual(catalog["totals"]["active_original_repositories"], 2)
         self.assertEqual(catalog["totals"]["archived_original_repositories"], 1)
-        self.assertEqual(catalog["totals"]["forks"], 1)
-        self.assertNotIn("secret", [x["name"] for x in catalog["repositories"]])
+        names = [x["name"] for x in catalog["repositories"]]
+        self.assertNotIn("forked", names)
+        self.assertIn("secret", names)
 
     def test_multiple_type_topics_are_exposed_as_legacy(self):
         repo = {"name": "ambiguous", "topics": ["type-paper", "type-workflow"]}
@@ -144,21 +158,23 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
         self.assertIsNone(repo_type)
         self.assertEqual(source, "multiple-type-topics")
 
-    def test_render_inventory_groups_active_archived_and_forks(self):
+    def test_render_inventory_groups_visibility_and_archived_without_forks(self):
         original_load = render.load
         try:
             render.load = lambda path, default: {
                 "totals": {
-                    "public_repositories": 3,
-                    "active_original_repositories": 1,
+                    "repositories": 3,
+                    "public_repositories": 2,
+                    "private_repositories": 1,
+                    "active_original_repositories": 2,
                     "archived_original_repositories": 1,
-                    "forks": 1,
                     "other_or_legacy_active": 1,
+                    "manual_type_topics_active": 1,
                 },
                 "repositories": [
-                    {"name": "legacy", "html_url": "https://github.com/qselmer/legacy", "description": "x", "language": "R", "updated_at": "2026-01-01", "fork": False, "archived": False, "repository_type_label": "Other / legacy"},
-                    {"name": "old", "html_url": "https://github.com/qselmer/old", "description": "x", "language": "R", "updated_at": "2025-01-01", "fork": False, "archived": True, "repository_type_label": "Methods & workflows"},
-                    {"name": "fork", "html_url": "https://github.com/qselmer/fork", "description": "x", "language": "Python", "updated_at": "2024-01-01", "fork": True, "archived": False, "repository_type_label": "Other / legacy"},
+                    {"name": "legacy", "html_url": "https://github.com/qselmer/legacy", "description": "x", "language": "R", "updated_at": "2026-01-01", "private": False, "archived": False, "repository_type_label": "Other / legacy", "classification_source": "unclassified"},
+                    {"name": "secret", "html_url": "https://github.com/qselmer/secret", "description": "do not show", "language": "Python", "updated_at": "2026-01-02", "private": True, "archived": False, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
+                    {"name": "old", "html_url": "https://github.com/qselmer/old", "description": "x", "language": "R", "updated_at": "2025-01-01", "private": False, "archived": True, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
                 ],
             }
             text = render.render_projects()
@@ -166,8 +182,31 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
             render.load = original_load
         self.assertIn("Other / legacy (1)", text)
         self.assertIn("Archived repositories (1)", text)
-        self.assertIn("Forks (1)", text)
-        self.assertIn("3 public repositories", text)
+        self.assertIn("🔓 2 public", text)
+        self.assertIn("🔒 1 private", text)
+        self.assertIn("🔒 Private", text)
+        self.assertNotIn("do not show", text)
+        self.assertNotIn("Forks", text)
+
+    def test_pipeline_is_status_table_not_second_bibliography(self):
+        original_load = render.load
+        try:
+            render.load = lambda path, default: {
+                "items": [
+                    {
+                        "title": "Example manuscript",
+                        "status": "in_preparation",
+                        "url": "https://example.org/output",
+                        "link_label": "Conference presentation",
+                    }
+                ]
+            }
+            text = render.render_pipeline()
+        finally:
+            render.load = original_load
+        self.assertIn("Manuscript / project", text)
+        self.assertIn("In preparation", text)
+        self.assertNotIn("Quispe-Salazar", text)
 
 
 if __name__ == "__main__":

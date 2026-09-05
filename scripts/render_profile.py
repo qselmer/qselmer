@@ -25,14 +25,14 @@ MARKERS = {
 }
 STATUS = {
     "published": ("📄", "Published"),
-    "in_preparation": ("🔓", "Manuscript in preparation"),
-    "under_review": ("🔒", "Manuscript submitted for publication"),
-    "planned": ("💻", "Planned study"),
+    "in_preparation": ("", "In preparation"),
+    "under_review": ("", "Under review"),
+    "planned": ("", "Planned"),
 }
 OUTPUT_META = {
     "Journal articles": ("📄", "Journal article"),
     "Preprints & working papers": ("📝", "Preprint / working paper"),
-    "Conference outputs": ("🎤", "Conference output"),
+    "Conference outputs": ("🏛️", "Conference output"),
     "Books & chapters": ("📚", "Book / chapter"),
     "Theses": ("🎓", "Thesis"),
     "Reports & technical outputs": ("📋", "Report / technical output"),
@@ -44,10 +44,10 @@ VISIBLE_TYPE_ORDER = [
     "Packages",
     "Protocols & manuals",
     "Methods & workflows",
-    "Reports",
     "Apps & dashboards",
     "Papers",
     "Courses & training",
+    "Templates",
     "Websites & infrastructure",
     "Other / legacy",
 ]
@@ -157,10 +157,30 @@ def render_publications() -> str:
 
 
 def render_pipeline() -> str:
+    """Render unpublished work as a compact project-status table.
+
+    Research outputs are bibliographic records from ORCID. The pipeline is not a
+    second publication list: it tracks manuscripts and projects that are not yet
+    part of the canonical public scholarly record.
+    """
     items = load(PIPELINE, {}).get("items", [])
     order = {"under_review": 0, "in_preparation": 1, "planned": 2}
     items = sorted(items, key=lambda x: (order.get(x.get("status"), 9), x.get("title", "").lower()))
-    return "\n".join(reference(item) for item in items) or "_No pipeline items are currently listed._"
+    if not items:
+        return "_No active manuscripts or planned research projects are currently listed._"
+
+    lines = [
+        "| Manuscript / project | Status | Related public output or project page |",
+        "|---|---|---|",
+    ]
+    for item in items:
+        title = md_cell(item.get("title") or "Untitled project")
+        status = STATUS.get(str(item.get("status") or "planned"), ("", "Planned"))[1]
+        url = str(item.get("url") or "").strip()
+        label = md_cell(item.get("link_label") or "View")
+        related = f"[{label}]({url})" if url else "—"
+        lines.append(f"| {title} | {status} | {related} |")
+    return "\n".join(lines)
 
 
 def md_cell(value: Any) -> str:
@@ -173,20 +193,42 @@ def repo_date(value: Any) -> str:
     return text[:10] if len(text) >= 10 else "—"
 
 
+def visibility_label(repo: dict[str, Any]) -> str:
+    return "🔒 Private" if repo.get("private") else "🔓 Public"
+
+
+def classification_label(repo: dict[str, Any]) -> str:
+    source = str(repo.get("classification_source") or "unclassified")
+    labels = {
+        "topic": "type-* topic",
+        "legacy-topic": "legacy topic",
+        "override": "override",
+        "name-inference": "name inference",
+        "multiple-type-topics": "ambiguous",
+        "unclassified": "unclassified",
+    }
+    return labels.get(source, source)
+
+
 def repo_row(repo: dict[str, Any]) -> str:
     name = md_cell(repo.get("name") or "unnamed")
     url = str(repo.get("html_url") or "").strip()
     project = f"[`{name}`]({url})" if url else f"`{name}`"
-    description = md_cell(repo.get("description") or "—")
-    language = md_cell(repo.get("language") or "—")
-    updated = repo_date(repo.get("updated_at"))
-    return f"| {project} | {description} | {language} | {updated} |"
+    private = bool(repo.get("private"))
+    # Do not expose additional private-repository metadata on a public profile.
+    description = "Private repository" if private else md_cell(repo.get("description") or "—")
+    language = "—" if private else md_cell(repo.get("language") or "—")
+    updated = "—" if private else repo_date(repo.get("updated_at"))
+    return (
+        f"| {project} | {visibility_label(repo)} | {description} | {language} | "
+        f"{classification_label(repo)} | {updated} |"
+    )
 
 
 def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
     lines = [
-        "| Repository | Description | Main language | Updated |",
-        "|---|---|---|---|",
+        "| Repository | Visibility | Description | Main language | Type basis | Updated |",
+        "|---|---|---|---|---|---|",
     ]
     lines.extend(repo_row(repo) for repo in repositories)
     return lines
@@ -199,32 +241,35 @@ def render_projects() -> str:
     if not repositories:
         return "_Repository inventory will be populated on the next profile Action run._"
 
-    active = [repo for repo in repositories if not repo.get("fork") and not repo.get("archived")]
-    archived = [repo for repo in repositories if not repo.get("fork") and repo.get("archived")]
-    forks = [repo for repo in repositories if repo.get("fork")]
+    active = [repo for repo in repositories if not repo.get("archived")]
+    archived = [repo for repo in repositories if repo.get("archived")]
+    total = totals.get("repositories", len(repositories))
+    public_count = totals.get("public_repositories", sum(not x.get("private") for x in repositories))
+    private_count = totals.get("private_repositories", sum(bool(x.get("private")) for x in repositories))
+    manual_count = totals.get("manual_type_topics_active", sum(x.get("classification_source") == "topic" for x in active))
 
     lines = [
         (
-            f"**Inventory:** {totals.get('public_repositories', len(repositories))} public repositories · "
-            f"{totals.get('active_original_repositories', len(active))} active originals · "
-            f"{totals.get('archived_original_repositories', len(archived))} archived · "
-            f"{totals.get('forks', len(forks))} forks · "
+            f"**Inventory:** {total} original repositories · "
+            f"🔓 {public_count} public · 🔒 {private_count} private · "
+            f"{len(active)} active · {len(archived)} archived · "
             f"{totals.get('other_or_legacy_active', 0)} other/legacy."
         ),
+        f"**Manual taxonomy:** {manual_count}/{len(active)} active repositories currently use an explicit canonical `type-*` topic.",
         "",
     ]
 
     for label in VISIBLE_TYPE_ORDER:
         group = sorted(
             [repo for repo in active if repo.get("repository_type_label") == label],
-            key=lambda x: str(x.get("name") or "").casefold(),
+            key=lambda x: (bool(x.get("private")), str(x.get("name") or "").casefold()),
         )
         if not group:
             continue
         lines += [f"### {label} ({len(group)})", ""]
         if label == "Other / legacy":
             lines += [
-                "<sub>These active repositories do not yet have a single defensible canonical `type-*` classification. Review, reclassify, archive or remove them as appropriate.</sub>",
+                "<sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>",
                 "",
             ]
         lines += repository_table(group) + [""]
@@ -233,21 +278,13 @@ def render_projects() -> str:
         lines += [
             f"### Archived repositories ({len(archived)})",
             "",
-            "<sub>Archived repositories are shown for cleanup visibility but are excluded from language and repository-type summary cards.</sub>",
+            "<sub>Archived originals remain visible for audit purposes but are excluded from language and repository-type summary cards.</sub>",
             "",
         ]
         lines += repository_table(sorted(archived, key=lambda x: str(x.get("name") or "").casefold())) + [""]
 
-    if forks:
-        lines += [
-            f"### Forks ({len(forks)})",
-            "",
-            "<sub>Public forks are shown for cleanup visibility but are excluded from language and repository-type summary cards.</sub>",
-            "",
-        ]
-        lines += repository_table(sorted(forks, key=lambda x: str(x.get("name") or "").casefold())) + [""]
-
     return "\n".join(lines).rstrip()
+
 
 def main() -> None:
     text = README.read_text(encoding="utf-8")
