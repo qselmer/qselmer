@@ -92,17 +92,21 @@ class ResearchOutputTests(unittest.TestCase):
         pubs = [{"year": "2026"}, {"year": "2024"}, {"year": "2025"}]
         self.assertEqual(update.publishing_since(pubs), "2024")
 
-    def test_rendered_reference_displays_output_class(self):
-        pub = {
-            "type": "Conference Paper",
-            "output_category": "Conference outputs",
-            "title": "Example",
-            "year": "2026",
-            "authors": ["Elmer Quispe-Salazar"],
-        }
-        text = render.reference(pub, show_output_type=True)
-        self.assertIn("Conference output", text)
-        self.assertIn("🏛️", text)
+    def test_research_outputs_group_by_type_without_icons(self):
+        original_load = render.load
+        try:
+            render.load = lambda path, default: {
+                "publications": [
+                    {"type": "Conference Paper", "output_category": "Conference outputs", "title": "Conference work", "year": "2026", "authors": ["Elmer Quispe-Salazar"]},
+                    {"type": "Journal Article", "output_category": "Journal articles", "title": "Article", "year": "2025", "authors": ["Elmer Quispe-Salazar"]},
+                ]
+            }
+            text = render.render_publications()
+        finally:
+            render.load = original_load
+        self.assertLess(text.index("### Journal articles"), text.index("### Conference contributions"))
+        self.assertNotIn("🏛️", text)
+        self.assertNotIn("📄", text)
         self.assertIn("Quispe-Salazar", text)
 
 
@@ -182,31 +186,12 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
             render.load = original_load
         self.assertIn("Other / legacy (1)", text)
         self.assertIn("Archived repositories (1)", text)
-        self.assertIn("🔓 2 public", text)
-        self.assertIn("🔒 1 private", text)
         self.assertIn("🔒 Private", text)
         self.assertNotIn("do not show", text)
         self.assertNotIn("Forks", text)
-
-    def test_pipeline_is_status_table_not_second_bibliography(self):
-        original_load = render.load
-        try:
-            render.load = lambda path, default: {
-                "items": [
-                    {
-                        "title": "Example manuscript",
-                        "status": "in_preparation",
-                        "url": "https://example.org/output",
-                        "link_label": "Conference presentation",
-                    }
-                ]
-            }
-            text = render.render_pipeline()
-        finally:
-            render.load = original_load
-        self.assertIn("Manuscript / project", text)
-        self.assertIn("In preparation", text)
-        self.assertNotIn("Quispe-Salazar", text)
+        self.assertNotIn("Inventory:", text)
+        self.assertNotIn("Manual taxonomy:", text)
+        self.assertNotIn("Type basis", text)
 
 
 if __name__ == "__main__":

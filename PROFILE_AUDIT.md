@@ -68,7 +68,6 @@ Canonical types are:
 3. Scholarly productivity is separated from GitHub productivity.
 4. Output counts and bibliometric metrics explicitly state their data sources.
 5. Conference outputs, theses and non-journal products remain visible because they document research activity and are legitimate scholarly outputs.
-6. Unpublished manuscripts remain in the manually curated research pipeline and are not mixed into ORCID publication metrics.
 
 ## Automation
 
@@ -102,4 +101,4 @@ Migrate important active repositories to one canonical `type-*` topic. The overr
 
 ## v5 audit decisions
 
-The profile now treats ORCID outputs and unpublished research as different objects: public scholarly outputs remain bibliographic records, while active manuscripts/projects are rendered as a compact status table. Repository inventory is original-only; forks are excluded. Private originals may be displayed with a lock when a read-only inventory token is configured, but their descriptive metadata is suppressed. Explicit manual `type-*` topics are the target state for every active repository.
+The public profile treats ORCID as the canonical scholarly-output record and groups those outputs by type. Repository inventory is original-only; forks are excluded. Private originals may be displayed with a lock when a read-only inventory token is configured, but their descriptive metadata is suppressed. Explicit manual `type-*` topics are the target state for every active repository.

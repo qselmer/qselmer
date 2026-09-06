@@ -62,9 +62,9 @@ VISIBLE_TYPE_ORDER = [
 OUTPUT_TYPE_ORDER = [
     "Journal articles",
     "Preprints & working papers",
-    "Conference outputs",
     "Books & chapters",
     "Theses",
+    "Conference outputs",
     "Reports & technical outputs",
     "Data & software",
     "Other research outputs",

@@ -59,4 +59,4 @@ Archived originals may remain visible in the detailed cleanup inventory but are 
 
 For portfolio cleanup, assign exactly one canonical `type-*` topic manually to every active original repository. The explicit topic takes precedence over all legacy overrides and name inference. Additional domain topics such as `fisheries`, `anchovy`, `stock-assessment`, `r`, or `spatiotemporal` are secondary and do not replace the primary repository type.
 
-The portfolio exposes the **Type basis** for each row so repositories still relying on `override`, `name inference`, or `unclassified` can be normalized progressively.
+Classification provenance is retained in `assets/data/repository-catalog.json` for audit and cleanup, while the public README shows only the academic repository grouping.

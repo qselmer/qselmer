@@ -65,6 +65,3 @@ The portfolio intentionally excludes forks. With `INCLUDE_PRIVATE_REPOS=true`, p
 
 If `PROFILE_REPO_TOKEN` is missing, the workflow falls back to public originals and prints a warning rather than failing.
 
-## Research outputs versus active manuscripts
-
-`Research outputs` is a bibliographic record generated from public ORCID Works. `Active manuscripts & research projects` is a manually controlled project-status table for work that is unpublished, submitted, in preparation or planned. A conference presentation can therefore be an ORCID output while a manuscript based on the same study remains active in the pipeline.

@@ -13,7 +13,6 @@ ROOT = Path(__file__).resolve().parents[1]
 README = ROOT / "README.md"
 PUBS = ROOT / "assets/data/publications.json"
 REPOSITORY_CATALOG = ROOT / "assets/data/repository-catalog.json"
-PIPELINE = ROOT / "assets/data/research-pipeline.json"
 TOKEN = os.getenv("GITHUB_TOKEN", "")
 # 0 means show all public ORCID works in the profile.
 MAX_RESEARCH_OUTPUTS = int(os.getenv("MAX_RESEARCH_OUTPUTS", "0"))
@@ -21,7 +20,6 @@ MAX_RESEARCH_OUTPUTS = int(os.getenv("MAX_RESEARCH_OUTPUTS", "0"))
 MARKERS = {
     "publications": ("<!-- PUBLICATIONS:START -->", "<!-- PUBLICATIONS:END -->"),
     "projects": ("<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"),
-    "pipeline": ("<!-- PIPELINE:START -->", "<!-- PIPELINE:END -->"),
 }
 STATUS = {
     "published": ("📄", "Published"),
@@ -30,15 +28,17 @@ STATUS = {
     "planned": ("", "Planned"),
 }
 OUTPUT_META = {
-    "Journal articles": ("📄", "Journal article"),
-    "Preprints & working papers": ("📝", "Preprint / working paper"),
-    "Conference outputs": ("🏛️", "Conference output"),
-    "Books & chapters": ("📚", "Book / chapter"),
-    "Theses": ("🎓", "Thesis"),
-    "Reports & technical outputs": ("📋", "Report / technical output"),
-    "Data & software": ("💾", "Data / software"),
-    "Other research outputs": ("🔬", "Research output"),
+    "Journal articles": ("", "Journal articles"),
+    "Preprints & working papers": ("", "Preprints & working papers"),
+    "Books & chapters": ("", "Books & chapters"),
+    "Theses": ("", "Theses"),
+    "Conference outputs": ("", "Conference contributions"),
+    "Reports & technical outputs": ("", "Reports & technical outputs"),
+    "Data & software": ("", "Data & software"),
+    "Other research outputs": ("", "Other research outputs"),
 }
+
+OUTPUT_TYPE_ORDER = list(OUTPUT_META)
 
 VISIBLE_TYPE_ORDER = [
     "Packages",
@@ -130,10 +130,10 @@ def reference(pub: dict[str, Any], show_output_type: bool = False) -> str:
     date = f"({year})." if status == "published" else f"({date_text})."
     title = str(pub.get("title") or "Untitled work").strip()
 
-    prefix = f"- {status_icon}"
+    prefix = "-" if status == "published" else f"- {status_icon}".rstrip()
     if show_output_type and status == "published":
         icon, label = OUTPUT_META[output_category(pub)]
-        prefix = f"- {icon} **{label}** ·"
+        prefix = f"- {icon} **{label}** ·" if icon else f"- **{label}** ·"
 
     parts = [f"{prefix} {authors_apa(pub)} {date} {title}."]
     source = source_apa(pub)
@@ -146,41 +146,35 @@ def reference(pub: dict[str, Any], show_output_type: bool = False) -> str:
     return " ".join(parts)
 
 
+def _year_value(pub: dict[str, Any]) -> int:
+    try:
+        return int(pub.get("year") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
 def render_publications() -> str:
     pubs = load(PUBS, {}).get("publications", [])
     if MAX_RESEARCH_OUTPUTS > 0:
         pubs = pubs[:MAX_RESEARCH_OUTPUTS]
-    return "\n".join(
-        reference({**pub, "status": "published"}, show_output_type=True)
-        for pub in pubs
-    ) or "_ORCID research-output metadata is temporarily unavailable._"
+    if not pubs:
+        return "_ORCID research-output metadata is temporarily unavailable._"
 
+    grouped: dict[str, list[dict[str, Any]]] = {label: [] for label in OUTPUT_TYPE_ORDER}
+    for pub in pubs:
+        grouped[output_category(pub)].append(pub)
 
-def render_pipeline() -> str:
-    """Render unpublished work as a compact project-status table.
-
-    Research outputs are bibliographic records from ORCID. The pipeline is not a
-    second publication list: it tracks manuscripts and projects that are not yet
-    part of the canonical public scholarly record.
-    """
-    items = load(PIPELINE, {}).get("items", [])
-    order = {"under_review": 0, "in_preparation": 1, "planned": 2}
-    items = sorted(items, key=lambda x: (order.get(x.get("status"), 9), x.get("title", "").lower()))
-    if not items:
-        return "_No active manuscripts or planned research projects are currently listed._"
-
-    lines = [
-        "| Manuscript / project | Status | Related public output or project page |",
-        "|---|---|---|",
-    ]
-    for item in items:
-        title = md_cell(item.get("title") or "Untitled project")
-        status = STATUS.get(str(item.get("status") or "planned"), ("", "Planned"))[1]
-        url = str(item.get("url") or "").strip()
-        label = md_cell(item.get("link_label") or "View")
-        related = f"[{label}]({url})" if url else "—"
-        lines.append(f"| {title} | {status} | {related} |")
-    return "\n".join(lines)
+    lines: list[str] = []
+    for category in OUTPUT_TYPE_ORDER:
+        items = grouped.get(category) or []
+        if not items:
+            continue
+        _, heading = OUTPUT_META[category]
+        lines += [f"### {heading}", ""]
+        for pub in sorted(items, key=lambda x: (-_year_value(x), str(x.get("title") or "").casefold())):
+            lines.append(reference({**pub, "status": "published"}, show_output_type=False))
+        lines.append("")
+    return "\n".join(lines).rstrip()
 
 
 def md_cell(value: Any) -> str:
@@ -219,16 +213,13 @@ def repo_row(repo: dict[str, Any]) -> str:
     description = "Private repository" if private else md_cell(repo.get("description") or "—")
     language = "—" if private else md_cell(repo.get("language") or "—")
     updated = "—" if private else repo_date(repo.get("updated_at"))
-    return (
-        f"| {project} | {visibility_label(repo)} | {description} | {language} | "
-        f"{classification_label(repo)} | {updated} |"
-    )
+    return f"| {project} | {visibility_label(repo)} | {description} | {language} | {updated} |"
 
 
 def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
     lines = [
-        "| Repository | Visibility | Description | Main language | Type basis | Updated |",
-        "|---|---|---|---|---|---|",
+        "| Repository | Visibility | Description | Main language | Updated |",
+        "|---|---|---|---|---|",
     ]
     lines.extend(repo_row(repo) for repo in repositories)
     return lines
@@ -243,21 +234,7 @@ def render_projects() -> str:
 
     active = [repo for repo in repositories if not repo.get("archived")]
     archived = [repo for repo in repositories if repo.get("archived")]
-    total = totals.get("repositories", len(repositories))
-    public_count = totals.get("public_repositories", sum(not x.get("private") for x in repositories))
-    private_count = totals.get("private_repositories", sum(bool(x.get("private")) for x in repositories))
-    manual_count = totals.get("manual_type_topics_active", sum(x.get("classification_source") == "topic" for x in active))
-
-    lines = [
-        (
-            f"**Inventory:** {total} original repositories · "
-            f"🔓 {public_count} public · 🔒 {private_count} private · "
-            f"{len(active)} active · {len(archived)} archived · "
-            f"{totals.get('other_or_legacy_active', 0)} other/legacy."
-        ),
-        f"**Manual taxonomy:** {manual_count}/{len(active)} active repositories currently use an explicit canonical `type-*` topic.",
-        "",
-    ]
+    lines: list[str] = []
 
     for label in VISIBLE_TYPE_ORDER:
         group = sorted(
@@ -290,7 +267,6 @@ def main() -> None:
     text = README.read_text(encoding="utf-8")
     text = replace(text, "projects", render_projects())
     text = replace(text, "publications", render_publications())
-    text = replace(text, "pipeline", render_pipeline())
     README.write_text(text, encoding="utf-8")
 
 
