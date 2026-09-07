@@ -14,7 +14,6 @@
 </p>
 
 <p align="center">
-  <a href="https://qselmer.github.io"><img src="https://img.shields.io/badge/Academic_Website-0A66C2?style=flat&logo=googlechrome&logoColor=white" alt="Academic website"></a>
   <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
   <a href="https://www.researchgate.net/profile/Elmer-Quispe-Salazar"><img src="https://img.shields.io/badge/ResearchGate-00CCBB?style=flat&logo=researchgate&logoColor=white" alt="ResearchGate"></a>
   <a href="https://orcid.org/0000-0001-9229-6379"><img src="https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white" alt="ORCID"></a>
@@ -45,16 +44,16 @@
   <img src="assets/generated/research-metrics.svg" width="410" alt="Research metrics from ORCID and OpenAlex">
 </p>
 
-<sub>This card summarizes the public scholarly record. ORCID is the canonical source for research outputs; DOI records are enriched with Crossref metadata. Citation count and h-index are refreshed from the ORCID-matched OpenAlex author record. Google Scholar remains linked above for profile discovery and citation browsing, but is not scraped by the automation.</sub>
+<sub>This card summarizes the public scholarly record. ORCID is the canonical source for research outputs; DOI records are enriched with Crossref metadata. Citation count, h-index and i10-index are refreshed from OpenAlex, resolving the author first by ORCID and, when needed, through exact DOI-authorship links from the ORCID record. Google Scholar remains linked above for profile discovery and citation browsing, but is not scraped by the automation.</sub>
 
 ## Research outputs
 
-Public scholarly outputs are retrieved from ORCID, grouped by output type, and ordered by year within each category. DOI records are enriched with Crossref metadata when available.
+Public scholarly outputs are retrieved from ORCID, grouped by output type, and ordered by year within each category. The summary card emphasizes established output classes; preprints are not used as a headline count. Uncommon ORCID types, if present, are shown by their specific source type rather than under a generic “Other” category. DOI records are enriched with Crossref metadata when available.
 
 <!-- PUBLICATIONS:START -->
 ### Journal articles
 
-- **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina, 89*(4), e117. [View output](https://doi.org/10.3989/scimar.05636.117)
+- **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina*. [View output](https://doi.org/10.3989/scimar.05636.117)
 
 ### Theses
 
@@ -74,78 +73,7 @@ Public scholarly outputs are retrieved from ORCID, grouped by output type, and o
 Original research repositories are organized by their primary scientific or computational function. Forks are excluded. Repository visibility is shown explicitly as **Public** or **Private**; private descriptions, languages and update dates are suppressed in the public profile. Summary cards above are calculated only from active public original repositories.
 
 <!-- PROJECTS:START -->
-### Packages (5)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`fish-byte`](https://github.com/qselmer/fish-byte) | 🔓 Public | HTML, CSS y JavaScript. | CSS | 2025-03-05 |
-| [`FisheryClose`](https://github.com/qselmer/FisheryClose) | 🔓 Public | — | R | 2025-04-28 |
-| [`oceancube`](https://github.com/qselmer/oceancube) | 🔓 Public | — | R | 2026-08-20 |
-| [`postHub`](https://github.com/qselmer/postHub) | 🔓 Public | — | R | 2025-05-03 |
-| [`seasignals`](https://github.com/qselmer/seasignals) | 🔓 Public | — | R | 2026-02-06 |
-
-### Apps & dashboards (5)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`humboldt-ocean-watch`](https://github.com/qselmer/humboldt-ocean-watch) | 🔓 Public | AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region. | Python | 2026-08-03 |
-| [`pelagicPER-observatory-app`](https://github.com/qselmer/pelagicPER-observatory-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-outlook-app`](https://github.com/qselmer/pelagicPER-outlook-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-benchmark-app`](https://github.com/qselmer/pelagicPER-season-benchmark-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-monitor-app`](https://github.com/qselmer/pelagicPER-season-monitor-app) | 🔒 Private | Private repository | — | — |
-
-### Papers (4)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`pelagicPER-availability-risk-paper`](https://github.com/qselmer/pelagicPER-availability-risk-paper) | 🔓 Public | — | — | 2026-08-07 |
-| [`fishcore-paper`](https://github.com/qselmer/fishcore-paper) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-fishery-reorganization-paper`](https://github.com/qselmer/pelagicPER-fishery-reorganization-paper) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-benchmark-paper`](https://github.com/qselmer/pelagicPER-season-benchmark-paper) | 🔒 Private | Private repository | — | — |
-
-### Courses & training (5)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`ctd-C-plus-plus`](https://github.com/qselmer/ctd-C-plus-plus) | 🔓 Public | — | — | 2023-01-06 |
-| [`R-LabCore`](https://github.com/qselmer/R-LabCore) | 🔓 Public | — | — | 2025-02-20 |
-| [`skills-introduction-to-github`](https://github.com/qselmer/skills-introduction-to-github) | 🔓 Public | My clone repository | — | 2025-09-21 |
-| [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | 🔓 Public | TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming. | TeX | 2025-02-21 |
-| [`training_code_Python`](https://github.com/qselmer/training_code_Python) | 🔓 Public | training R, python, julia, C++ | Jupyter Notebook | 2024-02-10 |
-
-### Templates (2)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`.template-fisheries-mse`](https://github.com/qselmer/.template-fisheries-mse) | 🔓 Public | — | Python | 2026-09-02 |
-| [`template_summaryPDF`](https://github.com/qselmer/template_summaryPDF) | 🔓 Public | — | R | 2023-04-11 |
-
-### Websites & infrastructure (3)
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`.hub`](https://github.com/qselmer/.hub) | 🔓 Public | Repo for materials of NOAA git & Github training webinar April 2020 | R | 2026-07-24 |
-| [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | 2026-09-06 |
-| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | 2026-09-06 |
-
-### Other / legacy (12)
-
-<sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>
-
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`fisheries-research-workflows-book`](https://github.com/qselmer/fisheries-research-workflows-book) | 🔓 Public | Ecosistema digital para la ciencia pesquera y la ecología cuantitativa | SCSS | 2026-07-24 |
-| [`prueba`](https://github.com/qselmer/prueba) | 🔓 Public | — | — | 2026-07-24 |
-| [`r4fish`](https://github.com/qselmer/r4fish) | 🔓 Public | — | R | 2023-02-21 |
-| [`TestPackage`](https://github.com/qselmer/TestPackage) | 🔓 Public | My R Package | R | 2020-09-13 |
-| [`wk-esme`](https://github.com/qselmer/wk-esme) | 🔓 Public | — | — | 2023-01-09 |
-| [`anc_nc_sa`](https://github.com/qselmer/anc_nc_sa) | 🔒 Private | Private repository | — | — |
-| [`anchNC_get_spawning_biomass`](https://github.com/qselmer/anchNC_get_spawning_biomass) | 🔒 Private | Private repository | — | — |
-| [`crs_SMiME`](https://github.com/qselmer/crs_SMiME) | 🔒 Private | Private repository | — | — |
-| [`fishcore`](https://github.com/qselmer/fishcore) | 🔒 Private | Private repository | — | — |
-| [`fishqc`](https://github.com/qselmer/fishqc) | 🔒 Private | Private repository | — | — |
-| [`h4s`](https://github.com/qselmer/h4s) | 🔒 Private | Private repository | — | — |
-| [`PSSF`](https://github.com/qselmer/PSSF) | 🔒 Private | Private repository | — | — |
+_Repository inventory will be populated on the next profile Action run._
 <!-- PROJECTS:END -->
 
 ## How this profile is automated
@@ -153,7 +81,7 @@ Original research repositories are organized by their primary scientific or comp
 A scheduled GitHub Actions workflow maintains the profile each week and can also be executed manually:
 
 1. **Research outputs:** ORCID provides the canonical public scholarly record. Every public work is retained, classified by output type and rendered in the profile; DOI records are enriched through Crossref when available.
-2. **Research metrics:** OpenAlex is matched strictly through the ORCID identifier and supplies citation count and h-index; the profile never relies on name-only author matching. Google Scholar is kept as a navigation link rather than an automated data source.
+2. **Research metrics:** OpenAlex supplies citation count, h-index and i10-index. Identity is resolved first by ORCID; if OpenAlex has not yet attached the ORCID to its author entity, the workflow falls back to authorship on exact DOI works already registered in ORCID, never to a global name-only search. Google Scholar is kept as a navigation link rather than an automated data source.
 3. **Repository inventory:** the GitHub API inventories original repositories owned by `qselmer`; forks are excluded. When `PROFILE_REPO_TOKEN` is configured, private originals are also included and marked with 🔒 while sensitive private metadata is suppressed.
 4. **Repository taxonomy:** an explicit canonical `type-*` topic is authoritative. Legacy overrides and conservative name inference remain only as temporary cleanup aids; ambiguous repositories are sent to `Other / legacy`.
 5. **Repository summary cards:** language composition and repository-type counts use only active original public repositories; private and archived repositories are excluded from the summary metrics.

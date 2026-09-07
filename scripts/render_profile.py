@@ -160,17 +160,33 @@ def render_publications() -> str:
         return "_ORCID research-output metadata is temporarily unavailable._"
 
     grouped: dict[str, list[dict[str, Any]]] = {label: [] for label in OUTPUT_TYPE_ORDER}
+    specific_other: dict[str, list[dict[str, Any]]] = {}
     for pub in pubs:
-        grouped[output_category(pub)].append(pub)
+        category = output_category(pub)
+        if category == "Other research outputs":
+            specific = str(pub.get("type") or "Scholarly output").strip() or "Scholarly output"
+            specific_other.setdefault(specific, []).append(pub)
+        else:
+            grouped[category].append(pub)
 
     lines: list[str] = []
     for category in OUTPUT_TYPE_ORDER:
+        if category == "Other research outputs":
+            continue
         items = grouped.get(category) or []
         if not items:
             continue
         _, heading = OUTPUT_META[category]
         lines += [f"### {heading}", ""]
         for pub in sorted(items, key=lambda x: (-_year_value(x), str(x.get("title") or "").casefold())):
+            lines.append(reference({**pub, "status": "published"}, show_output_type=False))
+        lines.append("")
+
+    # Never expose a vague "Other research outputs" heading. If ORCID contains
+    # an uncommon type, use that exact source type as the section heading.
+    for specific in sorted(specific_other, key=str.casefold):
+        lines += [f"### {specific}", ""]
+        for pub in sorted(specific_other[specific], key=lambda x: (-_year_value(x), str(x.get("title") or "").casefold())):
             lines.append(reference({**pub, "status": "published"}, show_output_type=False))
         lines.append("")
     return "\n".join(lines).rstrip()

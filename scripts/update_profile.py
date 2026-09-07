@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -68,6 +69,29 @@ OUTPUT_TYPE_ORDER = [
     "Data & software",
     "Other research outputs",
 ]
+
+# Compact, established output classes shown in the profile summary card.
+# Preprints remain in the ORCID data and detailed list when present, but are
+# deliberately excluded from the headline count card. Unknown ORCID types are
+# retained in JSON and rendered by their specific source type rather than as a
+# generic "Other research outputs" row.
+SUMMARY_OUTPUT_TYPE_ORDER = [
+    "Journal articles",
+    "Books & chapters",
+    "Theses",
+    "Conference outputs",
+    "Reports & technical outputs",
+    "Data & software",
+]
+
+SUMMARY_OUTPUT_LABELS = {
+    "Journal articles": "Journal articles",
+    "Books & chapters": "Books & chapters",
+    "Theses": "Theses",
+    "Conference outputs": "Conference contributions",
+    "Reports & technical outputs": "Reports & technical outputs",
+    "Data & software": "Data & software",
+}
 
 NAME_FALLBACKS: list[tuple[re.Pattern[str], str]] = [
     (re.compile(r"(?:^|[-_.])paper$", re.I), "type-paper"),
@@ -360,58 +384,124 @@ def _matching_openalex_author(payload: Any) -> dict[str, Any]:
     for candidate in candidates:
         if not isinstance(candidate, dict):
             continue
-        candidate_orcid = safe_text(candidate.get("orcid")).casefold()
+        candidate_orcid = safe_text(candidate.get("orcid") or (candidate.get("ids") or {}).get("orcid")).casefold()
         if wanted and wanted in candidate_orcid:
             return candidate
-    if len(candidates) == 1 and isinstance(candidates[0], dict):
-        return candidates[0]
     return {}
 
 
-def openalex_author_metrics() -> dict[str, Any]:
-    """Retrieve bibliometric metrics from OpenAlex, keyed strictly by ORCID.
-
-    Several lookup forms are tried because OpenAlex supports both external-ID
-    lookup and filtered author queries. A name-only match is deliberately not
-    used for metrics to avoid author-identity errors.
-    """
-    orcid_url = f"https://orcid.org/{ORCID_ID}"
-    encoded_orcid_url = urllib.parse.quote(orcid_url, safe="")
-    base_params = {"mailto": CONTACT_EMAIL}
+def _openalex_params(**extra: Any) -> str:
+    params: dict[str, Any] = {"mailto": CONTACT_EMAIL, **extra}
     if OPENALEX_API_KEY:
-        base_params["api_key"] = OPENALEX_API_KEY
-    direct_query = urllib.parse.urlencode(base_params)
-    filter_plain = urllib.parse.urlencode({**base_params, "filter": f"orcid:{ORCID_ID}", "per_page": 5})
-    filter_url = urllib.parse.urlencode({**base_params, "filter": f"orcid:{orcid_url}", "per_page": 5})
-    urls = [
-        f"https://api.openalex.org/authors/{encoded_orcid_url}?{direct_query}",
-        f"https://api.openalex.org/authors?{filter_plain}",
-        f"https://api.openalex.org/authors?{filter_url}",
-    ]
+        params["api_key"] = OPENALEX_API_KEY
+    return urllib.parse.urlencode(params)
 
-    author: dict[str, Any] = {}
+
+def _normalise_person_name(value: str) -> str:
+    value = unicodedata.normalize("NFKD", value)
+    value = "".join(ch for ch in value if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", value.casefold()).strip()
+
+
+def _is_target_author_name(value: str) -> bool:
+    tokens = set(_normalise_person_name(value).split())
+    return {"elmer", "quispe", "salazar"}.issubset(tokens)
+
+
+def _openalex_author_from_orcid() -> tuple[dict[str, Any], str]:
+    """Resolve the author using OpenAlex's documented ORCID routes."""
+    urls = [
+        f"https://api.openalex.org/authors/orcid:{ORCID_ID}?{_openalex_params()}",
+        f"https://api.openalex.org/authors?{_openalex_params(filter=f'orcid:{ORCID_ID}', per_page=5)}",
+        f"https://api.openalex.org/authors?{_openalex_params(filter=f'orcid:https://orcid.org/{ORCID_ID}', per_page=5)}",
+    ]
     last_error = ""
     for url in urls:
         try:
-            candidate = _matching_openalex_author(request_json(url))
+            payload = request_json(url)
         except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as exc:
             last_error = str(exc)
             continue
+        candidate = _matching_openalex_author(payload)
         if candidate:
-            author = candidate
-            break
+            return candidate, "orcid"
+    return {}, last_error
+
+
+def _openalex_author_from_doi(publications: list[dict[str, Any]]) -> tuple[dict[str, Any], str]:
+    """Resolve the author's OpenAlex ID from exact ORCID-listed DOI works.
+
+    This is not a global name search. It first resolves a DOI already present in
+    the user's ORCID record, then selects the matching authorship on that exact
+    work. This provides a conservative fallback when OpenAlex has indexed the
+    work but has not yet attached the ORCID identifier to the author entity.
+    """
+    author_ids: list[str] = []
+    last_error = ""
+    for publication in publications:
+        doi = normalise_doi(safe_text(publication.get("doi")))
+        if not doi:
+            continue
+        try:
+            payload = request_json(
+                f"https://api.openalex.org/works?{_openalex_params(filter=f'doi:{doi}', per_page=5)}"
+            )
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as exc:
+            last_error = str(exc)
+            continue
+        results = payload.get("results") if isinstance(payload, dict) else []
+        for work in results or []:
+            for authorship in work.get("authorships") or []:
+                author = authorship.get("author") or {}
+                if _is_target_author_name(safe_text(author.get("display_name"))):
+                    author_id = safe_text(author.get("id"))
+                    if author_id:
+                        author_ids.append(author_id.rsplit("/", 1)[-1])
+
+    unique_ids = list(dict.fromkeys(author_ids))
+    if len(unique_ids) != 1:
+        if len(unique_ids) > 1:
+            return {}, "DOI-based OpenAlex resolution returned multiple author IDs."
+        return {}, last_error or "No OpenAlex authorship was found for the ORCID-listed DOI works."
+
+    try:
+        author = request_json(
+            f"https://api.openalex.org/authors/{unique_ids[0]}?{_openalex_params()}"
+        )
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, ValueError) as exc:
+        return {}, str(exc)
+    return author if isinstance(author, dict) else {}, "doi-authorship"
+
+
+def openalex_author_metrics(publications: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Retrieve OpenAlex bibliometrics with conservative identity resolution.
+
+    Resolution order:\n1. exact ORCID route/filter;\n2. exact DOI work(s) from the user's ORCID record + matching authorship.\n
+    The DOI fallback is intentionally narrower than a global name search and is
+    used only when OpenAlex has not yet propagated the ORCID to its author entity.
+    """
+    publications = publications or []
+    author, resolution = _openalex_author_from_orcid()
+    error = "" if author else resolution
+    if not author:
+        author, fallback = _openalex_author_from_doi(publications)
+        if author:
+            resolution = fallback
+        elif fallback:
+            error = fallback if not error else f"{error}; {fallback}"
 
     if not author:
         return {
             "available": False,
             "source": "OpenAlex",
-            "error": last_error or "No ORCID-matched OpenAlex author record was found.",
+            "error": error or "No OpenAlex author record could be resolved from ORCID or ORCID-listed DOI works.",
         }
 
     summary = author.get("summary_stats") or {}
     return {
         "available": True,
         "source": "OpenAlex",
+        "resolution": resolution,
         "author_id": safe_text(author.get("id")),
         "display_name": safe_text(author.get("display_name")),
         "works_count": author.get("works_count"),
@@ -419,7 +509,6 @@ def openalex_author_metrics() -> dict[str, Any]:
         "h_index": summary.get("h_index"),
         "i10_index": summary.get("i10_index"),
     }
-
 
 def research_metrics_payload(publications: list[dict[str, Any]], openalex: dict[str, Any]) -> dict[str, Any]:
     counts = output_type_counts(publications)
@@ -708,7 +797,10 @@ def format_metric(value: Any) -> str:
 
 def generate_research_cards(publications: list[dict[str, Any]], metrics: dict[str, Any]) -> None:
     counts = output_type_counts(publications)
-    output_rows = [(label, str(counts.get(label, 0))) for label in OUTPUT_TYPE_ORDER]
+    output_rows = [
+        (SUMMARY_OUTPUT_LABELS[label], str(counts.get(label, 0)))
+        for label in SUMMARY_OUTPUT_TYPE_ORDER
+    ]
 
     openalex = metrics.get("openalex") or {}
     metric_rows = [
@@ -716,17 +808,19 @@ def generate_research_cards(publications: list[dict[str, Any]], metrics: dict[st
         ("Journal articles", format_metric(metrics.get("journal_articles"))),
         ("Citations (OpenAlex)", format_metric(openalex.get("cited_by_count"))),
         ("h-index (OpenAlex)", format_metric(openalex.get("h_index"))),
+        ("i10-index (OpenAlex)", format_metric(openalex.get("i10_index"))),
         ("Publishing since", str(metrics.get("publishing_since") or "—")),
     ]
 
     SVG_DIR.mkdir(parents=True, exist_ok=True)
+    # Both cards intentionally use six rows and their natural computed height,
+    # avoiding the visually empty row/space created by a larger fixed min-height.
     (SVG_DIR / "research-outputs.svg").write_text(
-        card_svg("Research Outputs", output_rows, min_height=333), encoding="utf-8"
+        card_svg("Research Outputs", output_rows), encoding="utf-8"
     )
     (SVG_DIR / "research-metrics.svg").write_text(
-        card_svg("Research Metrics", metric_rows, min_height=333), encoding="utf-8"
+        card_svg("Research Metrics", metric_rows), encoding="utf-8"
     )
-
 
 def generate_github_cards() -> None:
     user = github_json(f"/users/{GITHUB_USER}")
@@ -763,10 +857,10 @@ def generate_github_cards() -> None:
 
     SVG_DIR.mkdir(parents=True, exist_ok=True)
     (SVG_DIR / "top-languages.svg").write_text(
-        card_svg("Primary Languages", language_rows, min_height=333), encoding="utf-8"
+        card_svg("Primary Languages", language_rows), encoding="utf-8"
     )
     (SVG_DIR / "repository-types.svg").write_text(
-        card_svg("Repository Types", type_rows, min_height=333), encoding="utf-8"
+        card_svg("Repository Types", type_rows), encoding="utf-8"
     )
     # Retained as a generated compatibility asset, but not shown in the README.
     (SVG_DIR / "github-stats.svg").write_text(
@@ -807,7 +901,7 @@ def main() -> int:
 
     previous_metrics = existing_metrics()
     try:
-        openalex = openalex_author_metrics()
+        openalex = openalex_author_metrics(publications)
     except Exception as exc:
         print(f"Warning: OpenAlex metrics could not be refreshed: {exc}", file=sys.stderr)
         openalex = {"available": False, "source": "OpenAlex", "error": str(exc)}

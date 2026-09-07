@@ -14,7 +14,7 @@
 - Added **Research Outputs** and **Research Metrics** SVG cards.
 - ORCID now retains and renders **all public scholarly works**, not only journal articles.
 - Added automatic scholarly-output classification into eight stable groups.
-- Added OpenAlex citation count and h-index, matched strictly by ORCID.
+- Added OpenAlex citation count, h-index and i10-index, matched strictly by ORCID.
 - Kept Google Scholar as a visible profile link, not an automated scraping dependency.
 - Added `assets/data/research-metrics.json`.
 - Renamed `type-learning` to canonical `type-training` → **Courses & training**.

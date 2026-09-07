@@ -97,6 +97,41 @@ class ResearchOutputTests(unittest.TestCase):
         pubs = [{"year": "2026"}, {"year": "2024"}, {"year": "2025"}]
         self.assertEqual(update.publishing_since(pubs), "2024")
 
+    def test_summary_output_card_uses_six_specific_classes(self):
+        self.assertEqual(
+            update.SUMMARY_OUTPUT_TYPE_ORDER,
+            [
+                "Journal articles",
+                "Books & chapters",
+                "Theses",
+                "Conference outputs",
+                "Reports & technical outputs",
+                "Data & software",
+            ],
+        )
+        self.assertNotIn("Preprints & working papers", update.SUMMARY_OUTPUT_TYPE_ORDER)
+        self.assertNotIn("Other research outputs", update.SUMMARY_OUTPUT_TYPE_ORDER)
+
+    def test_unknown_output_renders_specific_source_type(self):
+        original_load = render.load
+        try:
+            render.load = lambda path, default: {
+                "publications": [
+                    {
+                        "type": "Research Technique",
+                        "output_category": "Other research outputs",
+                        "title": "Specific work",
+                        "year": "2026",
+                        "authors": ["Elmer Quispe-Salazar"],
+                    }
+                ]
+            }
+            text = render.render_publications()
+        finally:
+            render.load = original_load
+        self.assertIn("### Research Technique", text)
+        self.assertNotIn("### Other research outputs", text)
+
     def test_research_outputs_group_by_type_without_icons(self):
         original_load = render.load
         try:
@@ -126,6 +161,45 @@ class ResearchMetricTests(unittest.TestCase):
         match = update._matching_openalex_author(payload)
         self.assertEqual(match["id"], "A2")
 
+
+    def test_openalex_doi_fallback_uses_exact_orcid_work_authorship(self):
+        original_request = update.request_json
+        try:
+            def fake_request(url, headers=None):
+                if "/authors/A123" in url:
+                    return {
+                        "id": "https://openalex.org/A123",
+                        "display_name": "Elmer Quispe-Salazar",
+                        "works_count": 2,
+                        "cited_by_count": 7,
+                        "summary_stats": {"h_index": 2, "i10_index": 0},
+                    }
+                if "/authors/orcid:" in url or "/authors?" in url:
+                    return {"results": []}
+                if "/works?" in url:
+                    return {
+                        "results": [
+                            {
+                                "authorships": [
+                                    {"author": {"id": "https://openalex.org/A123", "display_name": "Elmer Quispe-Salazar"}},
+                                    {"author": {"id": "https://openalex.org/A999", "display_name": "Someone Else"}},
+                                ]
+                            }
+                        ]
+                    }
+                raise AssertionError(url)
+            update.request_json = fake_request
+            metrics = update.openalex_author_metrics([{
+                "doi": "10.3989/scimar.05636.117",
+                "title": "Exact ORCID work",
+            }])
+        finally:
+            update.request_json = original_request
+        self.assertTrue(metrics["available"])
+        self.assertEqual(metrics["resolution"], "doi-authorship")
+        self.assertEqual(metrics["cited_by_count"], 7)
+        self.assertEqual(metrics["h_index"], 2)
+
     def test_metrics_payload_uses_orcid_counts(self):
         pubs = [
             {"type": "Journal Article", "year": "2025"},
@@ -139,6 +213,23 @@ class ResearchMetricTests(unittest.TestCase):
         self.assertEqual(payload["journal_articles"], 1)
         self.assertEqual(payload["publishing_since"], "2024")
         self.assertEqual(payload["openalex"]["cited_by_count"], 4)
+
+
+
+class ReadmePresentationTests(unittest.TestCase):
+    def test_academic_website_badge_removed_but_site_kept_in_contact_line(self):
+        text = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertNotIn("Academic_Website", text)
+        self.assertIn("qselmer.github.io</strong>", text)
+
+    def test_research_cards_have_equal_six_row_layout(self):
+        outputs = (ROOT / "assets/generated/research-outputs.svg").read_text(encoding="utf-8")
+        metrics = (ROOT / "assets/generated/research-metrics.svg").read_text(encoding="utf-8")
+        self.assertEqual(outputs.count('class="label"'), 6)
+        self.assertEqual(metrics.count('class="label"'), 6)
+        self.assertIn('height="246"', outputs)
+        self.assertIn('height="246"', metrics)
+
 
 class CompleteRepositoryInventoryTests(unittest.TestCase):
     def setUp(self):
