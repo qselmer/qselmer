@@ -102,30 +102,31 @@ Original research repositories are organized by their primary scientific or comp
 | [`pelagicPER-fishery-reorganization-paper`](https://github.com/qselmer/pelagicPER-fishery-reorganization-paper) | 🔒 Private | Private repository | — | — |
 | [`pelagicPER-season-benchmark-paper`](https://github.com/qselmer/pelagicPER-season-benchmark-paper) | 🔒 Private | Private repository | — | — |
 
-### Courses & training (5)
+### Courses & training (6)
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
 | [`ctd-C-plus-plus`](https://github.com/qselmer/ctd-C-plus-plus) | 🔓 Public | — | — | 2023-01-06 |
+| [`git-github-training`](https://github.com/qselmer/git-github-training) | 🔓 Public | Teaching materials, exercises and reusable resources for Git and GitHub | R | 2026-09-07 |
 | [`R-LabCore`](https://github.com/qselmer/R-LabCore) | 🔓 Public | — | — | 2025-02-20 |
 | [`skills-introduction-to-github`](https://github.com/qselmer/skills-introduction-to-github) | 🔓 Public | My clone repository | — | 2025-09-21 |
 | [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | 🔓 Public | TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming. | TeX | 2025-02-21 |
 | [`training_code_Python`](https://github.com/qselmer/training_code_Python) | 🔓 Public | training R, python, julia, C++ | Jupyter Notebook | 2024-02-10 |
 
-### Templates (2)
+### Templates (3)
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
 | [`.template-fisheries-mse`](https://github.com/qselmer/.template-fisheries-mse) | 🔓 Public | — | Python | 2026-09-02 |
+| [`.template-training`](https://github.com/qselmer/.template-training) | 🔓 Public | Reusable Quarto template for teaching, workshops and scientific training. | Python | 2026-09-07 |
 | [`template_summaryPDF`](https://github.com/qselmer/template_summaryPDF) | 🔓 Public | — | R | 2023-04-11 |
 
-### Websites & infrastructure (3)
+### Websites & infrastructure (2)
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
-| [`.hub`](https://github.com/qselmer/.hub) | 🔓 Public | Repo for materials of NOAA git & Github training webinar April 2020 | R | 2026-07-24 |
 | [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | 2026-09-07 |
-| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | 2026-09-06 |
+| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | 2026-09-07 |
 
 ### Other / legacy (12)
 

@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-07T13:30:48.103441+00:00",
+  "updated_at": "2026-09-07T16:34:34.264471+00:00",
   "owner": "qselmer",
   "scope": "all original repositories visible to PROFILE_REPO_TOKEN; forks excluded",
   "totals": {
-    "repositories": 36,
-    "public_repositories": 22,
+    "repositories": 37,
+    "public_repositories": 23,
     "private_repositories": 14,
-    "active_original_repositories": 36,
-    "active_public_original_repositories": 22,
+    "active_original_repositories": 37,
+    "active_public_original_repositories": 23,
     "active_private_original_repositories": 14,
     "archived_original_repositories": 0,
     "other_or_legacy_active": 12,
-    "manual_type_topics_active": 0
+    "manual_type_topics_active": 2
   },
   "repositories": [
     {
@@ -110,6 +110,29 @@
       "repository_type_label": "Courses & training",
       "classification_source": "override",
       "topics": []
+    },
+    {
+      "name": "git-github-training",
+      "full_name": "qselmer/git-github-training",
+      "html_url": "https://github.com/qselmer/git-github-training",
+      "description": "Teaching materials, exercises and reusable resources for Git and GitHub",
+      "language": "R",
+      "updated_at": "2026-09-07T14:47:14Z",
+      "archived": false,
+      "private": false,
+      "visibility": "public",
+      "fork": false,
+      "repository_type": "type-training",
+      "repository_type_label": "Courses & training",
+      "classification_source": "topic",
+      "topics": [
+        "git",
+        "github",
+        "reproducible-research",
+        "teaching",
+        "type-training",
+        "version-control"
+      ]
     },
     {
       "name": "R-LabCore",
@@ -528,6 +551,28 @@
       "topics": []
     },
     {
+      "name": ".template-training",
+      "full_name": "qselmer/.template-training",
+      "html_url": "https://github.com/qselmer/.template-training",
+      "description": "Reusable Quarto template for teaching, workshops and scientific training.",
+      "language": "Python",
+      "updated_at": "2026-09-07T16:11:13Z",
+      "archived": false,
+      "private": false,
+      "visibility": "public",
+      "fork": false,
+      "repository_type": "type-template",
+      "repository_type_label": "Templates",
+      "classification_source": "topic",
+      "topics": [
+        "quarto",
+        "reproducible-research",
+        "teaching",
+        "training",
+        "type-template"
+      ]
+    },
+    {
       "name": "template_summaryPDF",
       "full_name": "qselmer/template_summaryPDF",
       "html_url": "https://github.com/qselmer/template_summaryPDF",
@@ -544,28 +589,12 @@
       "topics": []
     },
     {
-      "name": ".hub",
-      "full_name": "qselmer/.hub",
-      "html_url": "https://github.com/qselmer/.hub",
-      "description": "Repo for materials of NOAA git & Github training webinar April 2020",
-      "language": "R",
-      "updated_at": "2026-07-24T15:27:47Z",
-      "archived": false,
-      "private": false,
-      "visibility": "public",
-      "fork": false,
-      "repository_type": "type-infrastructure",
-      "repository_type_label": "Websites & infrastructure",
-      "classification_source": "override",
-      "topics": []
-    },
-    {
       "name": "qselmer",
       "full_name": "qselmer/qselmer",
       "html_url": "https://github.com/qselmer/qselmer",
       "description": "",
       "language": "Python",
-      "updated_at": "2026-09-07T13:02:55Z",
+      "updated_at": "2026-09-07T13:59:19Z",
       "archived": false,
       "private": false,
       "visibility": "public",
@@ -581,7 +610,7 @@
       "html_url": "https://github.com/qselmer/qselmer.github.io",
       "description": "Fisheries scientist & marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science",
       "language": "HTML",
-      "updated_at": "2026-09-06T12:19:30Z",
+      "updated_at": "2026-09-07T14:26:51Z",
       "archived": false,
       "private": false,
       "visibility": "public",
