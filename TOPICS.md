@@ -7,7 +7,6 @@ This profile inventories **public original repositories owned by `qselmer`**. Fo
 | Topic | Visible group | Intended use |
 |---|---|---|
 | `type-package` | Packages | Reusable scientific software, libraries and installable packages. |
-| `type-protocol` | Protocols & manuals | Methodological protocols, manuals and standardized procedures. |
 | `type-workflow` | Methods & workflows | Reproducible scientific methods, analyses and computational workflows. |
 | `type-app` | Apps & dashboards | Interactive applications and web tools. |
 | `type-dashboard` | Apps & dashboards | Dashboard-oriented interactive products. |
@@ -31,7 +30,6 @@ Use the repository's **primary function**, not its subject, language or file ext
 5. **Is the main purpose teaching or skill development?** → `type-training`.
 6. **Is it designed to be copied as a starting structure?** → `type-template`.
 7. **Is it a website/profile/support system rather than a scientific analysis?** → `type-infrastructure`.
-8. **Is it a formal procedure/manual rather than executable analysis?** → `type-protocol`.
 
 A repository should normally have **exactly one primary `type-*` topic**. Domain topics such as `fisheries`, `marine-ecology`, `stock-assessment`, `r`, or `python` are secondary descriptors and do not replace the repository type.
 

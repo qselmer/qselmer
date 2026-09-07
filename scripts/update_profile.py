@@ -49,7 +49,6 @@ USER_AGENT = f"qselmer-academic-profile/3.0 (mailto:{CONTACT_EMAIL})"
 
 VISIBLE_TYPE_ORDER = [
     "Packages",
-    "Protocols & manuals",
     "Methods & workflows",
     "Apps & dashboards",
     "Papers",

@@ -42,7 +42,6 @@ OUTPUT_TYPE_ORDER = list(OUTPUT_META)
 
 VISIBLE_TYPE_ORDER = [
     "Packages",
-    "Protocols & manuals",
     "Methods & workflows",
     "Apps & dashboards",
     "Papers",

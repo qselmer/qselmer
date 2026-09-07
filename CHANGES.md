@@ -51,3 +51,9 @@
 - Renamed the repository section to **Scientific computing & reproducible research**.
 - Removed public inventory/taxonomy progress counters and the `Type basis` column from the README; classification provenance remains in the JSON catalog for audit use.
 - Broadened the research description from small pelagics to pelagic systems, reflecting work on anchoveta, jack mackerel, Pacific bonito, chub mackerel and tunas.
+
+## v8 — personal taxonomy simplification and contact visibility
+
+- Removed `type-protocol` / **Protocols & manuals** from the personal repository taxonomy; this category is reserved for organizational/institutional portfolios rather than the personal academic profile.
+- Added the academic website (`qselmer.github.io`) alongside the contact email in the profile introduction.
+- Kept templates as a dedicated personal repository type.

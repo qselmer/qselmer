@@ -46,6 +46,11 @@ class RepositoryClassificationTests(unittest.TestCase):
         repo = {"name": "template-analysis", "topics": []}
         self.assertEqual(update.infer_repo_type(repo, self.config), "type-template")
 
+    def test_protocol_is_not_a_personal_repository_type(self):
+        self.assertNotIn("type-protocol", self.config.get("canonical_types", {}))
+        self.assertNotIn("Protocols & manuals", update.VISIBLE_TYPE_ORDER)
+        self.assertNotIn("Protocols & manuals", render.VISIBLE_TYPE_ORDER)
+
     def test_report_is_not_a_personal_repository_type(self):
         repo = {"name": "annual-report", "topics": ["type-report"]}
         repo_type, source = update.repository_classification(repo, self.config)

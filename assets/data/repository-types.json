@@ -2,7 +2,6 @@
   "schema_version": 2,
   "canonical_types": {
     "type-package": "Packages",
-    "type-protocol": "Protocols & manuals",
     "type-workflow": "Methods & workflows",
     "type-app": "Apps & dashboards",
     "type-dashboard": "Apps & dashboards",
