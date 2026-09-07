@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T13:30:46.569314+00:00",
+  "updated_at": "2026-09-05T09:50:43.103764+00:00",
   "orcid": "0000-0001-9229-6379",
   "public_orcid_works": 5,
   "journal_articles": 1,
@@ -7,23 +7,17 @@
   "output_counts": {
     "Journal articles": 1,
     "Preprints & working papers": 0,
+    "Conference outputs": 3,
     "Books & chapters": 0,
     "Theses": 1,
-    "Conference outputs": 3,
     "Reports & technical outputs": 0,
     "Data & software": 0,
     "Other research outputs": 0
   },
   "openalex": {
-    "available": true,
+    "available": false,
     "source": "OpenAlex",
-    "resolution": "doi-authorship",
-    "author_id": "https://openalex.org/A5122828742",
-    "display_name": "Elmer Quispe-Salazar",
-    "works_count": 3,
-    "cited_by_count": 0,
-    "h_index": 0,
-    "i10_index": 0
+    "error": "Refresh pending; GitHub Actions will query the ORCID-matched OpenAlex author record."
   },
   "google_scholar_role": "profile-link-only"
 }
