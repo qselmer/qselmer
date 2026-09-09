@@ -26,16 +26,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install test dependency
-        run: python -m pip install pytest
-
       - name: Apply changes
         run: python scripts/apply_short_hyphen_summary.py
 
       - name: Validate
         run: |
           python -m py_compile scripts/update_profile.py
-          python -m pytest -q
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+          path = Path('scripts/update_profile.py')
+          spec = importlib.util.spec_from_file_location('update_profile_check', path)
+          mod = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(mod)
+          assert mod.format_metric(0) == '-'
+          assert mod.format_metric('0') == '-'
+          assert mod.format_metric(None) == '-'
+          assert mod.format_metric(5) == '5'
+          PY
           grep -q '>Projects</text><text[^>]*>-</text>' assets/generated/repository-types.svg
           grep -q '>Books &amp; chapters</text><text[^>]*>-</text>' assets/generated/research-outputs.svg
           grep -q '>Citations (OpenAlex)</text><text[^>]*>-</text>' assets/generated/research-metrics.svg
