@@ -10,7 +10,7 @@ This profile inventories **public original repositories owned by `qselmer`**. Fo
 | `type-workflow` | Methods & workflows | Reproducible scientific methods, analyses and computational workflows. |
 | `type-app` | Apps & dashboards | Interactive applications and web tools. |
 | `type-dashboard` | Apps & dashboards | Dashboard-oriented interactive products. |
-| `type-project` | Research projects | Research initiatives in development that are exploratory, incubating, collaborative, or not yet committed to one manuscript. |
+| `type-project` | Projects | Research initiatives in development that are exploratory, incubating, collaborative, or not yet committed to one manuscript. |
 | `type-paper` | Papers | Reproducibility repositories associated with one scientific manuscript or paper. |
 | `type-training` | Courses & training | MOOCs, courses, workshops, worked examples and training material. |
 | `type-template` | Templates | Reusable repository/project/report/manuscript scaffolds intended to be copied or instantiated. |
@@ -72,6 +72,8 @@ The **Primary Languages**, **Repository Types** card and detailed repository por
 - owned by `qselmer`;
 - public;
 - original (not forks).
+
+The **Repository Types** summary card lists canonical portfolio types only, with **Projects** first. `Other / legacy` remains a cleanup category in the detailed inventory and is not presented as a repository type in the summary card.
 
 Archived originals may remain visible in the detailed cleanup inventory but are excluded from summary cards. Forks and private repository names/metadata are not rendered in the public profile.
 
