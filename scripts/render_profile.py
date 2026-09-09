@@ -100,6 +100,41 @@ def refine_static_readme(text: str) -> str:
     text = re.sub(r'\n\s*<a href="https://www\.researchgate\.net/[^\n]+</a>', "", text)
     text = re.sub(r'\n\s*<a href="https://x\.com/[^\n]+</a>', "", text)
 
+    # Keep institutional affiliation out of the public GitHub profile header.
+    text = text.replace(
+        '\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>\n',
+        "\n",
+    )
+
+    # Keep the academic/profile link badges immediately below the professional title.
+    profile_links = None
+    for match in re.finditer(
+        r'\n(<p align="center">\s*(?:(?:<a href="[^"]+">.*?</a>)\s*)+</p>)\n',
+        text,
+        flags=re.S,
+    ):
+        if "Google_Scholar" in match.group(1) and "ORCID" in match.group(1):
+            profile_links = match
+            break
+    if profile_links:
+        block = profile_links.group(1)
+        start, end = profile_links.span(1)
+        text = text[:start] + text[end:]
+        text = text.replace(first_heading, first_heading + "\n\n" + block, 1)
+
+    # Academic outputs and metrics precede the thematic Research focus section.
+    focus_match = re.search(r'\n## Research focus\n.*?(?=\n## |\Z)', text, flags=re.S)
+    outputs_match = re.search(r'\n## Research outputs & metrics\n.*?(?=\n## |\Z)', text, flags=re.S)
+    if focus_match and outputs_match and focus_match.start() < outputs_match.start():
+        between = text[focus_match.end():outputs_match.start()]
+        if "\n## " not in between:
+            text = (
+                text[:focus_match.start()]
+                + outputs_match.group(0)
+                + focus_match.group(0)
+                + text[outputs_match.end():]
+            )
+
     # Remove any previously rendered scope note before rebuilding the card block.
     text = text.replace(PORTFOLIO_NOTE, "")
 

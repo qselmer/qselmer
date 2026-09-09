@@ -126,4 +126,5 @@ x
     assert "researchgate.net" not in refined
     assert "https://x.com" not in refined
     assert refined.index("## Research outputs & metrics") < refined.index("assets/generated/top-languages.svg")
-    assert "Instituto del Mar del Perú (IMARPE)" in refined
+    assert "Instituto del Mar del Perú (IMARPE)" not in refined
+    assert refined.index("## Research outputs & metrics") < refined.index("## Research focus")
