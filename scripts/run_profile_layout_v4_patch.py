@@ -1,6 +1,7 @@
 from pathlib import Path
 
 src = Path('scripts/migrate_profile_layout_v4.py').read_text(encoding='utf-8')
+src = src.replace("return re.sub(r'^ {10}', '', text, flags=re.M)", "return re.sub(r'^ {6}', '', text, flags=re.M)")
 src = src.replace("    new_refine + '\\n\\ndef clean_text',", "    lambda m: new_refine + '\\n\\ndef clean_text',")
 src = src.replace("    new_row + '\\n\\ndef full_width_table',", "    lambda m: new_row + '\\n\\ndef full_width_table',")
 src = src.replace("    new_projects + '\\n\\ndef main()',", "    lambda m: new_projects + '\\n\\ndef main()',")
