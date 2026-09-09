@@ -82,12 +82,7 @@ def refine_static_readme(text: str) -> str:
     old_professional_heading = '<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>'
     professional_heading = '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>'
     text = text.replace(old_professional_heading, professional_heading)
-    if '<h1 align="center">Elmer Quispe-Salazar</h1>' not in text:
-        text = text.replace(
-            professional_heading,
-            '<h1 align="center">Elmer Quispe-Salazar</h1>\n\n' + professional_heading,
-            1,
-        )
+    text = text.replace('<h1 align="center">Elmer Quispe-Salazar</h1>\n\n', '')
 
     text = text.replace(
         '\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>\n',
@@ -137,10 +132,22 @@ def refine_static_readme(text: str) -> str:
         flags=re.S,
     )
 
+    contact_match = re.search(
+        r'\n(<p align="justify">\s*For research collaboration or professional contact:.*?</p>)\n',
+        text,
+        flags=re.S,
+    )
+    contact_block = contact_match.group(1) if contact_match else ""
+    if contact_match:
+        text = text[:contact_match.start()] + "\n" + text[contact_match.end():]
+
     focus_match = re.search(r'(\n## Research focus\n.*?)(?=\n## |\Z)', text, flags=re.S)
     if focus_match:
         focus_block = focus_match.group(1).rstrip()
-        replacement = focus_block + "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE + "\n"
+        replacement = focus_block
+        if contact_block:
+            replacement += "\n\n" + contact_block
+        replacement += "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE + "\n"
         text = text[:focus_match.start()] + replacement + text[focus_match.end():]
 
     text = re.sub(
