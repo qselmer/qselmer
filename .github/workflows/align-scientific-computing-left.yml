@@ -41,8 +41,8 @@ jobs:
           assert '<p align="center">' not in block
           readme = Path('README.md').read_text(encoding='utf-8')
           start = readme.index('## Scientific computing\n')
-          end = readme.index('\n## Scientific computing & reproducible research', start)
-          block = readme[start:end]
+          cards = readme.index('<p align="center">\n  <img src="assets/generated/top-languages.svg"', start)
+          block = readme[start:cards]
           assert block.count('<p align="left">') == 2
           assert '<p align="center">' not in block
           print('Scientific computing badges are left-aligned in renderer and README.')
