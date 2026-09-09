@@ -225,7 +225,7 @@ keep skills
             "updated_at": "2026-09-09T00:00:00Z",
             "private": False,
         }]))
-        self.assertIn('<table width="100%">', table)
+        self.assertIn('<table width="950">', table)
         for width in render.TABLE_WIDTHS:
             self.assertIn(f'width="{width}"', table)
 
@@ -306,7 +306,7 @@ class OrganizationalContributionTests(unittest.TestCase):
         self.assertIn("Institutional & collaborative work", text)
         self.assertIn("DIPEL-IMARPE", text)
         self.assertIn("ancNC-mse-workflow", text)
-        self.assertIn('<table width="100%">', text)
+        self.assertIn('<table width="950">', text)
 
 
 if __name__ == "__main__":
