@@ -112,43 +112,6 @@ class ResearchOutputTests(unittest.TestCase):
         self.assertNotIn("Preprints & working papers", update.SUMMARY_OUTPUT_TYPE_ORDER)
         self.assertNotIn("Other research outputs", update.SUMMARY_OUTPUT_TYPE_ORDER)
 
-    def test_unknown_output_renders_specific_source_type(self):
-        original_load = render.load
-        try:
-            render.load = lambda path, default: {
-                "publications": [
-                    {
-                        "type": "Research Technique",
-                        "output_category": "Other research outputs",
-                        "title": "Specific work",
-                        "year": "2026",
-                        "authors": ["Elmer Quispe-Salazar"],
-                    }
-                ]
-            }
-            text = render.render_publications()
-        finally:
-            render.load = original_load
-        self.assertIn("### Research Technique", text)
-        self.assertNotIn("### Other research outputs", text)
-
-    def test_research_outputs_group_by_type_without_icons(self):
-        original_load = render.load
-        try:
-            render.load = lambda path, default: {
-                "publications": [
-                    {"type": "Conference Paper", "output_category": "Conference outputs", "title": "Conference work", "year": "2026", "authors": ["Elmer Quispe-Salazar"]},
-                    {"type": "Journal Article", "output_category": "Journal articles", "title": "Article", "year": "2025", "authors": ["Elmer Quispe-Salazar"]},
-                ]
-            }
-            text = render.render_publications()
-        finally:
-            render.load = original_load
-        self.assertLess(text.index("### Journal articles"), text.index("### Conference contributions"))
-        self.assertNotIn("🏛️", text)
-        self.assertNotIn("📄", text)
-        self.assertIn("Quispe-Salazar", text)
-
 
 class ResearchMetricTests(unittest.TestCase):
     def test_openalex_matching_is_orcid_based(self):
@@ -160,7 +123,6 @@ class ResearchMetricTests(unittest.TestCase):
         }
         match = update._matching_openalex_author(payload)
         self.assertEqual(match["id"], "A2")
-
 
     def test_openalex_doi_fallback_uses_exact_orcid_work_authorship(self):
         original_request = update.request_json
@@ -215,7 +177,6 @@ class ResearchMetricTests(unittest.TestCase):
         self.assertEqual(payload["openalex"]["cited_by_count"], 4)
 
 
-
 class ReadmePresentationTests(unittest.TestCase):
     def test_academic_website_badge_removed_but_site_kept_in_contact_line(self):
         text = (ROOT / "README.md").read_text(encoding="utf-8")
@@ -229,6 +190,44 @@ class ReadmePresentationTests(unittest.TestCase):
         self.assertEqual(metrics.count('class="label"'), 6)
         self.assertIn('height="246"', outputs)
         self.assertIn('height="246"', metrics)
+
+    def test_readme_pruning_removes_duplicate_and_implementation_sections(self):
+        sample = """# Profile
+
+## Research outputs & metrics
+keep card
+
+## Research outputs
+duplicate list
+
+## Scientific computing & reproducible research
+keep portfolio
+
+## How this profile is automated
+implementation notes
+
+## Scientific computing
+keep skills
+"""
+        cleaned = render.prune_readme_sections(sample)
+        self.assertIn("## Research outputs & metrics", cleaned)
+        self.assertNotIn("\n## Research outputs\n", cleaned)
+        self.assertNotIn("## How this profile is automated", cleaned)
+        self.assertIn("## Scientific computing & reproducible research", cleaned)
+        self.assertIn("## Scientific computing", cleaned)
+
+    def test_repository_tables_use_shared_full_width_layout(self):
+        table = "\n".join(render.repository_table([{
+            "name": "example",
+            "html_url": "https://github.com/qselmer/example",
+            "description": "Example repository",
+            "language": "R",
+            "updated_at": "2026-09-09T00:00:00Z",
+            "private": False,
+        }]))
+        self.assertIn('<table width="100%">', table)
+        for width in render.TABLE_WIDTHS:
+            self.assertIn(f'width="{width}"', table)
 
 
 class CompleteRepositoryInventoryTests(unittest.TestCase):
@@ -252,35 +251,39 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
         self.assertNotIn("forked", names)
         self.assertIn("secret", names)
 
-    def test_multiple_type_topics_are_exposed_as_legacy(self):
+    def test_multiple_type_topics_are_retained_as_unclassified_cleanup(self):
         repo = {"name": "ambiguous", "topics": ["type-paper", "type-workflow"]}
         repo_type, source = update.repository_classification(repo, self.config)
         self.assertIsNone(repo_type)
         self.assertEqual(source, "multiple-type-topics")
 
-    def test_render_inventory_groups_visibility_and_archived_without_forks(self):
+    def test_render_inventory_hides_unclassified_cleanup_group(self):
         original_load = render.load
         try:
-            render.load = lambda path, default: {
-                "totals": {
-                    "repositories": 3,
-                    "public_repositories": 2,
-                    "private_repositories": 1,
-                    "active_original_repositories": 2,
-                    "archived_original_repositories": 1,
-                    "other_or_legacy_active": 1,
-                    "manual_type_topics_active": 1,
-                },
-                "repositories": [
-                    {"name": "legacy", "html_url": "https://github.com/qselmer/legacy", "description": "x", "language": "R", "updated_at": "2026-01-01", "private": False, "archived": False, "repository_type_label": "Other / legacy", "classification_source": "unclassified"},
-                    {"name": "secret", "html_url": "https://github.com/qselmer/secret", "description": "do not show", "language": "Python", "updated_at": "2026-01-02", "private": True, "archived": False, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
-                    {"name": "old", "html_url": "https://github.com/qselmer/old", "description": "x", "language": "R", "updated_at": "2025-01-01", "private": False, "archived": True, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
-                ],
-            }
+            def fake_load(path, default):
+                if path == render.ORGANIZATIONAL_CONTRIBUTIONS:
+                    return {"contributions": []}
+                return {
+                    "totals": {
+                        "repositories": 3,
+                        "public_repositories": 2,
+                        "private_repositories": 1,
+                        "active_original_repositories": 2,
+                        "archived_original_repositories": 1,
+                        "other_or_legacy_active": 1,
+                        "manual_type_topics_active": 1,
+                    },
+                    "repositories": [
+                        {"name": "legacy", "html_url": "https://github.com/qselmer/legacy", "description": "x", "language": "R", "updated_at": "2026-01-01", "private": False, "archived": False, "repository_type_label": "Other / legacy", "classification_source": "unclassified"},
+                        {"name": "secret", "html_url": "https://github.com/qselmer/secret", "description": "do not show", "language": "Python", "updated_at": "2026-01-02", "private": True, "archived": False, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
+                        {"name": "old", "html_url": "https://github.com/qselmer/old", "description": "x", "language": "R", "updated_at": "2025-01-01", "private": False, "archived": True, "repository_type_label": "Methods & workflows", "classification_source": "topic"},
+                    ],
+                }
+            render.load = fake_load
             text = render.render_projects()
         finally:
             render.load = original_load
-        self.assertIn("Other / legacy (1)", text)
+        self.assertNotIn("Other / legacy", text)
         self.assertIn("Archived repositories (1)", text)
         self.assertIn("🔒 Private", text)
         self.assertNotIn("do not show", text)
@@ -288,6 +291,21 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
         self.assertNotIn("Inventory:", text)
         self.assertNotIn("Manual taxonomy:", text)
         self.assertNotIn("Type basis", text)
+
+
+class OrganizationalContributionTests(unittest.TestCase):
+    def test_curated_organizational_work_is_separate_from_personal_counts(self):
+        payload = json.loads((ROOT / "assets/data/organizational-contributions.json").read_text())
+        self.assertEqual(payload["schema_version"], 1)
+        self.assertEqual(len(payload["contributions"]), 1)
+        item = payload["contributions"][0]
+        self.assertEqual(item["organization"], "DIPEL-IMARPE")
+        self.assertEqual(item["name"], "ancNC-mse-workflow")
+        text = "\n".join(render.render_organizational_contributions())
+        self.assertIn("Institutional & collaborative work", text)
+        self.assertIn("DIPEL-IMARPE", text)
+        self.assertIn("ancNC-mse-workflow", text)
+        self.assertIn('<table width="100%">', text)
 
 
 if __name__ == "__main__":

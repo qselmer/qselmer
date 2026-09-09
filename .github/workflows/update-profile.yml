@@ -11,6 +11,7 @@ on:
       - "scripts/update_profile.py"
       - "scripts/render_profile.py"
       - "assets/data/repository-types.json"
+      - "assets/data/organizational-contributions.json"
       - "TOPICS.md"
       - ".github/workflows/update-profile.yml"
 
@@ -46,11 +47,7 @@ jobs:
           CROSSREF_MAILTO: qselmers@gmail.com
         run: python scripts/update_profile.py
 
-      - name: Render outputs and scientific repository portfolio
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # 0 = render every public ORCID work in the profile.
-          MAX_RESEARCH_OUTPUTS: "0"
+      - name: Render compact scientific repository portfolio
         run: python scripts/render_profile.py
 
       - name: Validate generated files
@@ -60,6 +57,7 @@ jobs:
           test -s assets/data/research-metrics.json
           test -s assets/data/repository-catalog.json
           test -s assets/data/repository-types.json
+          test -s assets/data/organizational-contributions.json
           test -s assets/generated/top-languages.svg
           test -s assets/generated/repository-types.svg
           test -s assets/generated/research-outputs.svg
@@ -69,6 +67,7 @@ jobs:
           python -m json.tool assets/data/research-metrics.json >/dev/null
           python -m json.tool assets/data/repository-catalog.json >/dev/null
           python -m json.tool assets/data/repository-types.json >/dev/null
+          python -m json.tool assets/data/organizational-contributions.json >/dev/null
           python -m py_compile scripts/update_profile.py scripts/render_profile.py
           python -m unittest discover -s tests -v
 
