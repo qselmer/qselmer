@@ -1,0 +1,55 @@
+name: Migrate profile header v5
+
+on:
+  push:
+    branches:
+      - refactor/remove-name-move-contact
+    paths:
+      - scripts/migrate_profile_header_v5.py
+      - .github/workflows/migrate-profile-header-v5.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v5
+        with:
+          ref: refactor/remove-name-move-contact
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Apply migration
+        run: python scripts/migrate_profile_header_v5.py
+
+      - name: Render README
+        run: python scripts/render_profile.py
+
+      - name: Validate
+        run: |
+          python -m py_compile scripts/render_profile.py scripts/update_profile.py
+          python -m unittest discover -s tests -v
+          python - <<'PY'
+          from pathlib import Path
+          text = Path('README.md').read_text(encoding='utf-8')
+          assert '<h1 align="center">Elmer Quispe-Salazar</h1>' not in text
+          assert '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>' in text
+          assert text.index('assets/generated/research-outputs.svg') < text.index('## Research focus')
+          assert text.index('## Research focus') < text.index('For research collaboration or professional contact') < text.index('assets/generated/top-languages.svg')
+          PY
+
+      - name: Commit migration result
+        run: |
+          rm -f scripts/migrate_profile_header_v5.py
+          rm -f .github/workflows/migrate-profile-header-v5.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: remove duplicate name and move contact"
+          git push
