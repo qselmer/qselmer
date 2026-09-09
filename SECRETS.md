@@ -12,4 +12,4 @@ To inventory **all original repositories**, including private repositories, add 
 
 The workflow has `INCLUDE_PRIVATE_REPOS: "true"`. If `PROFILE_REPO_TOKEN` is missing, the script falls back safely to public original repositories only.
 
-Because the GitHub profile README is public, enabling private inventory intentionally reveals the **names and canonical types** of private repositories. Their descriptions, main languages and update dates are suppressed by the renderer.
+Private repositories are used for the complete **Repository Types** count and internal portfolio inventory. Their names, descriptions, languages and update dates are **not rendered in the public README tables**. The public detailed repository portfolio remains restricted to active public originals.
