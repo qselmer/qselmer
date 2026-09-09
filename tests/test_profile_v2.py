@@ -165,7 +165,7 @@ Keep me.
 
 
 def test_zero_summary_values_render_as_dash():
-    assert update.format_metric(0) == "—"
-    assert update.format_metric("0") == "—"
-    assert update.format_metric(None) == "—"
+    assert update.format_metric(0) == "-"
+    assert update.format_metric("0") == "-"
+    assert update.format_metric(None) == "-"
     assert update.format_metric(5) == "5"

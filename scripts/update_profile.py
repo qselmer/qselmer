@@ -800,12 +800,12 @@ def card_svg(
 
 def format_metric(value: Any) -> str:
     if value is None or value == "":
-        return "—"
+        return "-"
     try:
         number = int(value)
     except (TypeError, ValueError):
         return str(value)
-    return "—" if number == 0 else f"{number:,}"
+    return "-" if number == 0 else f"{number:,}"
 
 
 def generate_research_cards(publications: list[dict[str, Any]], metrics: dict[str, Any]) -> None:
@@ -822,7 +822,7 @@ def generate_research_cards(publications: list[dict[str, Any]], metrics: dict[st
         ("Citations (OpenAlex)", format_metric(openalex.get("cited_by_count"))),
         ("h-index (OpenAlex)", format_metric(openalex.get("h_index"))),
         ("i10-index (OpenAlex)", format_metric(openalex.get("i10_index"))),
-        ("Publishing since", str(metrics.get("publishing_since") or "—")),
+        ("Publishing since", str(metrics.get("publishing_since") or "-")),
     ]
 
     SVG_DIR.mkdir(parents=True, exist_ok=True)
