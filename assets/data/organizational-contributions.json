@@ -5,9 +5,9 @@
       "name": "ancNC-mse-workflow",
       "html_url": "https://github.com/DIPEL-IMARPE/ancNC-mse-workflow",
       "organization": "DIPEL-IMARPE",
+      "role": "Creator & developer",
       "contribution": "Created the repository and developed the reproducible MSE workflow for the north-central stock of Peruvian anchovy.",
-      "repository_type_label": "Methods & workflows",
-      "updated_at": "2026-09-03"
+      "repository_type_label": "Methods & workflows"
     }
   ]
 }

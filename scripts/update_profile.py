@@ -7,9 +7,9 @@ The script intentionally uses only the Python standard library. It:
 3. classifies scholarly outputs into stable research-output groups;
 4. retrieves citation metrics from OpenAlex using the ORCID identifier;
 5. writes canonical publication and research-metric JSON files;
-6. queries all public GitHub repositories owned by the user;
-7. computes language composition and repository-type counts;
-8. writes a public original-repository inventory for README tables (forks excluded);
+6. queries owned GitHub repositories visible to the configured credentials;
+7. computes public language composition and public/private repository-type counts;
+8. writes the original-repository inventory used by the profile renderer (forks excluded);
 9. generates repository-owned SVG cards.
 
 README rendering is handled separately by scripts/render_profile.py so that
@@ -584,6 +584,15 @@ def original_public_repositories(repositories: list[dict[str, Any]]) -> list[dic
     ]
 
 
+def original_active_repositories(repositories: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Return active original repositories regardless of public/private visibility."""
+    return [
+        repo
+        for repo in repositories
+        if not repo.get("fork") and not repo.get("archived")
+    ]
+
+
 def language_totals(repositories: list[dict[str, Any]]) -> Counter[str]:
     totals: Counter[str] = Counter()
     for repo in original_public_repositories(repositories):
@@ -658,7 +667,9 @@ def build_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, An
     """Build an inventory of original repositories visible to the configured token.
 
     Forks are excluded. Public and private originals are retained when the read
-    token can see them. Summary cards remain based on active public originals.
+    token can see them. Language composition remains based on active public
+    originals, while repository-type counts include active public and private
+    originals visible to the profile automation.
     """
     config = load_type_config()
     canonical_types = config.get("canonical_types") or {}
@@ -739,10 +750,11 @@ def write_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, An
 
 
 def repository_type_counts(repositories: list[dict[str, Any]]) -> Counter[str]:
+    """Count repository types across all active originals visible to automation."""
     config = load_type_config()
     canonical_types = config.get("canonical_types") or {}
     counts: Counter[str] = Counter()
-    for repo in original_public_repositories(repositories):
+    for repo in original_active_repositories(repositories):
         repo_type = infer_repo_type(repo, config)
         label = canonical_types.get(repo_type, "Other / legacy")
         counts[label] += 1

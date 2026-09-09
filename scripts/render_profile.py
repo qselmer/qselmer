@@ -24,10 +24,26 @@ VISIBLE_TYPE_ORDER = [
     "Websites & infrastructure",
 ]
 
-# Shared layout for every portfolio table rendered in the GitHub README.
-# GitHub may adapt widths on narrow screens, but all tables start from the
-# same five-column proportions and full available width.
-TABLE_WIDTHS = ("26%", "14%", "42%", "10%", "8%")
+# Public repository tables intentionally share one compact three-column layout.
+# GitHub may adapt widths on narrow screens, but every table starts from the
+# same proportions and full available width.
+TABLE_WIDTHS = ("28%", "58%", "14%")
+ORGANIZATIONAL_TABLE_WIDTHS = ("22%", "16%", "16%", "34%", "12%")
+
+PORTFOLIO_CARDS = """<p align="center">
+  <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
+  <img src="assets/generated/repository-types.svg" width="410" alt="Active original repositories by repository type, including public and private repositories">
+</p>"""
+
+METRICS_NOTE = (
+    "<sub>Research outputs are synchronized from ORCID/Crossref; "
+    "bibliometric indicators are obtained from OpenAlex.</sub>"
+)
+PORTFOLIO_NOTE = (
+    "<sub>Primary Languages uses active public original repositories. Repository Types includes "
+    "active public and private original repositories visible to the profile automation; forks and "
+    "archived repositories are excluded.</sub>"
+)
 
 
 def load(path: Path, default: Any) -> Any:
@@ -61,6 +77,74 @@ def prune_readme_sections(text: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", text)
 
 
+def refine_static_readme(text: str) -> str:
+    """Apply stable presentation rules without shortening the biography or research focus."""
+    # Make the profile self-contained while preserving the existing introductory paragraph.
+    first_heading = '<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>'
+    if '<h1 align="center">Elmer Quispe-Salazar</h1>' not in text:
+        text = text.replace(
+            first_heading,
+            '<h1 align="center">Elmer Quispe-Salazar</h1>\n\n'
+            + first_heading
+            + '\n\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>',
+            1,
+        )
+
+    # Remove vanity traffic counters and keep only the core academic/professional profile links.
+    text = re.sub(
+        r'\n<p align="center">\s*<img[^>]+komarev\.com/ghpvc/[^>]+>\s*</p>\n',
+        "\n",
+        text,
+        flags=re.S,
+    )
+    text = re.sub(r'\n\s*<a href="https://www\.researchgate\.net/[^\n]+</a>', "", text)
+    text = re.sub(r'\n\s*<a href="https://x\.com/[^\n]+</a>', "", text)
+
+    # Remove the repository cards from their legacy top-of-profile position.
+    text = re.sub(
+        r'\n<p align="center">\s*<img src="assets/generated/top-languages\.svg".*?'
+        r'<img src="assets/generated/repository-types\.svg".*?</p>\n',
+        "\n",
+        text,
+        count=1,
+        flags=re.S,
+    )
+
+    # Keep metric provenance visible but concise, then place computing cards after academic metrics.
+    text = re.sub(
+        r'<sub>This card summarizes the public scholarly record\..*?</sub>',
+        METRICS_NOTE,
+        text,
+        count=1,
+        flags=re.S,
+    )
+    if PORTFOLIO_CARDS not in text:
+        text = text.replace(
+            METRICS_NOTE,
+            METRICS_NOTE + "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE,
+            1,
+        )
+
+    # Public tables are the discovery layer; private repositories remain counted but are not listed.
+    text = re.sub(
+        r'(## Scientific computing & reproducible research\n\n).*?(?=\n\n<!-- PROJECTS:START -->)',
+        r'\1Public original research repositories are organized by their primary scientific or computational function. '
+        r'Forks and archived repositories are excluded from the active portfolio. Private repositories remain included '
+        r'in Repository Types counts but are not listed below.',
+        text,
+        count=1,
+        flags=re.S,
+    )
+
+    # Keep scientific-computing technologies; implementation/infrastructure badges are already evidenced by the repo.
+    text = re.sub(
+        r'\n\s*<img src="https://img\.shields\.io/badge/(?:Git-|GitHub_Actions-|Quarto-)[^\n]+>',
+        "",
+        text,
+    )
+    return re.sub(r"\n{3,}", "\n\n", text)
+
+
 def clean_text(value: Any, default: str = "—") -> str:
     text = re.sub(r"\s+", " ", str(value or "").strip())
     return text or default
@@ -75,28 +159,26 @@ def repo_date(value: Any) -> str:
     return text[:10] if len(text) >= 10 else "—"
 
 
-def visibility_label(repo: dict[str, Any]) -> str:
-    return "🔒 Private" if repo.get("private") else "🔓 Public"
-
-
 def repository_row(repo: dict[str, Any]) -> str:
     name = esc(repo.get("name") or "unnamed")
     url = str(repo.get("html_url") or "").strip()
     project = f'<a href="{html.escape(url, quote=True)}"><code>{name}</code></a>' if url else f"<code>{name}</code>"
-    private = bool(repo.get("private"))
-    description = "Private repository" if private else esc(repo.get("description") or "—")
-    language = "—" if private else esc(repo.get("language") or "—")
-    updated = "—" if private else esc(repo_date(repo.get("updated_at")))
-    cells = [project, esc(visibility_label(repo)), description, language, updated]
+    cells = [
+        project,
+        esc(repo.get("description") or "—"),
+        esc(repo.get("language") or "—"),
+    ]
     return "<tr>" + "".join(
         f'<td width="{width}">{cell}</td>' for width, cell in zip(TABLE_WIDTHS, cells)
     ) + "</tr>"
 
 
-def full_width_table(headers: list[str], rows: list[str]) -> list[str]:
+def full_width_table(headers: list[str], rows: list[str], widths: tuple[str, ...]) -> list[str]:
+    if len(headers) != len(widths):
+        raise ValueError("Table headers and widths must have the same length")
     header_cells = "".join(
         f'<th width="{width}">{html.escape(header)}</th>'
-        for width, header in zip(TABLE_WIDTHS, headers)
+        for width, header in zip(widths, headers)
     )
     return [
         '<table width="100%">',
@@ -111,8 +193,9 @@ def full_width_table(headers: list[str], rows: list[str]) -> list[str]:
 def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
     rows = [repository_row(repo) for repo in repositories]
     return full_width_table(
-        ["Repository", "Visibility", "Description", "Main language", "Updated"],
+        ["Repository", "Description", "Main language"],
         rows,
+        TABLE_WIDTHS,
     )
 
 
@@ -123,12 +206,13 @@ def organizational_row(item: dict[str, Any]) -> str:
     cells = [
         project,
         esc(item.get("organization")),
+        esc(item.get("role")),
         esc(item.get("contribution")),
         esc(item.get("repository_type_label")),
-        esc(repo_date(item.get("updated_at"))),
     ]
     return "<tr>" + "".join(
-        f'<td width="{width}">{cell}</td>' for width, cell in zip(TABLE_WIDTHS, cells)
+        f'<td width="{width}">{cell}</td>'
+        for width, cell in zip(ORGANIZATIONAL_TABLE_WIDTHS, cells)
     ) + "</tr>"
 
 
@@ -153,8 +237,9 @@ def render_organizational_contributions() -> list[str]:
         "Selected repositories owned by research organizations are shown separately from my personal repository counts.",
         "",
         *full_width_table(
-            ["Repository", "Organization", "Contribution", "Type", "Updated"],
+            ["Repository", "Organization", "Role", "Contribution", "Type"],
             rows,
+            ORGANIZATIONAL_TABLE_WIDTHS,
         ),
         "",
     ]
@@ -166,14 +251,23 @@ def render_projects() -> str:
     if not repositories:
         return "_Repository inventory will be populated on the next profile Action run._"
 
-    active = [repo for repo in repositories if not repo.get("archived")]
-    archived = [repo for repo in repositories if repo.get("archived")]
-    lines: list[str] = []
+    active_public = [
+        repo for repo in repositories
+        if not repo.get("archived") and not repo.get("private")
+    ]
+    archived_public = [
+        repo for repo in repositories
+        if repo.get("archived") and not repo.get("private")
+    ]
+    lines: list[str] = [
+        "<sub>🔒 Private repositories are included in Repository Types counts but omitted from the public inventory below.</sub>",
+        "",
+    ]
 
     for label in VISIBLE_TYPE_ORDER:
         group = sorted(
-            [repo for repo in active if repo.get("repository_type_label") == label],
-            key=lambda x: (bool(x.get("private")), str(x.get("name") or "").casefold()),
+            [repo for repo in active_public if repo.get("repository_type_label") == label],
+            key=lambda x: str(x.get("name") or "").casefold(),
         )
         if not group:
             continue
@@ -182,14 +276,16 @@ def render_projects() -> str:
 
     lines += render_organizational_contributions()
 
-    if archived:
+    if archived_public:
         lines += [
-            f"### Archived repositories ({len(archived)})",
+            f"### Archived repositories ({len(archived_public)})",
             "",
             "<sub>Archived originals remain available for audit purposes but are excluded from summary cards.</sub>",
             "",
         ]
-        lines += repository_table(sorted(archived, key=lambda x: str(x.get("name") or "").casefold())) + [""]
+        lines += repository_table(
+            sorted(archived_public, key=lambda x: str(x.get("name") or "").casefold())
+        ) + [""]
 
     return "\n".join(lines).rstrip()
 
@@ -197,6 +293,7 @@ def render_projects() -> str:
 def main() -> None:
     text = README.read_text(encoding="utf-8")
     text = prune_readme_sections(text)
+    text = refine_static_readme(text)
     text = replace_projects(text, render_projects())
     README.write_text(text, encoding="utf-8")
 
