@@ -24,11 +24,11 @@ VISIBLE_TYPE_ORDER = [
     "Websites & infrastructure",
 ]
 
-# Public repository tables intentionally share one compact three-column layout.
-# GitHub may adapt widths on narrow screens, but every table starts from the
-# same proportions and full available width.
-TABLE_WIDTHS = ("28%", "58%", "14%")
-ORGANIZATIONAL_TABLE_WIDTHS = ("22%", "16%", "16%", "34%", "12%")
+# Repository tables intentionally share one compact four-column layout.
+# Visibility is explicit: 🔓 Public or 🔒 Private. GitHub may adapt widths on
+# narrow screens, but every personal repository table starts from the same proportions.
+TABLE_WIDTHS = ("26%", "14%", "46%", "14%")
+ORGANIZATIONAL_TABLE_WIDTHS = ("20%", "12%", "14%", "14%", "30%", "10%")
 
 PORTFOLIO_CARDS = """<p align="center">
   <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
@@ -72,7 +72,7 @@ def remove_level2_section(text: str, heading: str) -> str:
 
 def prune_readme_sections(text: str) -> str:
     """Keep the profile concise while canonical data remain available elsewhere."""
-    for heading in ("Research outputs", "How this profile is automated"):
+    for heading in ("Research outputs", "How this profile is automated", "Collaboration and opportunities"):
         text = remove_level2_section(text, heading)
     return re.sub(r"\n{3,}", "\n\n", text)
 
@@ -153,7 +153,7 @@ def refine_static_readme(text: str) -> str:
     text = re.sub(
         r'(## Scientific computing & reproducible research\n\n).*?(?=\n\n<!-- PROJECTS:START -->)',
         r'\1Active original research repositories are organized by their primary scientific or computational function. '
-        r'Public and private repositories are both listed below; private repositories are marked with 🔒. '
+        r'Public and private repositories are both listed below; visibility is shown in each table as 🔓 Public or 🔒 Private. '
         r'Forks and archived repositories are excluded from the active portfolio.',
         text,
         count=1,
@@ -186,10 +186,12 @@ def repository_row(repo: dict[str, Any]) -> str:
     name = esc(repo.get("name") or "unnamed")
     url = str(repo.get("html_url") or "").strip()
     private = bool(repo.get("private"))
-    label = f"🔒 <code>{name}</code>" if private else f"<code>{name}</code>"
+    label = f"<code>{name}</code>"
     project = f'<a href="{html.escape(url, quote=True)}">{label}</a>' if url else label
+    visibility = "🔒 Private" if private else "🔓 Public"
     cells = [
         project,
+        visibility,
         "Private repository" if private else esc(repo.get("description") or "—"),
         "—" if private else esc(repo.get("language") or "—"),
     ]
@@ -218,7 +220,7 @@ def full_width_table(headers: list[str], rows: list[str], widths: tuple[str, ...
 def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
     rows = [repository_row(repo) for repo in repositories]
     return full_width_table(
-        ["Repository", "Description", "Main language"],
+        ["Repository", "Visibility", "Description", "Main language"],
         rows,
         TABLE_WIDTHS,
     )
@@ -227,9 +229,12 @@ def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
 def organizational_row(item: dict[str, Any]) -> str:
     name = esc(item.get("name") or "unnamed")
     url = str(item.get("html_url") or "").strip()
+    private = bool(item.get("private"))
     project = f'<a href="{html.escape(url, quote=True)}"><code>{name}</code></a>' if url else f"<code>{name}</code>"
+    visibility = "🔒 Private" if private else "🔓 Public"
     cells = [
         project,
+        visibility,
         esc(item.get("organization")),
         esc(item.get("role")),
         esc(item.get("contribution")),
@@ -262,7 +267,7 @@ def render_organizational_contributions() -> list[str]:
         "Selected repositories owned by research organizations are shown separately from my personal repository counts.",
         "",
         *full_width_table(
-            ["Repository", "Organization", "Role", "Contribution", "Type"],
+            ["Repository", "Visibility", "Organization", "Role", "Contribution", "Type"],
             rows,
             ORGANIZATIONAL_TABLE_WIDTHS,
         ),
@@ -278,10 +283,7 @@ def render_projects() -> str:
 
     active = [repo for repo in repositories if not repo.get("archived")]
     archived = [repo for repo in repositories if repo.get("archived")]
-    lines: list[str] = [
-        "<sub>🔒 Private repository.</sub>",
-        "",
-    ]
+    lines: list[str] = []
 
     for label in VISIBLE_TYPE_ORDER:
         group = sorted(
