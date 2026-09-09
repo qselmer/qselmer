@@ -41,89 +41,89 @@
 
 ## Scientific computing & reproducible research
 
-Active original research repositories are organized by their primary scientific or computational function. Public and private repositories are both listed below; visibility is shown in each table as 🔓 Public or 🔒 Private. Forks and archived repositories are excluded from the active portfolio.
+Active original research repositories are organized by their primary scientific or computational function. Public and private repositories are both listed below; visibility is shown in each table with 🔓 or 🔒. Forks and archived repositories are excluded from the active portfolio.
 
 <!-- PROJECTS:START -->
 ### Packages (5)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/fish-byte"><code>fish-byte</code></a></td><td width="14%">🔓 Public</td><td width="46%">HTML, CSS y JavaScript.</td><td width="14%">CSS</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/FisheryClose"><code>FisheryClose</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">R</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/oceancube"><code>oceancube</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">R</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/postHub"><code>postHub</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">R</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/seasignals"><code>seasignals</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">R</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/fish-byte"><code>fish-byte</code></a></td><td width="46%">HTML, CSS y JavaScript.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/css/663399" alt="CSS" title="CSS" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/FisheryClose"><code>FisheryClose</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/oceancube"><code>oceancube</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/postHub"><code>postHub</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/seasignals"><code>seasignals</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 </tbody>
 </table>
 
 ### Methods & workflows (1)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow"><code>oceHCS-environmental-data-workflow</code></a></td><td width="14%">🔓 Public</td><td width="46%">Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System.</td><td width="14%">R</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow"><code>oceHCS-environmental-data-workflow</code></a></td><td width="46%">Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 </tbody>
 </table>
 
 ### Apps & dashboards (5)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/humboldt-ocean-watch"><code>humboldt-ocean-watch</code></a></td><td width="14%">🔓 Public</td><td width="46%">AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.</td><td width="14%">Python</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-observatory-app"><code>pelagicPER-observatory-app</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-outlook-app"><code>pelagicPER-outlook-app</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-app"><code>pelagicPER-season-benchmark-app</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-monitor-app"><code>pelagicPER-season-monitor-app</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/humboldt-ocean-watch"><code>humboldt-ocean-watch</code></a></td><td width="46%">AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-observatory-app"><code>pelagicPER-observatory-app</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-outlook-app"><code>pelagicPER-outlook-app</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-app"><code>pelagicPER-season-benchmark-app</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-monitor-app"><code>pelagicPER-season-monitor-app</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
 </tbody>
 </table>
 
 ### Papers (5)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/fishcore-paper"><code>fishcore-paper</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper"><code>fishstocks-misspecification-ml-paper</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper"><code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper"><code>pelagicPER-season-benchmark-paper</code></a></td><td width="14%">🔒 Private</td><td width="46%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/fishcore-paper"><code>fishcore-paper</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper"><code>fishstocks-misspecification-ml-paper</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper"><code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper"><code>pelagicPER-season-benchmark-paper</code></a></td><td width="46%">Private repository</td><td width="12%">🔒</td><td width="16%">—</td></tr>
 </tbody>
 </table>
 
 ### Courses & training (6)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/ctd-C-plus-plus"><code>ctd-C-plus-plus</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/git-github-training"><code>git-github-training</code></a></td><td width="14%">🔓 Public</td><td width="46%">Teaching materials, exercises and reusable resources for Git and GitHub</td><td width="14%">R</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/R-LabCore"><code>R-LabCore</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/skills-introduction-to-github"><code>skills-introduction-to-github</code></a></td><td width="14%">🔓 Public</td><td width="46%">My clone repository</td><td width="14%">—</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/TMB-LabCore"><code>TMB-LabCore</code></a></td><td width="14%">🔓 Public</td><td width="46%">TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming.</td><td width="14%">TeX</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/training_code_Python"><code>training_code_Python</code></a></td><td width="14%">🔓 Public</td><td width="46%">training R, python, julia, C++</td><td width="14%">Jupyter Notebook</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/ctd-C-plus-plus"><code>ctd-C-plus-plus</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/git-github-training"><code>git-github-training</code></a></td><td width="46%">Teaching materials, exercises and reusable resources for Git and GitHub</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/R-LabCore"><code>R-LabCore</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/skills-introduction-to-github"><code>skills-introduction-to-github</code></a></td><td width="46%">My clone repository</td><td width="12%">🔓</td><td width="16%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/TMB-LabCore"><code>TMB-LabCore</code></a></td><td width="46%">TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/latex/008080" alt="TeX" title="TeX" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/training_code_Python"><code>training_code_Python</code></a></td><td width="46%">training R, python, julia, C++</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/jupyter/F37626" alt="Jupyter Notebook" title="Jupyter Notebook" width="20" height="20"></td></tr>
 </tbody>
 </table>
 
 ### Templates (3)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/.template-mse"><code>.template-mse</code></a></td><td width="14%">🔓 Public</td><td width="46%">Reusable structure for reproducible fisheries Management Strategy Evaluation projects.</td><td width="14%">Python</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/.template-training"><code>.template-training</code></a></td><td width="14%">🔓 Public</td><td width="46%">Reusable template for teaching, workshops and scientific training.</td><td width="14%">Python</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/template_summaryPDF"><code>template_summaryPDF</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">R</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/.template-mse"><code>.template-mse</code></a></td><td width="46%">Reusable structure for reproducible fisheries Management Strategy Evaluation projects.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/.template-training"><code>.template-training</code></a></td><td width="46%">Reusable template for teaching, workshops and scientific training.</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/template_summaryPDF"><code>template_summaryPDF</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 </tbody>
 </table>
 
 ### Websites & infrastructure (2)
 
 <table width="100%">
-<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="46%">Description</th><th width="14%">Main language</th></tr></thead>
+<thead><tr><th width="26%">Repository</th><th width="46%">Description</th><th width="12%">Visibility</th><th width="16%">Main language</th></tr></thead>
 <tbody>
-<tr><td width="26%"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="14%">🔓 Public</td><td width="46%">—</td><td width="14%">Python</td></tr>
-<tr><td width="26%"><a href="https://github.com/qselmer/qselmer.github.io"><code>qselmer.github.io</code></a></td><td width="14%">🔓 Public</td><td width="46%">Fisheries scientist &amp; marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science</td><td width="14%">Python</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="46%">—</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/qselmer.github.io"><code>qselmer.github.io</code></a></td><td width="46%">Fisheries scientist &amp; marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science</td><td width="12%">🔓</td><td width="16%"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 </tbody>
 </table>
 
@@ -132,9 +132,9 @@ Active original research repositories are organized by their primary scientific 
 Selected repositories owned by research organizations are shown separately from my personal repository counts.
 
 <table width="100%">
-<thead><tr><th width="20%">Repository</th><th width="12%">Visibility</th><th width="14%">Organization</th><th width="14%">Role</th><th width="30%">Contribution</th><th width="10%">Type</th></tr></thead>
+<thead><tr><th width="20%">Repository</th><th width="14%">Organization</th><th width="14%">Role</th><th width="30%">Contribution</th><th width="12%">Visibility</th><th width="10%">Type</th></tr></thead>
 <tbody>
-<tr><td width="20%"><a href="https://github.com/DIPEL-IMARPE/ancNC-mse-workflow"><code>ancNC-mse-workflow</code></a></td><td width="12%">🔓 Public</td><td width="14%">DIPEL-IMARPE</td><td width="14%">Creator &amp; developer</td><td width="30%">Created the repository and developed the reproducible MSE workflow for the north-central stock of Peruvian anchovy.</td><td width="10%">Methods &amp; workflows</td></tr>
+<tr><td width="20%"><a href="https://github.com/DIPEL-IMARPE/ancNC-mse-workflow"><code>ancNC-mse-workflow</code></a></td><td width="14%">DIPEL-IMARPE</td><td width="14%">Creator &amp; developer</td><td width="30%">Created the repository and developed the reproducible MSE workflow for the north-central stock of Peruvian anchovy.</td><td width="12%">🔓</td><td width="10%">Methods &amp; workflows</td></tr>
 </tbody>
 </table>
 <!-- PROJECTS:END -->

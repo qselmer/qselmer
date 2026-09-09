@@ -25,10 +25,10 @@ VISIBLE_TYPE_ORDER = [
 ]
 
 # Repository tables intentionally share one compact four-column layout.
-# Visibility is explicit: 🔓 Public or 🔒 Private. GitHub may adapt widths on
-# narrow screens, but every personal repository table starts from the same proportions.
-TABLE_WIDTHS = ("26%", "14%", "46%", "14%")
-ORGANIZATIONAL_TABLE_WIDTHS = ("20%", "12%", "14%", "14%", "30%", "10%")
+# Visibility is encoded with an icon only: 🔓 or 🔒, and is the penultimate column.
+# Main language is represented by the corresponding language logo when supported.
+TABLE_WIDTHS = ("26%", "46%", "12%", "16%")
+ORGANIZATIONAL_TABLE_WIDTHS = ("20%", "14%", "14%", "30%", "12%", "10%")
 
 PORTFOLIO_CARDS = """<p align="center">
   <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
@@ -153,7 +153,7 @@ def refine_static_readme(text: str) -> str:
     text = re.sub(
         r'(## Scientific computing & reproducible research\n\n).*?(?=\n\n<!-- PROJECTS:START -->)',
         r'\1Active original research repositories are organized by their primary scientific or computational function. '
-        r'Public and private repositories are both listed below; visibility is shown in each table as 🔓 Public or 🔒 Private. '
+        r'Public and private repositories are both listed below; visibility is shown in each table with 🔓 or 🔒. '
         r'Forks and archived repositories are excluded from the active portfolio.',
         text,
         count=1,
@@ -182,18 +182,46 @@ def repo_date(value: Any) -> str:
     return text[:10] if len(text) >= 10 else "—"
 
 
+def language_logo(value: Any) -> str:
+    language = clean_text(value, "—")
+    if language == "—":
+        return "—"
+    logos = {
+        "r": ("r", "276DC3"),
+        "python": ("python", "3776AB"),
+        "c++": ("cplusplus", "00599C"),
+        "julia": ("julia", "9558B2"),
+        "css": ("css", "663399"),
+        "html": ("html5", "E34F26"),
+        "javascript": ("javascript", "F7DF1E"),
+        "typescript": ("typescript", "3178C6"),
+        "jupyter notebook": ("jupyter", "F37626"),
+        "tex": ("latex", "008080"),
+        "shell": ("gnubash", "4EAA25"),
+    }
+    spec = logos.get(language.casefold())
+    if not spec:
+        return esc(language)
+    slug, color = spec
+    return (
+        f'<img src="https://cdn.simpleicons.org/{slug}/{color}" '
+        f'alt="{html.escape(language, quote=True)}" title="{html.escape(language, quote=True)}" '
+        f'width="20" height="20">'
+    )
+
+
 def repository_row(repo: dict[str, Any]) -> str:
     name = esc(repo.get("name") or "unnamed")
     url = str(repo.get("html_url") or "").strip()
     private = bool(repo.get("private"))
     label = f"<code>{name}</code>"
     project = f'<a href="{html.escape(url, quote=True)}">{label}</a>' if url else label
-    visibility = "🔒 Private" if private else "🔓 Public"
+    visibility = "🔒" if private else "🔓"
     cells = [
         project,
-        visibility,
         "Private repository" if private else esc(repo.get("description") or "—"),
-        "—" if private else esc(repo.get("language") or "—"),
+        visibility,
+        "—" if private else language_logo(repo.get("language") or "—"),
     ]
     return "<tr>" + "".join(
         f'<td width="{width}">{cell}</td>' for width, cell in zip(TABLE_WIDTHS, cells)
@@ -220,7 +248,7 @@ def full_width_table(headers: list[str], rows: list[str], widths: tuple[str, ...
 def repository_table(repositories: list[dict[str, Any]]) -> list[str]:
     rows = [repository_row(repo) for repo in repositories]
     return full_width_table(
-        ["Repository", "Visibility", "Description", "Main language"],
+        ["Repository", "Description", "Visibility", "Main language"],
         rows,
         TABLE_WIDTHS,
     )
@@ -231,13 +259,13 @@ def organizational_row(item: dict[str, Any]) -> str:
     url = str(item.get("html_url") or "").strip()
     private = bool(item.get("private"))
     project = f'<a href="{html.escape(url, quote=True)}"><code>{name}</code></a>' if url else f"<code>{name}</code>"
-    visibility = "🔒 Private" if private else "🔓 Public"
+    visibility = "🔒" if private else "🔓"
     cells = [
         project,
-        visibility,
         esc(item.get("organization")),
         esc(item.get("role")),
         esc(item.get("contribution")),
+        visibility,
         esc(item.get("repository_type_label")),
     ]
     return "<tr>" + "".join(
@@ -267,7 +295,7 @@ def render_organizational_contributions() -> list[str]:
         "Selected repositories owned by research organizations are shown separately from my personal repository counts.",
         "",
         *full_width_table(
-            ["Repository", "Visibility", "Organization", "Role", "Contribution", "Type"],
+            ["Repository", "Organization", "Role", "Contribution", "Visibility", "Type"],
             rows,
             ORGANIZATIONAL_TABLE_WIDTHS,
         ),

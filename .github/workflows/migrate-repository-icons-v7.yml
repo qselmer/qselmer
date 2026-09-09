@@ -1,0 +1,60 @@
+name: Migrate repository icons v7
+
+on:
+  push:
+    branches:
+      - refactor/repository-icons-order
+    paths:
+      - scripts/migrate_repository_icons_v7.py
+      - .github/workflows/migrate-repository-icons-v7.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: refactor/repository-icons-order
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependency
+        run: python -m pip install pytest
+
+      - name: Apply migration
+        run: python scripts/migrate_repository_icons_v7.py
+
+      - name: Render README
+        run: python scripts/render_profile.py
+
+      - name: Validate
+        run: |
+          python -m py_compile scripts/render_profile.py scripts/update_profile.py
+          python -m pytest -q \
+            tests/test_profile_v2.py::test_readme_inventory_lists_public_and_private_repositories \
+            tests/test_profile_v2.py::test_personal_repository_table_has_visibility_column \
+            tests/test_profile.py::CompleteRepositoryInventoryTests::test_render_inventory_hides_unclassified_cleanup_group
+          grep -q '🔓' README.md
+          grep -q '🔒' README.md
+          grep -q 'cdn.simpleicons.org' README.md
+          grep -q '<th width="12%">Visibility</th><th width="16%">Main language</th>' README.md
+          ! grep -q '🔓 Public' README.md
+          ! grep -q '🔒 Private' README.md
+
+      - name: Commit migration result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/render_profile.py tests/test_profile_v2.py tests/test_profile.py README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "refactor: use icon-only repository metadata"
+            git push
+          fi

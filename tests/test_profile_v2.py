@@ -63,8 +63,10 @@ def test_readme_inventory_lists_public_and_private_repositories():
     assert "### Apps & dashboards (2)" in text
     assert "public-app" in text
     assert "private-app" in text
-    assert "🔒 Private" in text
-    assert "🔓 Public" in text
+    assert "🔒" in text
+    assert "🔓" in text
+    assert "🔒 Private" not in text
+    assert "🔓 Public" not in text
     assert "Sensitive description" not in text
     assert "Private repository" in text
 
@@ -76,11 +78,15 @@ def test_personal_repository_table_has_visibility_column():
         "language": "R",
     }]))
     assert "Visibility" in table
-    assert "🔓 Public" in table
+    assert "🔓" in table
+    assert "🔓 Public" not in table
     assert "Updated" not in table
     assert "Repository" in table
     assert "Description" in table
     assert "Main language" in table
+    assert table.index("Description") < table.index("Visibility") < table.index("Main language")
+    assert "https://cdn.simpleicons.org/r/276DC3" in table
+    assert ">R<" not in table
 
 
 def test_static_refinement_preserves_biography_and_research_focus():
