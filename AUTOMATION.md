@@ -7,7 +7,7 @@ The profile is refreshed by `.github/workflows/update-profile.yml` every Monday 
 - **ORCID** — canonical public scholarly-output list.
 - **Crossref** — DOI metadata enrichment when a DOI is registered there.
 - **OpenAlex** — citation count, h-index and i10-index, resolved by ORCID, with a conservative fallback through exact DOI-authorship links from ORCID-listed works.
-- **GitHub API** — public original-repository inventory, repository languages and controlled repository-type counts.
+- **GitHub API** — owned original-repository inventory, public repository languages and controlled repository-type counts.
 - **Google Scholar** — navigation link only; it is not scraped.
 
 ## Optional OpenAlex API key
@@ -44,24 +44,26 @@ assets/generated/github-stats.svg
 
 ## Repository inventory and types
 
-Public original repositories owned by `qselmer` are written to `assets/data/repository-catalog.json` and rendered into the README. Active originals are grouped by canonical repository type and archived originals remain available as a cleanup section. Forks and private repositories are excluded from the public catalog.
+Original repositories owned by `qselmer` are written to `assets/data/repository-catalog.json`. When the read token can see private repositories, the canonical catalog retains both public and private originals; forks are excluded.
 
-The **Primary Languages** and **Repository Types** cards use only active original public repositories; archived repositories are excluded from those two cards.
+The public README is deliberately narrower than the canonical catalog:
 
-New repositories should have one canonical primary `type-*` topic. See `TOPICS.md`. Repositories without a defensible type remain visible under **Other / legacy** until they are reclassified, archived or removed.
+- **Primary Languages** uses active public original repositories only.
+- **Repository Types** counts active public and private original repositories visible to the profile automation.
+- Public repository tables list active public originals only.
+- Private repository names and metadata are not rendered in the public tables.
+- Archived repositories are excluded from the two summary cards and from the active portfolio groups.
+
+New repositories should have one canonical primary `type-*` topic. See `TOPICS.md`. Repositories without a defensible type remain an internal cleanup category in `repository-catalog.json`; they are not rendered as an `Other / legacy` section in the public README.
 
 ## Research outputs
 
-Every public ORCID work is retained in `publications.json` and classified into one of eight output groups. By default, the README renders all public ORCID works. To limit the visible list later, set `MAX_RESEARCH_OUTPUTS` in the workflow to a positive integer.
+Every public ORCID work is retained in `publications.json` and classified into a stable scholarly-output group. The GitHub profile shows compact Research Outputs and Research Metrics cards rather than duplicating the full publication list. The detailed publication catalogue is maintained on the academic website from the same canonical data.
 
 ## Complete repository inventory and visibility
 
 The portfolio intentionally excludes forks. With `INCLUDE_PRIVATE_REPOS=true`, private originals are included only when the repository secret `PROFILE_REPO_TOKEN` is configured. Use a fine-grained personal access token owned by `qselmer`, with access to all repositories and read-only repository metadata/content sufficient for listing repositories and topics.
 
-- `🔓 Public` = public original repository.
-- `🔒 Private` = private original repository visible to the read token.
-- Private descriptions, language and update dates are suppressed in the public README.
-- Summary cards count only active public originals.
+The private inventory is used to support complete repository-type counts and internal portfolio management. It does **not** cause private repository names, descriptions, languages or update dates to be rendered in the public README.
 
-If `PROFILE_REPO_TOKEN` is missing, the workflow falls back to public originals and prints a warning rather than failing.
-
+If `PROFILE_REPO_TOKEN` is missing, the workflow falls back to public originals and prints a warning rather than failing; in that case Repository Types necessarily reflects only repositories visible to the workflow.
