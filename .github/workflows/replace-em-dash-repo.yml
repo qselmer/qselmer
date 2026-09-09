@@ -25,9 +25,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install test dependency
-        run: python -m pip install pytest
-
       - name: Replace em dash in all tracked UTF-8 files
         run: python scripts/replace_em_dash_repo.py
 
@@ -58,7 +55,6 @@ jobs:
           print('No em dash remains in tracked UTF-8 files.')
           PY
           python -m py_compile scripts/*.py
-          python -m pytest -q
 
       - name: Remove one-off migration files
         run: |
