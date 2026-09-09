@@ -70,6 +70,7 @@ def test_readme_inventory_lists_public_and_private_repositories():
     assert "Sensitive description" not in text
     assert "Private repository" in text
 
+
 def test_personal_repository_table_has_visibility_column():
     table = "\n".join(render.repository_table([{
         "name": "example",
@@ -115,6 +116,10 @@ def test_static_refinement_preserves_biography_and_research_focus():
 
 - KEEP THIS FOCUS LINE.
 
+<p align="justify">
+For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com">qselmers@gmail.com</a>
+</p>
+
 ## Research outputs & metrics
 
 <p align="center">
@@ -123,6 +128,10 @@ def test_static_refinement_preserves_biography_and_research_focus():
 </p>
 
 <sub>This card summarizes the public scholarly record. ORCID is the canonical source for research outputs; DOI records are enriched with Crossref metadata. Citation count, h-index and i10-index are refreshed from OpenAlex, resolving the author first by ORCID and, when needed, through exact DOI-authorship links from the ORCID record. Google Scholar remains linked above for profile discovery and citation browsing, but is not scraped by the automation.</sub>
+
+## Scientific computing
+
+Old skills block.
 
 ## Scientific computing & reproducible research
 
@@ -143,8 +152,16 @@ x
     assert '<h1 align="center">Elmer Quispe-Salazar</h1>' not in refined
     assert '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>' in refined
     assert refined.index("assets/generated/research-outputs.svg") < refined.index("## Research focus")
-    assert refined.index("## Research focus") < refined.index("assets/generated/top-languages.svg")
-    assert refined.index("## Research focus") < refined.index("For research collaboration or professional contact") < refined.index("assets/generated/top-languages.svg")
+    assert refined.index("## Research focus") < refined.index("For research collaboration or professional contact")
+    assert refined.index("For research collaboration or professional contact") < refined.index("## Scientific computing")
+    assert refined.index("## Scientific computing") < refined.index("assets/generated/top-languages.svg")
+    assert refined.count("## Scientific computing\n") == 1
+    assert "JavaScript-F7DF1E" in refined
+    assert "Jupyter-F37626" in refined
+    assert "Quarto-75AADB" in refined
+    assert "LaTeX-008080" in refined
+    assert "Git-F05032" in refined
+    assert "GitHub_Actions-2088FF" in refined
 
 
 def test_collaboration_and_opportunities_is_pruned():
