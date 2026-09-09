@@ -802,15 +802,16 @@ def format_metric(value: Any) -> str:
     if value is None or value == "":
         return "—"
     try:
-        return f"{int(value):,}"
+        number = int(value)
     except (TypeError, ValueError):
         return str(value)
+    return "—" if number == 0 else f"{number:,}"
 
 
 def generate_research_cards(publications: list[dict[str, Any]], metrics: dict[str, Any]) -> None:
     counts = output_type_counts(publications)
     output_rows = [
-        (SUMMARY_OUTPUT_LABELS[label], str(counts.get(label, 0)))
+        (SUMMARY_OUTPUT_LABELS[label], format_metric(counts.get(label, 0)))
         for label in SUMMARY_OUTPUT_TYPE_ORDER
     ]
 
@@ -851,7 +852,7 @@ def generate_github_cards() -> None:
 
     type_counts = repository_type_counts(repositories)
     type_rows = [
-        (label, str(type_counts.get(label, 0)))
+        (label, format_metric(type_counts.get(label, 0)))
         for label in VISIBLE_TYPE_ORDER
         if type_counts.get(label, 0) > 0 or label != "Other / legacy"
     ]

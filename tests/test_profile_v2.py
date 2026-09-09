@@ -87,6 +87,11 @@ def test_personal_repository_table_has_visibility_column():
     assert table.index("Description") < table.index("Visibility") < table.index("Main language")
     assert "https://cdn.simpleicons.org/r/276DC3" in table
     assert ">R<" not in table
+    assert '<table width="950">' in table
+    assert 'width="247"' in table
+    assert 'width="437"' in table
+    assert 'width="114"' in table
+    assert 'width="152"' in table
 
 
 def test_static_refinement_preserves_biography_and_research_focus():
@@ -157,3 +162,10 @@ Keep me.
     assert "Collaboration and opportunities" not in refined
     assert "Old collaboration block" not in refined
     assert "## Scientific computing" in refined
+
+
+def test_zero_summary_values_render_as_dash():
+    assert update.format_metric(0) == "—"
+    assert update.format_metric("0") == "—"
+    assert update.format_metric(None) == "—"
+    assert update.format_metric(5) == "5"

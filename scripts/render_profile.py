@@ -27,8 +27,9 @@ VISIBLE_TYPE_ORDER = [
 # Repository tables intentionally share one compact four-column layout.
 # Visibility is encoded with an icon only: 🔓 or 🔒, and is the penultimate column.
 # Main language is represented by the corresponding language logo when supported.
-TABLE_WIDTHS = ("26%", "46%", "12%", "16%")
-ORGANIZATIONAL_TABLE_WIDTHS = ("20%", "14%", "14%", "30%", "12%", "10%")
+TABLE_TOTAL_WIDTH = "950"
+TABLE_WIDTHS = ("247", "437", "114", "152")
+ORGANIZATIONAL_TABLE_WIDTHS = ("190", "133", "133", "285", "114", "95")
 
 PORTFOLIO_CARDS = """<p align="center">
   <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
@@ -238,7 +239,7 @@ def full_width_table(headers: list[str], rows: list[str], widths: tuple[str, ...
         for width, header in zip(widths, headers)
     )
     return [
-        '<table width="100%">',
+        f'<table width="{TABLE_TOTAL_WIDTH}">',
         f"<thead><tr>{header_cells}</tr></thead>",
         "<tbody>",
         *rows,
