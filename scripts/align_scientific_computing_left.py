@@ -18,9 +18,9 @@ text = readme.read_text(encoding="utf-8")
 start = text.index("## Scientific computing\n")
 end = text.index("\n## Scientific computing & reproducible research", start)
 block = text[start:end]
-if block.count('<p align="center">') != 2:
-    raise SystemExit("Expected exactly two centered paragraphs in README Scientific computing section")
-block = block.replace('<p align="center">', '<p align="left">')
+if block.count('<p align="center">') < 2:
+    raise SystemExit("Expected at least two centered badge paragraphs in README Scientific computing section")
+block = block.replace('<p align="center">', '<p align="left">', 2)
 text = text[:start] + block + text[end:]
 readme.write_text(text, encoding="utf-8")
 
