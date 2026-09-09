@@ -2,6 +2,7 @@ from pathlib import Path
 
 render_path = Path("scripts/render_profile.py")
 test_path = Path("tests/test_profile_v2.py")
+legacy_test_path = Path("tests/test_profile.py")
 
 src = render_path.read_text(encoding="utf-8")
 
@@ -56,3 +57,7 @@ tests = tests.replace(
     1,
 )
 test_path.write_text(tests, encoding="utf-8")
+
+legacy_tests = legacy_test_path.read_text(encoding="utf-8")
+legacy_tests = legacy_tests.replace('        self.assertIn("🔒 Private", text)\n', '        self.assertIn("🔒", text)\n        self.assertNotIn("🔒 Private", text)\n')
+legacy_test_path.write_text(legacy_tests, encoding="utf-8")
