@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 render_path = ROOT / "scripts" / "render_profile.py"
 update_path = ROOT / "scripts" / "update_profile.py"
 test_path = ROOT / "tests" / "test_profile_v2.py"
+legacy_test_path = ROOT / "tests" / "test_profile.py"
 
 render = render_path.read_text(encoding="utf-8")
 old_constants = '''TABLE_WIDTHS = ("26%", "46%", "12%", "16%")\nORGANIZATIONAL_TABLE_WIDTHS = ("20%", "14%", "14%", "30%", "12%", "10%")'''
@@ -52,6 +53,17 @@ metric_test = '''\n\ndef test_zero_summary_values_render_as_dash():\n    assert 
 if "def test_zero_summary_values_render_as_dash" not in tests:
     tests += metric_test
 test_path.write_text(tests, encoding="utf-8")
+
+legacy_tests = legacy_test_path.read_text(encoding="utf-8")
+legacy_tests = legacy_tests.replace(
+    'self.assertIn(\'<table width="100%">\', table)',
+    'self.assertIn(\'<table width="950">\', table)',
+)
+legacy_tests = legacy_tests.replace(
+    'self.assertIn(\'<table width="100%">\', text)',
+    'self.assertIn(\'<table width="950">\', text)',
+)
+legacy_test_path.write_text(legacy_tests, encoding="utf-8")
 
 # Regenerate README with fixed-width tables.
 spec = importlib.util.spec_from_file_location("render_profile_refresh", render_path)
