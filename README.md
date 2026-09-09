@@ -32,6 +32,26 @@
   For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
 </p>
 
+## Scientific computing
+
+<p align="center">
+  <img src="https://img.shields.io/badge/R-276DC3?style=flat&logo=r&logoColor=white" alt="R">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" alt="C++">
+  <img src="https://img.shields.io/badge/Julia-9558B2?style=flat&logo=julia&logoColor=white" alt="Julia">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript">
+  <img src="https://img.shields.io/badge/TMB-333333?style=flat" alt="TMB">
+  <img src="https://img.shields.io/badge/Stan-B2011D?style=flat" alt="Stan">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white" alt="Jupyter">
+  <img src="https://img.shields.io/badge/Quarto-75AADB?style=flat&logo=quarto&logoColor=white" alt="Quarto">
+  <img src="https://img.shields.io/badge/LaTeX-008080?style=flat&logo=latex&logoColor=white" alt="LaTeX">
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white" alt="GitHub Actions">
+</p>
+
 <p align="center">
   <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
   <img src="assets/generated/repository-types.svg" width="410" alt="Active original repositories by repository type, including public and private repositories">
@@ -138,15 +158,4 @@ Selected repositories owned by research organizations are shown separately from 
 </tbody>
 </table>
 <!-- PROJECTS:END -->
-
-## Scientific computing
-
-<p>
-  <img src="https://img.shields.io/badge/R-276DC3?style=flat&logo=r&logoColor=white" alt="R">
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" alt="C++">
-  <img src="https://img.shields.io/badge/Julia-9558B2?style=flat&logo=julia&logoColor=white" alt="Julia">
-  <img src="https://img.shields.io/badge/TMB-333333?style=flat" alt="TMB">
-  <img src="https://img.shields.io/badge/Stan-B2011D?style=flat" alt="Stan">
-</p>
 
