@@ -1,5 +1,3 @@
-<h1 align="center">Elmer Quispe-Salazar</h1>
-
 <h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>
 
 <p align="center">
@@ -11,10 +9,6 @@
 
 <p align="justify">
   I am a quantitative marine ecologist and fisheries scientist working at the intersection of ecological modelling, marine data science and decision science. I develop statistical and computational approaches for pelagic fish and marine ecosystems, integrating stock assessment, spatio-temporal modelling, population and community dynamics, life-history processes, environmental variability and multidimensional indicators. My research focuses on understanding population responses to natural and anthropogenic pressures, quantifying uncertainty, and translating ecological information into management through stock assessment, management strategy evaluation (MSE), ecosystem-based fisheries science and reproducible analytical workflows. I am particularly interested in highly variable marine systems and in developing transferable methods that connect ecological theory, large and heterogeneous marine datasets, and operational fisheries management.
-</p>
-
-<p align="justify">
-  For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
 </p>
 
 <p align="center">
@@ -33,6 +27,10 @@
 - 🧭 Multivariate stock-state diagnostics, thresholds, regime shifts and pressure–state relationships.
 - 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
 - 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
+
+<p align="justify">
+  For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
+</p>
 
 <p align="center">
   <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">

@@ -127,7 +127,8 @@ x
     assert "https://x.com" not in refined
     assert "Instituto del Mar del Perú (IMARPE)" not in refined
     assert "## Research outputs & metrics" not in refined
-    assert '<h1 align="center">Elmer Quispe-Salazar</h1>' in refined
+    assert '<h1 align="center">Elmer Quispe-Salazar</h1>' not in refined
     assert '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>' in refined
     assert refined.index("assets/generated/research-outputs.svg") < refined.index("## Research focus")
     assert refined.index("## Research focus") < refined.index("assets/generated/top-languages.svg")
+    assert refined.index("## Research focus") < refined.index("For research collaboration or professional contact") < refined.index("assets/generated/top-languages.svg")
