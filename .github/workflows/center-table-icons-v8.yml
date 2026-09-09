@@ -1,0 +1,51 @@
+name: Center table icons v8
+
+on:
+  push:
+    branches:
+      - fix/center-table-icons
+    paths:
+      - scripts/center_table_icons_v8.py
+      - .github/workflows/center-table-icons-v8.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/center-table-icons
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Apply centering
+        run: python scripts/center_table_icons_v8.py
+
+      - name: Render README
+        run: python scripts/render_profile.py
+
+      - name: Validate
+        run: |
+          python -m py_compile scripts/render_profile.py scripts/update_profile.py
+          grep -q 'align="center"' README.md
+          grep -q 'cdn.simpleicons.org' README.md
+          grep -q '🔓' README.md
+          grep -q '🔒' README.md
+
+      - name: Commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/render_profile.py tests/test_profile_v2.py README.md
+          if ! git diff --cached --quiet; then
+            git commit -m "style: center repository visibility and language icons"
+            git push
+          fi
