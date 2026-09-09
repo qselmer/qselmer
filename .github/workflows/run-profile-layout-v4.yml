@@ -5,7 +5,7 @@ on:
     branches:
       - refactor/profile-layout-v4
     paths:
-      - scripts/migrate_profile_layout_v4.py
+      - scripts/run_profile_layout_v4_patch.py
       - .github/workflows/run-profile-layout-v4.yml
 
 permissions:
@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
 
       - name: Apply migration
-        run: python scripts/migrate_profile_layout_v4.py
+        run: python scripts/run_profile_layout_v4_patch.py
 
       - name: Render README
         run: python scripts/render_profile.py
@@ -52,6 +52,7 @@ jobs:
           rm -f .github/workflows/profile-layout-v4-migration.yml
           rm -f .github/workflows/run-profile-layout-v4.yml
           rm -f scripts/migrate_profile_layout_v4.py
+          rm -f scripts/run_profile_layout_v4_patch.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
