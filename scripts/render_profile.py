@@ -36,6 +36,26 @@ PORTFOLIO_CARDS = """<p align="center">
   <img src="assets/generated/repository-types.svg" width="410" alt="Active original repositories by repository type, including public and private repositories">
 </p>"""
 
+SCIENTIFIC_COMPUTING_BLOCK = """## Scientific computing
+
+<p align="center">
+  <img src="https://img.shields.io/badge/R-276DC3?style=flat&logo=r&logoColor=white" alt="R">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" alt="C++">
+  <img src="https://img.shields.io/badge/Julia-9558B2?style=flat&logo=julia&logoColor=white" alt="Julia">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=000000" alt="JavaScript">
+  <img src="https://img.shields.io/badge/TMB-333333?style=flat" alt="TMB">
+  <img src="https://img.shields.io/badge/Stan-B2011D?style=flat" alt="Stan">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white" alt="Jupyter">
+  <img src="https://img.shields.io/badge/Quarto-75AADB?style=flat&logo=quarto&logoColor=white" alt="Quarto">
+  <img src="https://img.shields.io/badge/LaTeX-008080?style=flat&logo=latex&logoColor=white" alt="LaTeX">
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white" alt="GitHub Actions">
+</p>"""
+
 METRICS_NOTE = (
     "<sub>Research outputs are synchronized from ORCID/Crossref; "
     "bibliometric indicators are obtained from OpenAlex.</sub>"
@@ -123,6 +143,9 @@ def refine_static_readme(text: str) -> str:
         flags=re.S,
     )
 
+    # Rebuild this block at one canonical location below the contact line.
+    text = remove_level2_section(text, "Scientific computing")
+
     text = text.replace(PORTFOLIO_NOTE, "")
     text = re.sub(
         r'\n<p align="center">\s*<img src="assets/generated/top-languages\.svg".*?'
@@ -148,6 +171,7 @@ def refine_static_readme(text: str) -> str:
         replacement = focus_block
         if contact_block:
             replacement += "\n\n" + contact_block
+        replacement += "\n\n" + SCIENTIFIC_COMPUTING_BLOCK
         replacement += "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE + "\n"
         text = text[:focus_match.start()] + replacement + text[focus_match.end():]
 
@@ -161,11 +185,6 @@ def refine_static_readme(text: str) -> str:
         flags=re.S,
     )
 
-    text = re.sub(
-        r'\n\s*<img src="https://img\.shields\.io/badge/(?:Git-|GitHub_Actions-|Quarto-)[^\n]+>',
-        "",
-        text,
-    )
     return re.sub(r"\n{3,}", "\n\n", text)
 
 
