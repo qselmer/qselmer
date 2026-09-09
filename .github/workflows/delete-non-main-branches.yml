@@ -1,0 +1,61 @@
+name: Delete non-main branches
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/delete-non-main-branches.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete every remote branch except main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --prune origin '+refs/heads/*:refs/remotes/origin/*'
+          mapfile -t branches < <(
+            git for-each-ref --format='%(refname:strip=3)' refs/remotes/origin \
+              | grep -vE '^(HEAD|main)$' \
+              | sort -u
+          )
+
+          echo "Deleting ${#branches[@]} non-main branches"
+          for branch in "${branches[@]}"; do
+            echo "Deleting: $branch"
+            git push origin --delete "$branch"
+          done
+
+      - name: Validate only main remains
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t remaining < <(
+            git ls-remote --heads origin \
+              | awk '{sub("refs/heads/", "", $2); print $2}' \
+              | sort -u
+          )
+          printf 'Remaining branches:\n%s\n' "${remaining[*]}"
+          test "${#remaining[@]}" -eq 1
+          test "${remaining[0]}" = "main"
+
+      - name: Remove one-off cleanup workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/delete-non-main-branches.yml
+          git commit -m "chore: remove one-off branch cleanup workflow"
+          git push origin main
