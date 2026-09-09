@@ -100,6 +100,9 @@ def refine_static_readme(text: str) -> str:
     text = re.sub(r'\n\s*<a href="https://www\.researchgate\.net/[^\n]+</a>', "", text)
     text = re.sub(r'\n\s*<a href="https://x\.com/[^\n]+</a>', "", text)
 
+    # Remove any previously rendered scope note before rebuilding the card block.
+    text = text.replace(PORTFOLIO_NOTE, "")
+
     # Remove the repository cards from their legacy top-of-profile position.
     text = re.sub(
         r'\n<p align="center">\s*<img src="assets/generated/top-languages\.svg".*?'

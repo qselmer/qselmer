@@ -45,8 +45,6 @@
 
 <sub>Primary Languages uses active public original repositories. Repository Types includes active public and private original repositories visible to the profile automation; forks and archived repositories are excluded.</sub>
 
-<sub>Primary Languages uses active public original repositories. Repository Types includes active public and private original repositories visible to the profile automation; forks and archived repositories are excluded.</sub>
-
 ## Scientific computing & reproducible research
 
 Public original research repositories are organized by their primary scientific or computational function. Forks and archived repositories are excluded from the active portfolio. Private repositories remain included in Repository Types counts but are not listed below.
