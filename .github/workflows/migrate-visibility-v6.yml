@@ -1,0 +1,57 @@
+name: Migrate repository visibility v6
+
+on:
+  push:
+    branches:
+      - refactor/repository-visibility-column
+    paths:
+      - scripts/migrate_visibility_column_v6.py
+      - .github/workflows/migrate-visibility-v6.yml
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v5
+        with:
+          ref: refactor/repository-visibility-column
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Apply migration
+        run: python scripts/migrate_visibility_column_v6.py
+
+      - name: Render README
+        run: python scripts/render_profile.py
+
+      - name: Validate
+        run: |
+          python -m py_compile scripts/render_profile.py scripts/update_profile.py
+          python -m unittest discover -s tests -v
+          python - <<'PY'
+          from pathlib import Path
+          text = Path('README.md').read_text(encoding='utf-8')
+          assert '<th width="14%">Visibility</th>' in text
+          assert '🔓 Public' in text
+          assert '🔒 Private' in text
+          assert '<sub>🔒 Private repository.</sub>' not in text
+          assert '## Collaboration and opportunities' not in text
+          assert 'I welcome international research collaboration' not in text
+          PY
+
+      - name: Commit migration result
+        run: |
+          rm -f scripts/migrate_visibility_column_v6.py
+          rm -f .github/workflows/migrate-visibility-v6.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "refactor: show repository visibility explicitly"
+          git push
