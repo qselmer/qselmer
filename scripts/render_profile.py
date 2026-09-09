@@ -169,24 +169,24 @@ def refine_static_readme(text: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", text)
 
 
-def clean_text(value: Any, default: str = "—") -> str:
+def clean_text(value: Any, default: str = "-") -> str:
     text = re.sub(r"\s+", " ", str(value or "").strip())
     return text or default
 
 
-def esc(value: Any, default: str = "—") -> str:
+def esc(value: Any, default: str = "-") -> str:
     return html.escape(clean_text(value, default), quote=True)
 
 
 def repo_date(value: Any) -> str:
     text = str(value or "").strip()
-    return text[:10] if len(text) >= 10 else "—"
+    return text[:10] if len(text) >= 10 else "-"
 
 
 def language_logo(value: Any) -> str:
-    language = clean_text(value, "—")
-    if language == "—":
-        return "—"
+    language = clean_text(value, "-")
+    if language == "-":
+        return "-"
     logos = {
         "r": ("r", "276DC3"),
         "python": ("python", "3776AB"),
@@ -220,9 +220,9 @@ def repository_row(repo: dict[str, Any]) -> str:
     visibility = "🔒" if private else "🔓"
     cells = [
         project,
-        "Private repository" if private else esc(repo.get("description") or "—"),
+        "Private repository" if private else esc(repo.get("description") or "-"),
         visibility,
-        "—" if private else language_logo(repo.get("language") or "—"),
+        "-" if private else language_logo(repo.get("language") or "-"),
     ]
     return "<tr>" + "".join(
         f'<td width="{width}" align="center">{cell}</td>' if index in (2, 3)

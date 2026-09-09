@@ -55,7 +55,7 @@ A repository should normally have **exactly one primary `type-*` topic**. Domain
 
 ## Classification precedence used by the automation
 
-1. Exactly one canonical `type-*` topic on the repository — authoritative.
+1. Exactly one canonical `type-*` topic on the repository - authoritative.
 2. A recognized legacy topic alias.
 3. A temporary explicit override in `assets/data/repository-types.json`.
 4. Conservative name-based inference for old repositories.

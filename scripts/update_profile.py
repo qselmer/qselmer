@@ -243,7 +243,7 @@ def publishing_since(publications: list[dict[str, Any]]) -> str:
             continue
         if 1000 <= year <= 9999:
             years.append(year)
-    return str(min(years)) if years else "—"
+    return str(min(years)) if years else "-"
 
 
 def orcid_works() -> list[dict[str, Any]]:
@@ -686,7 +686,7 @@ def build_repository_catalog(repositories: list[dict[str, Any]]) -> dict[str, An
             "full_name": safe_text(repo.get("full_name")),
             "html_url": safe_text(repo.get("html_url")),
             "description": safe_text(repo.get("description")),
-            "language": safe_text(repo.get("language")) or "—",
+            "language": safe_text(repo.get("language")) or "-",
             "updated_at": safe_text(repo.get("updated_at")),
             "archived": bool(repo.get("archived")),
             "private": private,
@@ -848,7 +848,7 @@ def generate_github_cards() -> None:
         for language, count in languages.most_common(8)
     ]
     if not language_rows:
-        language_rows = [("No language data", "—")]
+        language_rows = [("No language data", "-")]
 
     type_counts = repository_type_counts(repositories)
     type_rows = [
@@ -943,7 +943,7 @@ def main() -> int:
 
     print(f"Public ORCID works: {len(publications)}")
     if openalex.get("available"):
-        print(f"OpenAlex citations: {openalex.get('cited_by_count', '—')} | h-index: {openalex.get('h_index', '—')}")
+        print(f"OpenAlex citations: {openalex.get('cited_by_count', '-')} | h-index: {openalex.get('h_index', '-')}")
     else:
         print("OpenAlex metrics: unavailable on this refresh (profile retains ORCID-derived metrics).")
     return 0

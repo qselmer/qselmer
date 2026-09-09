@@ -4,11 +4,11 @@ The profile is refreshed by `.github/workflows/update-profile.yml` every Monday 
 
 ## Data sources
 
-- **ORCID** — canonical public scholarly-output list.
-- **Crossref** — DOI metadata enrichment when a DOI is registered there.
-- **OpenAlex** — citation count, h-index and i10-index, resolved by ORCID, with a conservative fallback through exact DOI-authorship links from ORCID-listed works.
-- **GitHub API** — owned original-repository inventory, public repository languages and controlled repository-type counts.
-- **Google Scholar** — navigation link only; it is not scraped.
+- **ORCID** - canonical public scholarly-output list.
+- **Crossref** - DOI metadata enrichment when a DOI is registered there.
+- **OpenAlex** - citation count, h-index and i10-index, resolved by ORCID, with a conservative fallback through exact DOI-authorship links from ORCID-listed works.
+- **GitHub API** - owned original-repository inventory, public repository languages and controlled repository-type counts.
+- **Google Scholar** - navigation link only; it is not scraped.
 
 ## Optional OpenAlex API key
 

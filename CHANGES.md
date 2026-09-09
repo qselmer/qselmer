@@ -1,6 +1,6 @@
 # Changes
 
-## v4 — personal taxonomy cleanup
+## v4 - personal taxonomy cleanup
 
 - Removed the explicit “Currently seeking PhD opportunities internationally” banner from the profile header.
 - Replaced the conference microphone icon with the more academic `🏛️` marker.
@@ -30,7 +30,7 @@
 - Archived repositories and public forks are now shown in dedicated cleanup tables, while remaining excluded from language/type summary cards.
 - Retired `featured-projects.json` from README rendering; it is retained only as a legacy file for reference.
 
-## v5 — repository visibility and non-duplicative research sections
+## v5 - repository visibility and non-duplicative research sections
 
 - separated public ORCID research outputs from active manuscripts/projects using a compact pipeline table;
 - retained the academic conference icon `🏛️`;
@@ -43,7 +43,7 @@
 - updated GitHub Actions to Node 24-compatible `actions/checkout@v5` and `actions/setup-python@v6`.
 
 
-## v6 — academic presentation refinement
+## v6 - academic presentation refinement
 
 - Removed the visible active-manuscript/project section to avoid repeating conference outputs and related studies.
 - Grouped ORCID research outputs by scholarly-output type and ordered records by year within each group.
@@ -52,7 +52,7 @@
 - Removed public inventory/taxonomy progress counters and the `Type basis` column from the README; classification provenance remains in the JSON catalog for audit use.
 - Broadened the research description from small pelagics to pelagic systems, reflecting work on anchoveta, jack mackerel, Pacific bonito, chub mackerel and tunas.
 
-## v8 — personal taxonomy simplification and contact visibility
+## v8 - personal taxonomy simplification and contact visibility
 
 - Removed `type-protocol` / **Protocols & manuals** from the personal repository taxonomy; this category is reserved for organizational/institutional portfolios rather than the personal academic profile.
 - Added the academic website (`qselmer.github.io`) alongside the contact email in the profile introduction.
