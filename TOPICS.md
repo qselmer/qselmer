@@ -1,6 +1,6 @@
 # Repository type topics
 
-This profile inventories **public original repositories owned by `qselmer`**. Forks and private repositories are excluded. Active original repositories are classified using one controlled primary `type-*` topic; archived originals remain visible only as a cleanup queue.
+This profile maintains a controlled taxonomy for **original repositories owned by `qselmer`**. Forks are excluded. Public repositories form the visible README portfolio, while private originals can contribute to complete repository-type counts when the profile automation can access them. Active original repositories are classified using one controlled primary `type-*` topic.
 
 ## Canonical types
 
@@ -67,18 +67,20 @@ For repository cleanup, the goal is to migrate important repositories to rule 1 
 
 ## Scope of profile statistics and inventory
 
-The **Primary Languages**, **Repository Types** card and detailed repository portfolio use only repositories that are:
+The three public-facing components intentionally use different scopes:
 
-- owned by `qselmer`;
-- public;
-- original (not forks).
+- **Primary Languages**: active, public, original repositories owned by `qselmer`.
+- **Repository Types**: active original repositories owned by `qselmer`, including both public and private repositories visible to the profile automation.
+- **Detailed repository tables**: active, public, original repositories only.
 
-The **Repository Types** summary card lists canonical portfolio types only, with **Projects** first. `Other / legacy` remains a cleanup category in the detailed inventory and is not presented as a repository type in the summary card.
+Forks are excluded throughout. Archived repositories are excluded from both summary cards and from active portfolio groups.
 
-Archived originals may remain visible in the detailed cleanup inventory but are excluded from summary cards. Forks and private repository names/metadata are not rendered in the public profile.
+The **Repository Types** summary card lists canonical portfolio types only, with **Projects** first. `Other / legacy` remains an internal cleanup category in `assets/data/repository-catalog.json` and is not presented as a public repository type or README section.
+
+Private repository names and metadata are retained only in the canonical internal catalog when the configured read token can access them. They are not rendered in the public README tables.
 
 ## Manual type assignment
 
 For portfolio cleanup, assign exactly one canonical `type-*` topic manually to every active original repository. The explicit topic takes precedence over all legacy overrides and name inference. Additional domain topics such as `fisheries`, `anchovy`, `stock-assessment`, `r`, or `spatiotemporal` are secondary and do not replace the primary repository type.
 
-Classification provenance is retained in `assets/data/repository-catalog.json` for audit and cleanup, while the public README shows only the academic repository grouping.
+Classification provenance is retained in `assets/data/repository-catalog.json` for audit and cleanup, while the public README shows only the academic repository grouping for public repositories.
