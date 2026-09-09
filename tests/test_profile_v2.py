@@ -27,7 +27,7 @@ def test_repository_type_counts_include_public_and_private_active_originals():
     assert counts["Apps & dashboards"] == 2
 
 
-def test_readme_inventory_lists_public_repositories_only():
+def test_readme_inventory_lists_public_and_private_repositories():
     original_load = render.load
     try:
         def fake_load(path, default):
@@ -60,12 +60,12 @@ def test_readme_inventory_lists_public_repositories_only():
     finally:
         render.load = original_load
 
-    assert "### Apps & dashboards (1)" in text
+    assert "### Apps & dashboards (2)" in text
     assert "public-app" in text
-    assert "private-app" not in text
+    assert "private-app" in text
+    assert "🔒 <code>private-app</code>" in text
     assert "Sensitive description" not in text
-    assert "🔒 Private repositories" in text
-
+    assert "Private repository" in text
 
 def test_personal_repository_table_is_three_columns():
     table = "\n".join(render.repository_table([{
@@ -82,7 +82,7 @@ def test_personal_repository_table_is_three_columns():
 
 
 def test_static_refinement_preserves_biography_and_research_focus():
-    sample = '''<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>
+    sample = """<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>
 
 <p align="justify">BIOGRAPHY MUST REMAIN EXACTLY AS WRITTEN.</p>
 
@@ -118,13 +118,16 @@ Old intro.
 <!-- PROJECTS:START -->
 x
 <!-- PROJECTS:END -->
-'''
+"""
     refined = render.refine_static_readme(sample)
     assert "BIOGRAPHY MUST REMAIN EXACTLY AS WRITTEN." in refined
     assert "- KEEP THIS FOCUS LINE." in refined
     assert "Profile views" not in refined
     assert "researchgate.net" not in refined
     assert "https://x.com" not in refined
-    assert refined.index("## Research outputs & metrics") < refined.index("assets/generated/top-languages.svg")
     assert "Instituto del Mar del Perú (IMARPE)" not in refined
-    assert refined.index("## Research outputs & metrics") < refined.index("## Research focus")
+    assert "## Research outputs & metrics" not in refined
+    assert '<h1 align="center">Elmer Quispe-Salazar</h1>' in refined
+    assert '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>' in refined
+    assert refined.index("assets/generated/research-outputs.svg") < refined.index("## Research focus")
+    assert refined.index("## Research focus") < refined.index("assets/generated/top-languages.svg")

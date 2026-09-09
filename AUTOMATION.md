@@ -50,8 +50,8 @@ The public README is deliberately narrower than the canonical catalog:
 
 - **Primary Languages** uses active public original repositories only.
 - **Repository Types** counts active public and private original repositories visible to the profile automation.
-- Public repository tables list active public originals only.
-- Private repository names and metadata are not rendered in the public tables.
+- Detailed repository tables list active public and private originals.
+- Private repositories are marked with 🔒; their descriptions and language metadata are suppressed in the public README.
 - Archived repositories are excluded from the two summary cards and from the active portfolio groups.
 
 New repositories should have one canonical primary `type-*` topic. See `TOPICS.md`. Repositories without a defensible type remain an internal cleanup category in `repository-catalog.json`; they are not rendered as an `Other / legacy` section in the public README.
@@ -64,6 +64,6 @@ Every public ORCID work is retained in `publications.json` and classified into a
 
 The portfolio intentionally excludes forks. With `INCLUDE_PRIVATE_REPOS=true`, private originals are included only when the repository secret `PROFILE_REPO_TOKEN` is configured. Use a fine-grained personal access token owned by `qselmer`, with access to all repositories and read-only repository metadata/content sufficient for listing repositories and topics.
 
-The private inventory is used to support complete repository-type counts and internal portfolio management. It does **not** cause private repository names, descriptions, languages or update dates to be rendered in the public README.
+The private inventory supports complete repository-type counts and the visible portfolio. Private repository names are rendered with 🔒, while descriptions, language and other sensitive metadata remain suppressed in the public README.
 
 If `PROFILE_REPO_TOKEN` is missing, the workflow falls back to public originals and prints a warning rather than failing; in that case Repository Types necessarily reflects only repositories visible to the workflow.
