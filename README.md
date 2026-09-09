@@ -2,7 +2,12 @@
 
 <h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>
 
-<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>
+<p align="center">
+  <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
+  <a href="https://orcid.org/0000-0001-9229-6379"><img src="https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white" alt="ORCID"></a>
+  <a href="https://www.webofscience.com/wos/author/record/AEA-6138-2022"><img src="https://img.shields.io/badge/Clarivate-5B2C83?style=flat&logo=clarivate&logoColor=white" alt="Clarivate"></a>
+  <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
+</p>
 
 <p align="justify">
   I am a quantitative marine ecologist and fisheries scientist working at the intersection of ecological modelling, marine data science and decision science. I develop statistical and computational approaches for pelagic fish and marine ecosystems, integrating stock assessment, spatio-temporal modelling, population and community dynamics, life-history processes, environmental variability and multidimensional indicators. My research focuses on understanding population responses to natural and anthropogenic pressures, quantifying uncertainty, and translating ecological information into management through stock assessment, management strategy evaluation (MSE), ecosystem-based fisheries science and reproducible analytical workflows. I am particularly interested in highly variable marine systems and in developing transferable methods that connect ecological theory, large and heterogeneous marine datasets, and operational fisheries management.
@@ -11,23 +16,6 @@
 <p align="justify">
   For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
 </p>
-
-<p align="center">
-  <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
-  <a href="https://orcid.org/0000-0001-9229-6379"><img src="https://img.shields.io/badge/ORCID-A6CE39?style=flat&logo=orcid&logoColor=white" alt="ORCID"></a>
-  <a href="https://www.webofscience.com/wos/author/record/AEA-6138-2022"><img src="https://img.shields.io/badge/Clarivate-5B2C83?style=flat&logo=clarivate&logoColor=white" alt="Clarivate"></a>
-  <a href="https://www.linkedin.com/in/elmer-quispe-salazar-104b6b1a4/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-</p>
-
-## Research focus
-
-- 🐟 Quantitative marine ecology, fisheries science and stock assessment.
-- 📈 Population and community dynamics, recruitment, growth and life-history variation.
-- 🗺️ Spatio-temporal modelling, statistical ecology and marine ecosystem indicators.
-- 🌊 Pelagic fish and pelagic ecosystem dynamics, particularly in the Humboldt Current and Eastern Boundary Upwelling Systems.
-- 🧭 Multivariate stock-state diagnostics, thresholds, regime shifts and pressure–state relationships.
-- 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
-- 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
 
 ## Research outputs & metrics
 
@@ -44,6 +32,16 @@
 </p>
 
 <sub>Primary Languages uses active public original repositories. Repository Types includes active public and private original repositories visible to the profile automation; forks and archived repositories are excluded.</sub>
+
+## Research focus
+
+- 🐟 Quantitative marine ecology, fisheries science and stock assessment.
+- 📈 Population and community dynamics, recruitment, growth and life-history variation.
+- 🗺️ Spatio-temporal modelling, statistical ecology and marine ecosystem indicators.
+- 🌊 Pelagic fish and pelagic ecosystem dynamics, particularly in the Humboldt Current and Eastern Boundary Upwelling Systems.
+- 🧭 Multivariate stock-state diagnostics, thresholds, regime shifts and pressure–state relationships.
+- 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
+- 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
 
 ## Scientific computing & reproducible research
 
