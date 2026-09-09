@@ -34,7 +34,7 @@
 
 ## Scientific computing
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/R-276DC3?style=flat&logo=r&logoColor=white" alt="R">
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white" alt="C++">
@@ -44,7 +44,7 @@
   <img src="https://img.shields.io/badge/Stan-B2011D?style=flat" alt="Stan">
 </p>
 
-<p align="center">
+<p align="left">
   <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat&logo=jupyter&logoColor=white" alt="Jupyter">
   <img src="https://img.shields.io/badge/Quarto-75AADB?style=flat&logo=quarto&logoColor=white" alt="Quarto">
   <img src="https://img.shields.io/badge/LaTeX-008080?style=flat&logo=latex&logoColor=white" alt="LaTeX">
