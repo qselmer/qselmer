@@ -224,7 +224,9 @@ def repository_row(repo: dict[str, Any]) -> str:
         "—" if private else language_logo(repo.get("language") or "—"),
     ]
     return "<tr>" + "".join(
-        f'<td width="{width}">{cell}</td>' for width, cell in zip(TABLE_WIDTHS, cells)
+        f'<td width="{width}" align="center">{cell}</td>' if index in (2, 3)
+        else f'<td width="{width}">{cell}</td>'
+        for index, (width, cell) in enumerate(zip(TABLE_WIDTHS, cells))
     ) + "</tr>"
 
 
@@ -269,8 +271,9 @@ def organizational_row(item: dict[str, Any]) -> str:
         esc(item.get("repository_type_label")),
     ]
     return "<tr>" + "".join(
-        f'<td width="{width}">{cell}</td>'
-        for width, cell in zip(ORGANIZATIONAL_TABLE_WIDTHS, cells)
+        f'<td width="{width}" align="center">{cell}</td>' if index == 4
+        else f'<td width="{width}">{cell}</td>'
+        for index, (width, cell) in enumerate(zip(ORGANIZATIONAL_TABLE_WIDTHS, cells))
     ) + "</tr>"
 
 
