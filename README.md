@@ -79,9 +79,15 @@ Original research repositories are organized by their primary scientific or comp
 |---|---|---|---|---|
 | [`fish-byte`](https://github.com/qselmer/fish-byte) | 🔓 Public | HTML, CSS y JavaScript. | CSS | 2025-03-05 |
 | [`FisheryClose`](https://github.com/qselmer/FisheryClose) | 🔓 Public | — | R | 2025-04-28 |
-| [`oceancube`](https://github.com/qselmer/oceancube) | 🔓 Public | — | R | 2026-08-20 |
+| [`oceancube`](https://github.com/qselmer/oceancube) | 🔓 Public | — | R | 2026-09-08 |
 | [`postHub`](https://github.com/qselmer/postHub) | 🔓 Public | — | R | 2025-05-03 |
 | [`seasignals`](https://github.com/qselmer/seasignals) | 🔓 Public | — | R | 2026-02-06 |
+
+### Methods & workflows (1)
+
+| Repository | Visibility | Description | Main language | Updated |
+|---|---|---|---|---|
+| [`oceHCS-environmental-data-workflow`](https://github.com/qselmer/oceHCS-environmental-data-workflow) | 🔓 Public | Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System. | R | 2026-09-09 |
 
 ### Apps & dashboards (5)
 
@@ -93,12 +99,13 @@ Original research repositories are organized by their primary scientific or comp
 | [`pelagicPER-season-benchmark-app`](https://github.com/qselmer/pelagicPER-season-benchmark-app) | 🔒 Private | Private repository | — | — |
 | [`pelagicPER-season-monitor-app`](https://github.com/qselmer/pelagicPER-season-monitor-app) | 🔒 Private | Private repository | — | — |
 
-### Papers (4)
+### Papers (5)
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
 | [`pelagicPER-availability-risk-paper`](https://github.com/qselmer/pelagicPER-availability-risk-paper) | 🔓 Public | — | — | 2026-08-07 |
 | [`fishcore-paper`](https://github.com/qselmer/fishcore-paper) | 🔒 Private | Private repository | — | — |
+| [`fishstocks-misspecification-ml-paper`](https://github.com/qselmer/fishstocks-misspecification-ml-paper) | 🔒 Private | Private repository | — | — |
 | [`pelagicPER-fishery-reorganization-paper`](https://github.com/qselmer/pelagicPER-fishery-reorganization-paper) | 🔒 Private | Private repository | — | — |
 | [`pelagicPER-season-benchmark-paper`](https://github.com/qselmer/pelagicPER-season-benchmark-paper) | 🔒 Private | Private repository | — | — |
 
@@ -117,18 +124,18 @@ Original research repositories are organized by their primary scientific or comp
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
-| [`.template-fisheries-mse`](https://github.com/qselmer/.template-fisheries-mse) | 🔓 Public | — | Python | 2026-09-02 |
-| [`.template-training`](https://github.com/qselmer/.template-training) | 🔓 Public | Reusable Quarto template for teaching, workshops and scientific training. | Python | 2026-09-07 |
+| [`.template-mse`](https://github.com/qselmer/.template-mse) | 🔓 Public | Reusable structure for reproducible fisheries Management Strategy Evaluation projects. | Python | 2026-09-08 |
+| [`.template-training`](https://github.com/qselmer/.template-training) | 🔓 Public | Reusable template for teaching, workshops and scientific training. | Python | 2026-09-07 |
 | [`template_summaryPDF`](https://github.com/qselmer/template_summaryPDF) | 🔓 Public | — | R | 2023-04-11 |
 
 ### Websites & infrastructure (2)
 
 | Repository | Visibility | Description | Main language | Updated |
 |---|---|---|---|---|
-| [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | 2026-09-07 |
-| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | HTML | 2026-09-07 |
+| [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | 2026-09-09 |
+| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | Python | 2026-09-09 |
 
-### Other / legacy (12)
+### Other / legacy (10)
 
 <sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>
 
@@ -139,8 +146,6 @@ Original research repositories are organized by their primary scientific or comp
 | [`r4fish`](https://github.com/qselmer/r4fish) | 🔓 Public | — | R | 2023-02-21 |
 | [`TestPackage`](https://github.com/qselmer/TestPackage) | 🔓 Public | My R Package | R | 2020-09-13 |
 | [`wk-esme`](https://github.com/qselmer/wk-esme) | 🔓 Public | — | — | 2023-01-09 |
-| [`anc_nc_sa`](https://github.com/qselmer/anc_nc_sa) | 🔒 Private | Private repository | — | — |
-| [`anchNC_get_spawning_biomass`](https://github.com/qselmer/anchNC_get_spawning_biomass) | 🔒 Private | Private repository | — | — |
 | [`crs_SMiME`](https://github.com/qselmer/crs_SMiME) | 🔒 Private | Private repository | — | — |
 | [`fishcore`](https://github.com/qselmer/fishcore) | 🔒 Private | Private repository | — | — |
 | [`fishqc`](https://github.com/qselmer/fishqc) | 🔒 Private | Private repository | — | — |

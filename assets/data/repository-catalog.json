@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-07T16:34:34.264471+00:00",
+  "updated_at": "2026-09-09T02:10:23.207547+00:00",
   "owner": "qselmer",
   "scope": "all original repositories visible to PROFILE_REPO_TOKEN; forks excluded",
   "totals": {
     "repositories": 37,
-    "public_repositories": 23,
-    "private_repositories": 14,
+    "public_repositories": 24,
+    "private_repositories": 13,
     "active_original_repositories": 37,
-    "active_public_original_repositories": 23,
-    "active_private_original_repositories": 14,
+    "active_public_original_repositories": 24,
+    "active_private_original_repositories": 13,
     "archived_original_repositories": 0,
-    "other_or_legacy_active": 12,
-    "manual_type_topics_active": 2
+    "other_or_legacy_active": 10,
+    "manual_type_topics_active": 5
   },
   "repositories": [
     {
@@ -199,6 +199,27 @@
       "topics": []
     },
     {
+      "name": "oceHCS-environmental-data-workflow",
+      "full_name": "qselmer/oceHCS-environmental-data-workflow",
+      "html_url": "https://github.com/qselmer/oceHCS-environmental-data-workflow",
+      "description": "Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System.",
+      "language": "R",
+      "updated_at": "2026-09-09T01:57:16Z",
+      "archived": false,
+      "private": false,
+      "visibility": "public",
+      "fork": false,
+      "repository_type": "type-workflow",
+      "repository_type_label": "Methods & workflows",
+      "classification_source": "topic",
+      "topics": [
+        "humboldt-current-system",
+        "ocean-data",
+        "oceanography",
+        "type-workflow"
+      ]
+    },
+    {
       "name": "fisheries-research-workflows-book",
       "full_name": "qselmer/fisheries-research-workflows-book",
       "html_url": "https://github.com/qselmer/fisheries-research-workflows-book",
@@ -272,38 +293,6 @@
       "archived": false,
       "private": false,
       "visibility": "public",
-      "fork": false,
-      "repository_type": "",
-      "repository_type_label": "Other / legacy",
-      "classification_source": "unclassified",
-      "topics": []
-    },
-    {
-      "name": "anc_nc_sa",
-      "full_name": "qselmer/anc_nc_sa",
-      "html_url": "https://github.com/qselmer/anc_nc_sa",
-      "description": "",
-      "language": "—",
-      "updated_at": "2022-12-07T17:07:48Z",
-      "archived": false,
-      "private": true,
-      "visibility": "private",
-      "fork": false,
-      "repository_type": "",
-      "repository_type_label": "Other / legacy",
-      "classification_source": "unclassified",
-      "topics": []
-    },
-    {
-      "name": "anchNC_get_spawning_biomass",
-      "full_name": "qselmer/anchNC_get_spawning_biomass",
-      "html_url": "https://github.com/qselmer/anchNC_get_spawning_biomass",
-      "description": "R workflow to estimate and complete spawning biomass for the North-Central Peruvian anchoveta stock using maturity ogives, survey biomass and seasonal correction factors.",
-      "language": "R",
-      "updated_at": "2026-06-12T19:12:39Z",
-      "archived": false,
-      "private": true,
-      "visibility": "private",
       "fork": false,
       "repository_type": "",
       "repository_type_label": "Other / legacy",
@@ -428,7 +417,7 @@
       "html_url": "https://github.com/qselmer/oceancube",
       "description": "",
       "language": "R",
-      "updated_at": "2026-08-20T18:10:17Z",
+      "updated_at": "2026-09-08T19:32:59Z",
       "archived": false,
       "private": false,
       "visibility": "public",
@@ -503,6 +492,27 @@
       "topics": []
     },
     {
+      "name": "fishstocks-misspecification-ml-paper",
+      "full_name": "qselmer/fishstocks-misspecification-ml-paper",
+      "html_url": "https://github.com/qselmer/fishstocks-misspecification-ml-paper",
+      "description": "Simulation-estimation study using model diagnostics and machine learning to detect structural misspecification in fish stock assessments.",
+      "language": "—",
+      "updated_at": "2026-09-08T20:44:29Z",
+      "archived": false,
+      "private": true,
+      "visibility": "private",
+      "fork": false,
+      "repository_type": "type-paper",
+      "repository_type_label": "Papers",
+      "classification_source": "topic",
+      "topics": [
+        "machine-learning",
+        "model-misspecification",
+        "stock-assessment",
+        "type-paper"
+      ]
+    },
+    {
       "name": "pelagicPER-fishery-reorganization-paper",
       "full_name": "qselmer/pelagicPER-fishery-reorganization-paper",
       "html_url": "https://github.com/qselmer/pelagicPER-fishery-reorganization-paper",
@@ -535,28 +545,33 @@
       "topics": []
     },
     {
-      "name": ".template-fisheries-mse",
-      "full_name": "qselmer/.template-fisheries-mse",
-      "html_url": "https://github.com/qselmer/.template-fisheries-mse",
-      "description": "",
+      "name": ".template-mse",
+      "full_name": "qselmer/.template-mse",
+      "html_url": "https://github.com/qselmer/.template-mse",
+      "description": "Reusable structure for reproducible fisheries Management Strategy Evaluation projects.",
       "language": "Python",
-      "updated_at": "2026-09-02T20:01:42Z",
+      "updated_at": "2026-09-08T12:46:59Z",
       "archived": false,
       "private": false,
       "visibility": "public",
       "fork": false,
       "repository_type": "type-template",
       "repository_type_label": "Templates",
-      "classification_source": "override",
-      "topics": []
+      "classification_source": "topic",
+      "topics": [
+        "fisheries",
+        "mse",
+        "stock-assessment",
+        "type-template"
+      ]
     },
     {
       "name": ".template-training",
       "full_name": "qselmer/.template-training",
       "html_url": "https://github.com/qselmer/.template-training",
-      "description": "Reusable Quarto template for teaching, workshops and scientific training.",
+      "description": "Reusable template for teaching, workshops and scientific training.",
       "language": "Python",
-      "updated_at": "2026-09-07T16:11:13Z",
+      "updated_at": "2026-09-07T19:59:03Z",
       "archived": false,
       "private": false,
       "visibility": "public",
@@ -566,7 +581,6 @@
       "classification_source": "topic",
       "topics": [
         "quarto",
-        "reproducible-research",
         "teaching",
         "training",
         "type-template"
@@ -594,7 +608,7 @@
       "html_url": "https://github.com/qselmer/qselmer",
       "description": "",
       "language": "Python",
-      "updated_at": "2026-09-07T13:59:19Z",
+      "updated_at": "2026-09-09T02:10:12Z",
       "archived": false,
       "private": false,
       "visibility": "public",
@@ -609,8 +623,8 @@
       "full_name": "qselmer/qselmer.github.io",
       "html_url": "https://github.com/qselmer/qselmer.github.io",
       "description": "Fisheries scientist & marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science",
-      "language": "HTML",
-      "updated_at": "2026-09-07T14:26:51Z",
+      "language": "Python",
+      "updated_at": "2026-09-09T02:05:01Z",
       "archived": false,
       "private": false,
       "visibility": "public",
