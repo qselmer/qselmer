@@ -10,7 +10,8 @@ This profile inventories **public original repositories owned by `qselmer`**. Fo
 | `type-workflow` | Methods & workflows | Reproducible scientific methods, analyses and computational workflows. |
 | `type-app` | Apps & dashboards | Interactive applications and web tools. |
 | `type-dashboard` | Apps & dashboards | Dashboard-oriented interactive products. |
-| `type-paper` | Papers | Reproducibility repositories associated with a scientific manuscript or paper. |
+| `type-project` | Research projects | Research initiatives in development that are exploratory, incubating, collaborative, or not yet committed to one manuscript. |
+| `type-paper` | Papers | Reproducibility repositories associated with one scientific manuscript or paper. |
 | `type-training` | Courses & training | MOOCs, courses, workshops, worked examples and training material. |
 | `type-template` | Templates | Reusable repository/project/report/manuscript scaffolds intended to be copied or instantiated. |
 | `type-infrastructure` | Websites & infrastructure | Profile/site repositories and supporting technical infrastructure. |
@@ -19,17 +20,36 @@ This profile inventories **public original repositories owned by `qselmer`**. Fo
 
 `type-report` is **not part of the personal-profile taxonomy**. A repository that produces a report should be classified by its actual function, for example `type-workflow` when it contains a reproducible analytical process or `type-template` when it is a reusable report scaffold.
 
+## Project versus paper
+
+Use `type-project` when the repository represents a research initiative rather than a committed manuscript. Typical cases include an exploratory question, an incubating research line, a collaboration-seeking project, a multi-output programme, or work for which the final scholarly product has not yet been decided.
+
+Use `type-paper` once the repository is organized around **one defined manuscript** with a specific scientific question, analysis plan, figures/tables, manuscript files, or a reproducibility package intended to support that paper.
+
+The normal transition is:
+
+```text
+type-project
+    ↓ scientific question and manuscript become defined
+type-paper
+    ↓ formal scholarly output
+publication record
+```
+
+A broad `type-project` may remain active after one or more paper repositories are created from it. Do not reclassify a paper repository back to `type-project` merely because the manuscript is still private, in preparation, or seeking collaborators.
+
 ## How to decide the repository type
 
 Use the repository's **primary function**, not its subject, language or file extension:
 
 1. **Can another user install/reuse it as software?** → `type-package`.
 2. **Does it implement a reproducible analytical method or end-to-end analysis?** → `type-workflow`.
-3. **Does it reproduce/develop one scientific manuscript?** → `type-paper`.
-4. **Is the main deliverable an interactive interface?** → `type-app` or `type-dashboard`.
-5. **Is the main purpose teaching or skill development?** → `type-training`.
-6. **Is it designed to be copied as a starting structure?** → `type-template`.
-7. **Is it a website/profile/support system rather than a scientific analysis?** → `type-infrastructure`.
+3. **Is it an exploratory/incubating research initiative without one committed manuscript?** → `type-project`.
+4. **Does it reproduce/develop one scientific manuscript?** → `type-paper`.
+5. **Is the main deliverable an interactive interface?** → `type-app` or `type-dashboard`.
+6. **Is the main purpose teaching or skill development?** → `type-training`.
+7. **Is it designed to be copied as a starting structure?** → `type-template`.
+8. **Is it a website/profile/support system rather than a scientific analysis?** → `type-infrastructure`.
 
 A repository should normally have **exactly one primary `type-*` topic**. Domain topics such as `fisheries`, `marine-ecology`, `stock-assessment`, `r`, or `python` are secondary descriptors and do not replace the repository type.
 
@@ -42,6 +62,8 @@ A repository should normally have **exactly one primary `type-*` topic**. Domain
 5. `Other / legacy` when no defensible classification is available or when multiple primary type topics conflict.
 
 For repository cleanup, the goal is to migrate important repositories to rule 1 and progressively remove overrides/name inference.
+
+`type-project` is intentionally **not inferred from repository names**. Because "project" is too generic, it must be assigned explicitly as a GitHub topic or by a temporary audited override. This prevents analytical workflows and manuscript repositories from being misclassified.
 
 ## Scope of profile statistics and inventory
 

@@ -1,10 +1,11 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "canonical_types": {
     "type-package": "Packages",
     "type-workflow": "Methods & workflows",
     "type-app": "Apps & dashboards",
     "type-dashboard": "Apps & dashboards",
+    "type-project": "Research projects",
     "type-paper": "Papers",
     "type-training": "Courses & training",
     "type-template": "Templates",
