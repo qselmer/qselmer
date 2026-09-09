@@ -4,7 +4,6 @@
   I am a quantitative marine ecologist and fisheries scientist working at the intersection of ecological modelling, marine data science and decision science. I develop statistical and computational approaches for pelagic fish and marine ecosystems, integrating stock assessment, spatio-temporal modelling, population and community dynamics, life-history processes, environmental variability and multidimensional indicators. My research focuses on understanding population responses to natural and anthropogenic pressures, quantifying uncertainty, and translating ecological information into management through stock assessment, management strategy evaluation (MSE), ecosystem-based fisheries science and reproducible analytical workflows. I am particularly interested in highly variable marine systems and in developing transferable methods that connect ecological theory, large and heterogeneous marine datasets, and operational fisheries management.
 </p>
 
-
 <p align="justify">
   For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
 </p>
@@ -46,28 +45,6 @@
 
 <sub>This card summarizes the public scholarly record. ORCID is the canonical source for research outputs; DOI records are enriched with Crossref metadata. Citation count, h-index and i10-index are refreshed from OpenAlex, resolving the author first by ORCID and, when needed, through exact DOI-authorship links from the ORCID record. Google Scholar remains linked above for profile discovery and citation browsing, but is not scraped by the automation.</sub>
 
-## Research outputs
-
-Public scholarly outputs are retrieved from ORCID, grouped by output type, and ordered by year within each category. The summary card emphasizes established output classes; preprints are not used as a headline count. Uncommon ORCID types, if present, are shown by their specific source type rather than under a generic “Other” category. DOI records are enriched with Crossref metadata when available.
-
-<!-- PUBLICATIONS:START -->
-### Journal articles
-
-- **Quispe-Salazar, E.**, Sánchez, J., & Perea, Á. (2025). Classification models based on the gonadosomatic index to determine gonadal maturity stages: a case study in the Peruvian anchovy Engraulis ringens. *Scientia Marina, 89*(4), e117. [View output](https://doi.org/10.3989/scimar.05636.117)
-
-### Theses
-
-- **Quispe-Salazar, E.** (2025). Interannual variability in the growth of the Northern-Central stock of Peruvian anchovy (Engraulis ringens) during the period 1960–2022. *Cybertesis Revistas UNMSM Fondo editorial*. [View output](https://zenodo.org/doi/10.5281/zenodo.17452484)
-
-### Conference contributions
-
-- **Quispe-Salazar, E.** (2026). Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/POSTER-S05-P19-Recoba-for-Salazar.pdf)
-- **Quispe-Salazar, E.** (2026). Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability. *SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium*. [View output](https://meetings.pices.int/Publications/Presentations/2026-SPF/S1-May6-1720-Elmer-Ovidio-Salazar.mp4)
-- **Quispe-Salazar, E.** (2024). Suitability of the gonadosomatic index in Peruvian Anchoveta (Engraulis ringens): Sexual maturity, a 5% critical threshold, and seasonal variation. *VI Simpósio Ibero-Americano de Ecologia Reprodutiva, Recrutamento e Pesca*. [View output](https://www.researchgate.net/doi/10.13140/RG.2.2.32795.73767)
-<!-- PUBLICATIONS:END -->
-
-[View the complete publication record](https://qselmer.github.io/publications/)
-
 ## Scientific computing & reproducible research
 
 Original research repositories are organized by their primary scientific or computational function. Forks are excluded. Repository visibility is shown explicitly as **Public** or **Private**; private descriptions, languages and update dates are suppressed in the public profile. Summary cards above are calculated only from active public original repositories.
@@ -75,94 +52,98 @@ Original research repositories are organized by their primary scientific or comp
 <!-- PROJECTS:START -->
 ### Packages (5)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`fish-byte`](https://github.com/qselmer/fish-byte) | 🔓 Public | HTML, CSS y JavaScript. | CSS | 2025-03-05 |
-| [`FisheryClose`](https://github.com/qselmer/FisheryClose) | 🔓 Public | — | R | 2025-04-28 |
-| [`oceancube`](https://github.com/qselmer/oceancube) | 🔓 Public | — | R | 2026-09-08 |
-| [`postHub`](https://github.com/qselmer/postHub) | 🔓 Public | — | R | 2025-05-03 |
-| [`seasignals`](https://github.com/qselmer/seasignals) | 🔓 Public | — | R | 2026-02-06 |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/fish-byte"><code>fish-byte</code></a></td><td width="14%">🔓 Public</td><td width="42%">HTML, CSS y JavaScript.</td><td width="10%">CSS</td><td width="8%">2025-03-05</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/FisheryClose"><code>FisheryClose</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">R</td><td width="8%">2025-04-28</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/oceancube"><code>oceancube</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">R</td><td width="8%">2026-09-08</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/postHub"><code>postHub</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">R</td><td width="8%">2025-05-03</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/seasignals"><code>seasignals</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">R</td><td width="8%">2026-02-06</td></tr>
+</tbody>
+</table>
 
 ### Methods & workflows (1)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`oceHCS-environmental-data-workflow`](https://github.com/qselmer/oceHCS-environmental-data-workflow) | 🔓 Public | Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System. | R | 2026-09-09 |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow"><code>oceHCS-environmental-data-workflow</code></a></td><td width="14%">🔓 Public</td><td width="42%">Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System.</td><td width="10%">R</td><td width="8%">2026-09-09</td></tr>
+</tbody>
+</table>
 
 ### Apps & dashboards (5)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`humboldt-ocean-watch`](https://github.com/qselmer/humboldt-ocean-watch) | 🔓 Public | AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region. | Python | 2026-08-03 |
-| [`pelagicPER-observatory-app`](https://github.com/qselmer/pelagicPER-observatory-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-outlook-app`](https://github.com/qselmer/pelagicPER-outlook-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-benchmark-app`](https://github.com/qselmer/pelagicPER-season-benchmark-app) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-monitor-app`](https://github.com/qselmer/pelagicPER-season-monitor-app) | 🔒 Private | Private repository | — | — |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/humboldt-ocean-watch"><code>humboldt-ocean-watch</code></a></td><td width="14%">🔓 Public</td><td width="42%">AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.</td><td width="10%">Python</td><td width="8%">2026-08-03</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-observatory-app"><code>pelagicPER-observatory-app</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-outlook-app"><code>pelagicPER-outlook-app</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-app"><code>pelagicPER-season-benchmark-app</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-monitor-app"><code>pelagicPER-season-monitor-app</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+</tbody>
+</table>
 
 ### Papers (5)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`pelagicPER-availability-risk-paper`](https://github.com/qselmer/pelagicPER-availability-risk-paper) | 🔓 Public | — | — | 2026-08-07 |
-| [`fishcore-paper`](https://github.com/qselmer/fishcore-paper) | 🔒 Private | Private repository | — | — |
-| [`fishstocks-misspecification-ml-paper`](https://github.com/qselmer/fishstocks-misspecification-ml-paper) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-fishery-reorganization-paper`](https://github.com/qselmer/pelagicPER-fishery-reorganization-paper) | 🔒 Private | Private repository | — | — |
-| [`pelagicPER-season-benchmark-paper`](https://github.com/qselmer/pelagicPER-season-benchmark-paper) | 🔒 Private | Private repository | — | — |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">—</td><td width="8%">2026-08-07</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/fishcore-paper"><code>fishcore-paper</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper"><code>fishstocks-misspecification-ml-paper</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper"><code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper"><code>pelagicPER-season-benchmark-paper</code></a></td><td width="14%">🔒 Private</td><td width="42%">Private repository</td><td width="10%">—</td><td width="8%">—</td></tr>
+</tbody>
+</table>
 
 ### Courses & training (6)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`ctd-C-plus-plus`](https://github.com/qselmer/ctd-C-plus-plus) | 🔓 Public | — | — | 2023-01-06 |
-| [`git-github-training`](https://github.com/qselmer/git-github-training) | 🔓 Public | Teaching materials, exercises and reusable resources for Git and GitHub | R | 2026-09-07 |
-| [`R-LabCore`](https://github.com/qselmer/R-LabCore) | 🔓 Public | — | — | 2025-02-20 |
-| [`skills-introduction-to-github`](https://github.com/qselmer/skills-introduction-to-github) | 🔓 Public | My clone repository | — | 2025-09-21 |
-| [`TMB-LabCore`](https://github.com/qselmer/TMB-LabCore) | 🔓 Public | TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming. | TeX | 2025-02-21 |
-| [`training_code_Python`](https://github.com/qselmer/training_code_Python) | 🔓 Public | training R, python, julia, C++ | Jupyter Notebook | 2024-02-10 |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/ctd-C-plus-plus"><code>ctd-C-plus-plus</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">—</td><td width="8%">2023-01-06</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/git-github-training"><code>git-github-training</code></a></td><td width="14%">🔓 Public</td><td width="42%">Teaching materials, exercises and reusable resources for Git and GitHub</td><td width="10%">R</td><td width="8%">2026-09-07</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/R-LabCore"><code>R-LabCore</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">—</td><td width="8%">2025-02-20</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/skills-introduction-to-github"><code>skills-introduction-to-github</code></a></td><td width="14%">🔓 Public</td><td width="42%">My clone repository</td><td width="10%">—</td><td width="8%">2025-09-21</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/TMB-LabCore"><code>TMB-LabCore</code></a></td><td width="14%">🔓 Public</td><td width="42%">TMB-LabCore: A space dedicated to practicing, exploring, and developing skills in TMB programming.</td><td width="10%">TeX</td><td width="8%">2025-02-21</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/training_code_Python"><code>training_code_Python</code></a></td><td width="14%">🔓 Public</td><td width="42%">training R, python, julia, C++</td><td width="10%">Jupyter Notebook</td><td width="8%">2024-02-10</td></tr>
+</tbody>
+</table>
 
 ### Templates (3)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`.template-mse`](https://github.com/qselmer/.template-mse) | 🔓 Public | Reusable structure for reproducible fisheries Management Strategy Evaluation projects. | Python | 2026-09-08 |
-| [`.template-training`](https://github.com/qselmer/.template-training) | 🔓 Public | Reusable template for teaching, workshops and scientific training. | Python | 2026-09-07 |
-| [`template_summaryPDF`](https://github.com/qselmer/template_summaryPDF) | 🔓 Public | — | R | 2023-04-11 |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/.template-mse"><code>.template-mse</code></a></td><td width="14%">🔓 Public</td><td width="42%">Reusable structure for reproducible fisheries Management Strategy Evaluation projects.</td><td width="10%">Python</td><td width="8%">2026-09-08</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/.template-training"><code>.template-training</code></a></td><td width="14%">🔓 Public</td><td width="42%">Reusable template for teaching, workshops and scientific training.</td><td width="10%">Python</td><td width="8%">2026-09-07</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/template_summaryPDF"><code>template_summaryPDF</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">R</td><td width="8%">2023-04-11</td></tr>
+</tbody>
+</table>
 
 ### Websites & infrastructure (2)
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`qselmer`](https://github.com/qselmer/qselmer) | 🔓 Public | — | Python | 2026-09-09 |
-| [`qselmer.github.io`](https://github.com/qselmer/qselmer.github.io) | 🔓 Public | Fisheries scientist & marine quantitative ecologist \| Stock assessment, spatio-temporal analytics, reproducible science | Python | 2026-09-09 |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Visibility</th><th width="42%">Description</th><th width="10%">Main language</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="14%">🔓 Public</td><td width="42%">—</td><td width="10%">Python</td><td width="8%">2026-09-09</td></tr>
+<tr><td width="26%"><a href="https://github.com/qselmer/qselmer.github.io"><code>qselmer.github.io</code></a></td><td width="14%">🔓 Public</td><td width="42%">Fisheries scientist &amp; marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science</td><td width="10%">Python</td><td width="8%">2026-09-09</td></tr>
+</tbody>
+</table>
 
-### Other / legacy (10)
+### Institutional & collaborative work
 
-<sub>These repositories do not yet have one defensible canonical `type-*` topic. Add exactly one manual `type-*` topic, archive the repository, or remove it if it no longer belongs in the portfolio.</sub>
+Selected repositories owned by research organizations are shown separately from my personal repository counts.
 
-| Repository | Visibility | Description | Main language | Updated |
-|---|---|---|---|---|
-| [`fisheries-research-workflows-book`](https://github.com/qselmer/fisheries-research-workflows-book) | 🔓 Public | Ecosistema digital para la ciencia pesquera y la ecología cuantitativa | SCSS | 2026-07-24 |
-| [`prueba`](https://github.com/qselmer/prueba) | 🔓 Public | — | — | 2026-07-24 |
-| [`r4fish`](https://github.com/qselmer/r4fish) | 🔓 Public | — | R | 2023-02-21 |
-| [`TestPackage`](https://github.com/qselmer/TestPackage) | 🔓 Public | My R Package | R | 2020-09-13 |
-| [`wk-esme`](https://github.com/qselmer/wk-esme) | 🔓 Public | — | — | 2023-01-09 |
-| [`crs_SMiME`](https://github.com/qselmer/crs_SMiME) | 🔒 Private | Private repository | — | — |
-| [`fishcore`](https://github.com/qselmer/fishcore) | 🔒 Private | Private repository | — | — |
-| [`fishqc`](https://github.com/qselmer/fishqc) | 🔒 Private | Private repository | — | — |
-| [`h4s`](https://github.com/qselmer/h4s) | 🔒 Private | Private repository | — | — |
-| [`PSSF`](https://github.com/qselmer/PSSF) | 🔒 Private | Private repository | — | — |
+<table width="100%">
+<thead><tr><th width="26%">Repository</th><th width="14%">Organization</th><th width="42%">Contribution</th><th width="10%">Type</th><th width="8%">Updated</th></tr></thead>
+<tbody>
+<tr><td width="26%"><a href="https://github.com/DIPEL-IMARPE/ancNC-mse-workflow"><code>ancNC-mse-workflow</code></a></td><td width="14%">DIPEL-IMARPE</td><td width="42%">Created the repository and developed the reproducible MSE workflow for the north-central stock of Peruvian anchovy.</td><td width="10%">Methods &amp; workflows</td><td width="8%">2026-09-03</td></tr>
+</tbody>
+</table>
 <!-- PROJECTS:END -->
-
-## How this profile is automated
-
-A scheduled GitHub Actions workflow maintains the profile each week and can also be executed manually:
-
-1. **Research outputs:** ORCID provides the canonical public scholarly record. Every public work is retained, classified by output type and rendered in the profile; DOI records are enriched through Crossref when available.
-2. **Research metrics:** OpenAlex supplies citation count, h-index and i10-index. Identity is resolved first by ORCID; if OpenAlex has not yet attached the ORCID to its author entity, the workflow falls back to authorship on exact DOI works already registered in ORCID, never to a global name-only search. Google Scholar is kept as a navigation link rather than an automated data source.
-3. **Repository inventory:** the GitHub API inventories original repositories owned by `qselmer`; forks are excluded. When `PROFILE_REPO_TOKEN` is configured, private originals are also included and marked with 🔒 while sensitive private metadata is suppressed.
-4. **Repository taxonomy:** an explicit canonical `type-*` topic is authoritative. Legacy overrides and conservative name inference remain only as temporary cleanup aids; ambiguous repositories are sent to `Other / legacy`.
-5. **Repository summary cards:** language composition and repository-type counts use only active original public repositories; private and archived repositories are excluded from the summary metrics.
-6. **Synchronization:** the canonical publication, metric and repository-catalog JSON files can be reused by my academic website, reducing duplicated manual updates between GitHub and the website.
 
 ## Scientific computing
 

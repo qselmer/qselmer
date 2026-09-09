@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-09T16:07:23.075910+00:00",
+  "updated_at": "2026-09-09T17:15:41.214081+00:00",
   "owner": "qselmer",
   "scope": "all original repositories visible to PROFILE_REPO_TOKEN; forks excluded",
   "totals": {
@@ -608,7 +608,7 @@
       "html_url": "https://github.com/qselmer/qselmer",
       "description": "",
       "language": "Python",
-      "updated_at": "2026-09-09T02:12:31Z",
+      "updated_at": "2026-09-09T16:13:16Z",
       "archived": false,
       "private": false,
       "visibility": "public",
@@ -624,7 +624,7 @@
       "html_url": "https://github.com/qselmer/qselmer.github.io",
       "description": "Fisheries scientist & marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science",
       "language": "Python",
-      "updated_at": "2026-09-09T15:28:39Z",
+      "updated_at": "2026-09-09T17:12:23Z",
       "archived": false,
       "private": false,
       "visibility": "public",
