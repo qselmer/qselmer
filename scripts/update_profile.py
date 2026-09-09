@@ -49,6 +49,7 @@ CONTACT_EMAIL = os.getenv("CROSSREF_MAILTO", "qselmers@gmail.com")
 USER_AGENT = f"qselmer-academic-profile/3.0 (mailto:{CONTACT_EMAIL})"
 
 VISIBLE_TYPE_ORDER = [
+    "Projects",
     "Packages",
     "Methods & workflows",
     "Apps & dashboards",
@@ -56,7 +57,6 @@ VISIBLE_TYPE_ORDER = [
     "Courses & training",
     "Templates",
     "Websites & infrastructure",
-    "Other / legacy",
 ]
 
 OUTPUT_TYPE_ORDER = [
