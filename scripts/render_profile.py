@@ -79,18 +79,21 @@ def prune_readme_sections(text: str) -> str:
 
 def refine_static_readme(text: str) -> str:
     """Apply stable presentation rules without shortening the biography or research focus."""
-    # Make the profile self-contained while preserving the existing introductory paragraph.
-    first_heading = '<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>'
+    old_professional_heading = '<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>'
+    professional_heading = '<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>'
+    text = text.replace(old_professional_heading, professional_heading)
     if '<h1 align="center">Elmer Quispe-Salazar</h1>' not in text:
         text = text.replace(
-            first_heading,
-            '<h1 align="center">Elmer Quispe-Salazar</h1>\n\n'
-            + first_heading
-            + '\n\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>',
+            professional_heading,
+            '<h1 align="center">Elmer Quispe-Salazar</h1>\n\n' + professional_heading,
             1,
         )
 
-    # Remove vanity traffic counters and keep only the core academic/professional profile links.
+    text = text.replace(
+        '\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>\n',
+        "\n",
+    )
+
     text = re.sub(
         r'\n<p align="center">\s*<img[^>]+komarev\.com/ghpvc/[^>]+>\s*</p>\n',
         "\n",
@@ -100,13 +103,6 @@ def refine_static_readme(text: str) -> str:
     text = re.sub(r'\n\s*<a href="https://www\.researchgate\.net/[^\n]+</a>', "", text)
     text = re.sub(r'\n\s*<a href="https://x\.com/[^\n]+</a>', "", text)
 
-    # Keep institutional affiliation out of the public GitHub profile header.
-    text = text.replace(
-        '\n<p align="center"><strong>Instituto del Mar del Perú (IMARPE)</strong> · Peru</p>\n',
-        "\n",
-    )
-
-    # Keep the academic/profile link badges immediately below the professional title.
     profile_links = None
     for match in re.finditer(
         r'\n(<p align="center">\s*(?:(?:<a href="[^"]+">.*?</a>)\s*)+</p>)\n',
@@ -120,25 +116,18 @@ def refine_static_readme(text: str) -> str:
         block = profile_links.group(1)
         start, end = profile_links.span(1)
         text = text[:start] + text[end:]
-        text = text.replace(first_heading, first_heading + "\n\n" + block, 1)
+        text = text.replace(professional_heading, professional_heading + "\n\n" + block, 1)
 
-    # Academic outputs and metrics precede the thematic Research focus section.
-    focus_match = re.search(r'\n## Research focus\n.*?(?=\n## |\Z)', text, flags=re.S)
-    outputs_match = re.search(r'\n## Research outputs & metrics\n.*?(?=\n## |\Z)', text, flags=re.S)
-    if focus_match and outputs_match and focus_match.start() < outputs_match.start():
-        between = text[focus_match.end():outputs_match.start()]
-        if "\n## " not in between:
-            text = (
-                text[:focus_match.start()]
-                + outputs_match.group(0)
-                + focus_match.group(0)
-                + text[outputs_match.end():]
-            )
+    text = text.replace("\n## Research outputs & metrics\n", "\n")
+    text = re.sub(
+        r'<sub>This card summarizes the public scholarly record\..*?</sub>',
+        METRICS_NOTE,
+        text,
+        count=1,
+        flags=re.S,
+    )
 
-    # Remove any previously rendered scope note before rebuilding the card block.
     text = text.replace(PORTFOLIO_NOTE, "")
-
-    # Remove the repository cards from their legacy top-of-profile position.
     text = re.sub(
         r'\n<p align="center">\s*<img src="assets/generated/top-languages\.svg".*?'
         r'<img src="assets/generated/repository-types\.svg".*?</p>\n',
@@ -148,33 +137,22 @@ def refine_static_readme(text: str) -> str:
         flags=re.S,
     )
 
-    # Keep metric provenance visible but concise, then place computing cards after academic metrics.
-    text = re.sub(
-        r'<sub>This card summarizes the public scholarly record\..*?</sub>',
-        METRICS_NOTE,
-        text,
-        count=1,
-        flags=re.S,
-    )
-    if PORTFOLIO_CARDS not in text:
-        text = text.replace(
-            METRICS_NOTE,
-            METRICS_NOTE + "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE,
-            1,
-        )
+    focus_match = re.search(r'(\n## Research focus\n.*?)(?=\n## |\Z)', text, flags=re.S)
+    if focus_match:
+        focus_block = focus_match.group(1).rstrip()
+        replacement = focus_block + "\n\n" + PORTFOLIO_CARDS + "\n\n" + PORTFOLIO_NOTE + "\n"
+        text = text[:focus_match.start()] + replacement + text[focus_match.end():]
 
-    # Public tables are the discovery layer; private repositories remain counted but are not listed.
     text = re.sub(
         r'(## Scientific computing & reproducible research\n\n).*?(?=\n\n<!-- PROJECTS:START -->)',
-        r'\1Public original research repositories are organized by their primary scientific or computational function. '
-        r'Forks and archived repositories are excluded from the active portfolio. Private repositories remain included '
-        r'in Repository Types counts but are not listed below.',
+        r'\1Active original research repositories are organized by their primary scientific or computational function. '
+        r'Public and private repositories are both listed below; private repositories are marked with 🔒. '
+        r'Forks and archived repositories are excluded from the active portfolio.',
         text,
         count=1,
         flags=re.S,
     )
 
-    # Keep scientific-computing technologies; implementation/infrastructure badges are already evidenced by the repo.
     text = re.sub(
         r'\n\s*<img src="https://img\.shields\.io/badge/(?:Git-|GitHub_Actions-|Quarto-)[^\n]+>',
         "",
@@ -200,11 +178,13 @@ def repo_date(value: Any) -> str:
 def repository_row(repo: dict[str, Any]) -> str:
     name = esc(repo.get("name") or "unnamed")
     url = str(repo.get("html_url") or "").strip()
-    project = f'<a href="{html.escape(url, quote=True)}"><code>{name}</code></a>' if url else f"<code>{name}</code>"
+    private = bool(repo.get("private"))
+    label = f"🔒 <code>{name}</code>" if private else f"<code>{name}</code>"
+    project = f'<a href="{html.escape(url, quote=True)}">{label}</a>' if url else label
     cells = [
         project,
-        esc(repo.get("description") or "—"),
-        esc(repo.get("language") or "—"),
+        "Private repository" if private else esc(repo.get("description") or "—"),
+        "—" if private else esc(repo.get("language") or "—"),
     ]
     return "<tr>" + "".join(
         f'<td width="{width}">{cell}</td>' for width, cell in zip(TABLE_WIDTHS, cells)
@@ -289,23 +269,17 @@ def render_projects() -> str:
     if not repositories:
         return "_Repository inventory will be populated on the next profile Action run._"
 
-    active_public = [
-        repo for repo in repositories
-        if not repo.get("archived") and not repo.get("private")
-    ]
-    archived_public = [
-        repo for repo in repositories
-        if repo.get("archived") and not repo.get("private")
-    ]
+    active = [repo for repo in repositories if not repo.get("archived")]
+    archived = [repo for repo in repositories if repo.get("archived")]
     lines: list[str] = [
-        "<sub>🔒 Private repositories are included in Repository Types counts but omitted from the public inventory below.</sub>",
+        "<sub>🔒 Private repository.</sub>",
         "",
     ]
 
     for label in VISIBLE_TYPE_ORDER:
         group = sorted(
-            [repo for repo in active_public if repo.get("repository_type_label") == label],
-            key=lambda x: str(x.get("name") or "").casefold(),
+            [repo for repo in active if repo.get("repository_type_label") == label],
+            key=lambda x: (bool(x.get("private")), str(x.get("name") or "").casefold()),
         )
         if not group:
             continue
@@ -314,15 +288,15 @@ def render_projects() -> str:
 
     lines += render_organizational_contributions()
 
-    if archived_public:
+    if archived:
         lines += [
-            f"### Archived repositories ({len(archived_public)})",
+            f"### Archived repositories ({len(archived)})",
             "",
-            "<sub>Archived originals remain available for audit purposes but are excluded from summary cards.</sub>",
+            "<sub>Archived originals remain available for audit purposes but are excluded from summary cards and active groups.</sub>",
             "",
         ]
         lines += repository_table(
-            sorted(archived_public, key=lambda x: str(x.get("name") or "").casefold())
+            sorted(archived, key=lambda x: (bool(x.get("private")), str(x.get("name") or "").casefold()))
         ) + [""]
 
     return "\n".join(lines).rstrip()

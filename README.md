@@ -1,6 +1,6 @@
 <h1 align="center">Elmer Quispe-Salazar</h1>
 
-<h2 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h2>
+<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>
 
 <p align="center">
   <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
@@ -17,21 +17,12 @@
   For research collaboration or professional contact: <a href="mailto:qselmers@gmail.com"><strong>qselmers@gmail.com</strong></a> · <a href="https://qselmer.github.io"><strong>qselmer.github.io</strong></a>
 </p>
 
-## Research outputs & metrics
-
 <p align="center">
   <img src="assets/generated/research-outputs.svg" width="410" alt="Public ORCID research outputs by scholarly-output type">
   <img src="assets/generated/research-metrics.svg" width="410" alt="Research metrics from ORCID and OpenAlex">
 </p>
 
 <sub>Research outputs are synchronized from ORCID/Crossref; bibliometric indicators are obtained from OpenAlex.</sub>
-
-<p align="center">
-  <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
-  <img src="assets/generated/repository-types.svg" width="410" alt="Active original repositories by repository type, including public and private repositories">
-</p>
-
-<sub>Primary Languages uses active public original repositories. Repository Types includes active public and private original repositories visible to the profile automation; forks and archived repositories are excluded.</sub>
 
 ## Research focus
 
@@ -43,12 +34,19 @@
 - 🧩 Integration of biological, fishery and environmental evidence for adaptive management advice.
 - 💻 Reproducible scientific workflows in R, Python, C++, Julia, Git and GitHub.
 
+<p align="center">
+  <img src="assets/generated/top-languages.svg" width="410" alt="Primary programming languages across active public original repositories">
+  <img src="assets/generated/repository-types.svg" width="410" alt="Active original repositories by repository type, including public and private repositories">
+</p>
+
+<sub>Primary Languages uses active public original repositories. Repository Types includes active public and private original repositories visible to the profile automation; forks and archived repositories are excluded.</sub>
+
 ## Scientific computing & reproducible research
 
-Public original research repositories are organized by their primary scientific or computational function. Forks and archived repositories are excluded from the active portfolio. Private repositories remain included in Repository Types counts but are not listed below.
+Active original research repositories are organized by their primary scientific or computational function. Public and private repositories are both listed below; private repositories are marked with 🔒. Forks and archived repositories are excluded from the active portfolio.
 
 <!-- PROJECTS:START -->
-<sub>🔒 Private repositories are included in Repository Types counts but omitted from the public inventory below.</sub>
+<sub>🔒 Private repository.</sub>
 
 ### Packages (5)
 
@@ -72,21 +70,29 @@ Public original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Apps & dashboards (1)
+### Apps & dashboards (5)
 
 <table width="100%">
 <thead><tr><th width="28%">Repository</th><th width="58%">Description</th><th width="14%">Main language</th></tr></thead>
 <tbody>
 <tr><td width="28%"><a href="https://github.com/qselmer/humboldt-ocean-watch"><code>humboldt-ocean-watch</code></a></td><td width="58%">AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.</td><td width="14%">Python</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-observatory-app">🔒 <code>pelagicPER-observatory-app</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-outlook-app">🔒 <code>pelagicPER-outlook-app</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-app">🔒 <code>pelagicPER-season-benchmark-app</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-season-monitor-app">🔒 <code>pelagicPER-season-monitor-app</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
 </tbody>
 </table>
 
-### Papers (1)
+### Papers (5)
 
 <table width="100%">
 <thead><tr><th width="28%">Repository</th><th width="58%">Description</th><th width="14%">Main language</th></tr></thead>
 <tbody>
 <tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="58%">—</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/fishcore-paper">🔒 <code>fishcore-paper</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper">🔒 <code>fishstocks-misspecification-ml-paper</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper">🔒 <code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
+<tr><td width="28%"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper">🔒 <code>pelagicPER-season-benchmark-paper</code></a></td><td width="58%">Private repository</td><td width="14%">—</td></tr>
 </tbody>
 </table>
 
