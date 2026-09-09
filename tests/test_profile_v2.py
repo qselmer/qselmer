@@ -63,18 +63,20 @@ def test_readme_inventory_lists_public_and_private_repositories():
     assert "### Apps & dashboards (2)" in text
     assert "public-app" in text
     assert "private-app" in text
-    assert "🔒 <code>private-app</code>" in text
+    assert "🔒 Private" in text
+    assert "🔓 Public" in text
     assert "Sensitive description" not in text
     assert "Private repository" in text
 
-def test_personal_repository_table_is_three_columns():
+def test_personal_repository_table_has_visibility_column():
     table = "\n".join(render.repository_table([{
         "name": "example",
         "html_url": "https://github.com/qselmer/example",
         "description": "Example",
         "language": "R",
     }]))
-    assert "Visibility" not in table
+    assert "Visibility" in table
+    assert "🔓 Public" in table
     assert "Updated" not in table
     assert "Repository" in table
     assert "Description" in table
@@ -132,3 +134,20 @@ x
     assert refined.index("assets/generated/research-outputs.svg") < refined.index("## Research focus")
     assert refined.index("## Research focus") < refined.index("assets/generated/top-languages.svg")
     assert refined.index("## Research focus") < refined.index("For research collaboration or professional contact") < refined.index("assets/generated/top-languages.svg")
+
+
+def test_collaboration_and_opportunities_is_pruned():
+    sample = """Intro
+
+## Collaboration and opportunities
+
+Old collaboration block.
+
+## Scientific computing
+
+Keep me.
+"""
+    refined = render.prune_readme_sections(sample)
+    assert "Collaboration and opportunities" not in refined
+    assert "Old collaboration block" not in refined
+    assert "## Scientific computing" in refined
