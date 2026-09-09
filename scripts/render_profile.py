@@ -41,6 +41,7 @@ OUTPUT_META = {
 OUTPUT_TYPE_ORDER = list(OUTPUT_META)
 
 VISIBLE_TYPE_ORDER = [
+    "Projects",
     "Packages",
     "Methods & workflows",
     "Apps & dashboards",
