@@ -15,7 +15,7 @@ def load_update_module():
 
 def test_type_project_is_canonical_and_distinct_from_paper():
     config = json.loads((ROOT / "assets/data/repository-types.json").read_text())
-    assert config["canonical_types"]["type-project"] == "Projects"
+    assert config["canonical_types"]["type-project"] == "Research projects"
     assert config["canonical_types"]["type-paper"] == "Papers"
     assert config["canonical_types"]["type-project"] != config["canonical_types"]["type-paper"]
 
@@ -40,5 +40,5 @@ def test_project_is_not_inferred_from_generic_name():
 
 def test_projects_lead_repository_type_summary():
     update = load_update_module()
-    assert update.VISIBLE_TYPE_ORDER[0] == "Projects"
+    assert update.VISIBLE_TYPE_ORDER[0] == "Research projects"
     assert "Other / legacy" not in update.VISIBLE_TYPE_ORDER

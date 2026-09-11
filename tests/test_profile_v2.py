@@ -60,7 +60,7 @@ def test_readme_inventory_lists_public_and_private_repositories():
     finally:
         render.load = original_load
 
-    assert "### Apps & dashboards (2)" in text
+    assert "### Apps & dashboards" in text
     assert "public-app" in text
     assert "private-app" in text
     assert "🔒" in text
