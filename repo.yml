@@ -11,8 +11,8 @@ repository:
   visibility: public
 
   description: >
-    Automated academic GitHub profile integrating scholarly outputs,
-    bibliometric indicators and a reproducible research repository portfolio.
+    Automated academic GitHub profile integrating research outputs,
+    bibliometric metrics, and a reproducible scientific repository portfolio.
 
   topics:
     - type-infrastructure
