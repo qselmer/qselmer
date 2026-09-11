@@ -69,7 +69,6 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/fish-byte"><code>fish-byte</code></a></td><td width="437">HTML, CSS y JavaScript.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/css/663399" alt="CSS" title="CSS" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/FisheryClose"><code>FisheryClose</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/oceancube"><code>oceancube</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/postHub"><code>postHub</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
@@ -108,7 +107,6 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/ctd-C-plus-plus"><code>ctd-C-plus-plus</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center">-</td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/git-github-training"><code>git-github-training</code></a></td><td width="437">Teaching materials, exercises and reusable resources for Git and GitHub</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/R-LabCore"><code>R-LabCore</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center">-</td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/skills-introduction-to-github"><code>skills-introduction-to-github</code></a></td><td width="437">My clone repository</td><td width="114" align="center">🔓</td><td width="152" align="center">-</td></tr>
@@ -122,6 +120,8 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
+<tr><td width="247"><a href="https://github.com/qselmer/.template-mse"><code>.template-mse</code></a></td><td width="437">Reusable structure for reproducible fisheries Management Strategy Evaluation projects.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="247"><a href="https://github.com/qselmer/.template-training"><code>.template-training</code></a></td><td width="437">Reusable template for teaching, workshops and scientific training.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/template_summaryPDF"><code>template_summaryPDF</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 </tbody>
 </table>
