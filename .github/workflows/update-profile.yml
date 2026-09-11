@@ -10,6 +10,11 @@ on:
     paths:
       - "scripts/update_profile.py"
       - "scripts/render_profile.py"
+      - "scripts/profile_refresh.py"
+      - "scripts/profile_render.py"
+      - "scripts/repository_contracts.py"
+      - "requirements-profile.txt"
+      - "repo.yml"
       - "assets/data/repository-types.json"
       - "assets/data/organizational-contributions.json"
       - "TOPICS.md"
@@ -36,6 +41,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install profile dependencies
+        run: python -m pip install --disable-pip-version-check -r requirements-profile.txt
+
       - name: Refresh scholarly outputs, research metrics and repository portfolio
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -45,10 +53,10 @@ jobs:
           ORCID_ID: 0000-0001-9229-6379
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
           CROSSREF_MAILTO: qselmers@gmail.com
-        run: python scripts/update_profile.py
+        run: python scripts/profile_refresh.py
 
       - name: Render compact scientific repository portfolio
-        run: python scripts/render_profile.py
+        run: python scripts/profile_render.py
 
       - name: Validate generated files
         run: |
@@ -68,7 +76,7 @@ jobs:
           python -m json.tool assets/data/repository-catalog.json >/dev/null
           python -m json.tool assets/data/repository-types.json >/dev/null
           python -m json.tool assets/data/organizational-contributions.json >/dev/null
-          python -m py_compile scripts/update_profile.py scripts/render_profile.py
+          python -m py_compile scripts/update_profile.py scripts/render_profile.py scripts/profile_refresh.py scripts/profile_render.py scripts/repository_contracts.py
           python -m unittest discover -s tests -v
 
       - name: Commit changes
