@@ -8,8 +8,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 CONFIG = json.loads((ROOT / "assets/data/repository-types.json").read_text())
 
 
-def load_update_module():
-    spec = importlib.util.spec_from_file_location("update_profile_contract_tests", ROOT / "scripts/update_profile.py")
+def load_refresh_module():
+    spec = importlib.util.spec_from_file_location("profile_refresh_contract_tests", ROOT / "scripts/profile_refresh.py")
     module = importlib.util.module_from_spec(spec)
     assert spec.loader is not None
     spec.loader.exec_module(module)
@@ -86,16 +86,16 @@ def test_invalid_schema_is_not_a_valid_contract():
 
 
 def test_repo_yml_classification_precedes_legacy_rules():
-    update = load_update_module()
+    refresh = load_refresh_module()
     repo = public_repo(name="misleading-workflow", topics=["type-workflow"])
     contract = contracts.parse_repository_contract(valid_contract_text(), public_repo(), CONFIG)
-    repo_type, source = update.repository_classification(repo, CONFIG, contract)
+    repo_type, source = refresh.repository_classification(repo, CONFIG, contract)
     assert repo_type == "type-paper"
     assert source == "repo.yml"
 
 
 def test_private_catalog_redacts_sensitive_metadata():
-    update = load_update_module()
+    refresh = load_refresh_module()
     repo = public_repo(
         private=True,
         topics=["type-paper", "confidential-topic"],
@@ -108,13 +108,14 @@ def test_private_catalog_redacts_sensitive_metadata():
         CONFIG,
     )
     contract["issues"].append("github_missing_type_topic")
-    update.fetch_repository_contract = lambda *args, **kwargs: contract
-    catalog = update.build_repository_catalog([repo])
+    refresh.fetch_repository_contract = lambda *args, **kwargs: contract
+    catalog = refresh.build_repository_catalog([repo])
     item = catalog["repositories"][0]
     assert item["repository_type"] == "type-paper"
     assert item["description"] == ""
     assert item["language"] == "-"
     assert item["topics"] == []
+    assert item["updated_at"] == ""
     assert item["status"] == ""
     assert item["stage"] == ""
     assert item["contract_issues"] == []
@@ -122,11 +123,11 @@ def test_private_catalog_redacts_sensitive_metadata():
 
 
 def test_profile_include_false_excludes_type_count():
-    update = load_update_module()
+    refresh = load_refresh_module()
     repo = public_repo()
     contract = contracts.parse_repository_contract(valid_contract_text(include="false"), repo, CONFIG)
-    update.fetch_repository_contract = lambda *args, **kwargs: contract
-    catalog = update.build_repository_catalog([repo])
+    refresh.fetch_repository_contract = lambda *args, **kwargs: contract
+    catalog = refresh.build_repository_catalog([repo])
     assert catalog["repositories"][0]["profile_include"] is False
-    counts = update.repository_type_counts(catalog)
+    counts = refresh.repository_type_counts(catalog)
     assert counts.get("Papers", 0) == 0
