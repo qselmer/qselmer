@@ -131,7 +131,7 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="437">Automated academic GitHub profile integrating scholarly outputs, bibliometric indicators and a reproducible research repository portfolio.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="247"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="437">Automated academic GitHub profile integrating research outputs, bibliometric metrics, and a reproducible scientific repository portfolio.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/qselmer.github.io"><code>qselmer.github.io</code></a></td><td width="437">Fisheries scientist &amp; marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 </tbody>
 </table>
