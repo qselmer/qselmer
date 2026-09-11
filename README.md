@@ -77,15 +77,6 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Methods & workflows
-
-<table width="950">
-<thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
-<tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/oceHCS-environmental-data-workflow"><code>oceHCS-environmental-data-workflow</code></a></td><td width="437">Reproducible workflow for acquisition, QC, harmonization, derivation, cataloguing, and reuse of environmental data across the Humboldt Current System.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
-</tbody>
-</table>
-
 ### Apps & dashboards
 
 <table width="950">
@@ -131,8 +122,6 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/.template-mse"><code>.template-mse</code></a></td><td width="437">Reusable structure for reproducible fisheries Management Strategy Evaluation projects.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/.template-training"><code>.template-training</code></a></td><td width="437">Reusable template for teaching, workshops and scientific training.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/template_summaryPDF"><code>template_summaryPDF</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/r/276DC3" alt="R" title="R" width="20" height="20"></td></tr>
 </tbody>
 </table>
@@ -142,7 +131,7 @@ Active original research repositories are organized by their primary scientific 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
-<tr><td width="247"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
+<tr><td width="247"><a href="https://github.com/qselmer/qselmer"><code>qselmer</code></a></td><td width="437">Automated academic GitHub profile integrating scholarly outputs, bibliometric indicators and a reproducible research repository portfolio.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/qselmer.github.io"><code>qselmer.github.io</code></a></td><td width="437">Fisheries scientist &amp; marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
 </tbody>
 </table>
