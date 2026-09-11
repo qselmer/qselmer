@@ -28,7 +28,6 @@
     "pelagicPER-availability-risk-paper": "type-paper",
     "humboldt-ocean-watch": "type-app",
     "FisheryClose": "type-package",
-    "fish-byte": "type-package",
     "postHub": "type-package"
   },
   "legacy_type_aliases": {
