@@ -64,7 +64,7 @@
 Active original research repositories are organized by their primary scientific or computational function. Public and private repositories are both listed below; visibility is shown in each table with 🔓 or 🔒. Forks and archived repositories are excluded from the active portfolio.
 
 <!-- PROJECTS:START -->
-### Packages (5)
+### Packages
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -77,7 +77,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Methods & workflows (1)
+### Methods & workflows
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -86,7 +86,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Apps & dashboards (5)
+### Apps & dashboards
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -99,7 +99,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Papers (5)
+### Papers
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -112,7 +112,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Courses & training (6)
+### Courses & training
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -126,7 +126,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Templates (3)
+### Templates
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
@@ -137,7 +137,7 @@ Active original research repositories are organized by their primary scientific 
 </tbody>
 </table>
 
-### Websites & infrastructure (2)
+### Websites & infrastructure
 
 <table width="950">
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
