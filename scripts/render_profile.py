@@ -14,7 +14,7 @@ ORGANIZATIONAL_CONTRIBUTIONS = ROOT / "assets/data/organizational-contributions.
 PROJECT_MARKERS = ("<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->")
 
 VISIBLE_TYPE_ORDER = [
-    "Projects",
+    "Research projects",
     "Packages",
     "Methods & workflows",
     "Apps & dashboards",
@@ -343,14 +343,14 @@ def render_projects() -> str:
         )
         if not group:
             continue
-        lines += [f"### {label} ({len(group)})", ""]
+        lines += [f"### {label}", ""]
         lines += repository_table(group) + [""]
 
     lines += render_organizational_contributions()
 
     if archived:
         lines += [
-            f"### Archived repositories ({len(archived)})",
+            "### Archived repositories",
             "",
             "<sub>Archived originals remain available for audit purposes but are excluded from summary cards and active groups.</sub>",
             "",

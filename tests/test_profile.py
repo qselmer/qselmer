@@ -284,7 +284,7 @@ class CompleteRepositoryInventoryTests(unittest.TestCase):
         finally:
             render.load = original_load
         self.assertNotIn("Other / legacy", text)
-        self.assertIn("Archived repositories (1)", text)
+        self.assertIn("Archived repositories", text)
         self.assertIn("🔒", text)
         self.assertNotIn("🔒 Private", text)
         self.assertNotIn("do not show", text)
