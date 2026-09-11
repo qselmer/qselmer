@@ -1,0 +1,28 @@
+schema_version: 2
+
+repository:
+  owner: qselmer
+  name: qselmer
+  title: Academic GitHub Profile
+
+  type: type-infrastructure
+  status: active
+  stage: stable
+  visibility: public
+
+  description: >
+    Automated academic GitHub profile integrating scholarly outputs,
+    bibliometric indicators and a reproducible research repository portfolio.
+
+  topics:
+    - type-infrastructure
+    - academic-profile
+    - research-portfolio
+    - github-actions
+
+integration:
+  profile:
+    include: true
+
+  repository_url: >
+    https://github.com/qselmer/qselmer
