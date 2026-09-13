@@ -1,4 +1,4 @@
-<h1 align="center">Marine Quantitative Ecologist & Fisheries Scientist</h1>
+<h1 align="center">Quantitative Marine Ecology & Fisheries Science</h1>
 
 <p align="center">
   <a href="https://scholar.google.com/citations?user=wz83egoAAAAJ&hl=en"><img src="https://img.shields.io/badge/Google_Scholar-4285F4?style=flat&logo=googlescholar&logoColor=white" alt="Google Scholar"></a>
@@ -8,7 +8,7 @@
 </p>
 
 <p align="justify">
-  I am a quantitative marine ecologist and fisheries scientist working at the intersection of ecological modelling, marine data science and decision science. I develop statistical and computational approaches for pelagic fish and marine ecosystems, integrating stock assessment, spatio-temporal modelling, population and community dynamics, life-history processes, environmental variability and multidimensional indicators. My research focuses on understanding population responses to natural and anthropogenic pressures, quantifying uncertainty, and translating ecological information into management through stock assessment, management strategy evaluation (MSE), ecosystem-based fisheries science and reproducible analytical workflows. I am particularly interested in highly variable marine systems and in developing transferable methods that connect ecological theory, large and heterogeneous marine datasets, and operational fisheries management.
+  Marine biologist affiliated with the Peruvian Marine Research Institute (IMARPE), working at the intersection of quantitative marine ecology, fisheries science and scientific computing. His research focuses on pelagic resources, stock assessment, spatiotemporal analysis and reproducible ocean- and fisheries-data workflows in the Humboldt Current system.
 </p>
 
 <p align="center">
