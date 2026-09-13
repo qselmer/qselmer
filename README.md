@@ -95,10 +95,10 @@ Active original research repositories are organized by their primary scientific 
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
 <tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/fishcore-paper"><code>fishcore-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper"><code>fishstocks-misspecification-ml-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper"><code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 <tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper"><code>pelagicPER-season-benchmark-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
+<tr><td width="247"><a href="https://github.com/qselmer/pelagicSCH-fishery-change-paper"><code>pelagicSCH-fishery-change-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 </tbody>
 </table>
 
