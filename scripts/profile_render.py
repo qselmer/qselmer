@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Canonical README renderer for the repo.yml-aware repository catalog.
 
-The public GitHub profile is an allow-listed surface: private repository names
-and private repository metadata remain available to the internal catalog and
-summary metrics, but are never rendered in public repository tables.
+The public GitHub profile is an allow-listed surface. Static scientific identity
+text mirrors the canonical career master, while private repository names and
+metadata never reach the public README.
 """
 
 from __future__ import annotations
+
+import re
 
 try:
     import render_profile as core
@@ -16,10 +18,37 @@ except ModuleNotFoundError:  # imported from repository-root unit tests
 
 _ORIGINAL_REFINE_STATIC_README = core.refine_static_readme
 
+# Canonical public identity text mirrored from the career master (06_PROFILE).
+CANONICAL_HEADLINE = "Quantitative Marine Ecology & Fisheries Science"
+CANONICAL_SHORT_BIO = (
+    "Marine biologist affiliated with the Peruvian Marine Research Institute (IMARPE), "
+    "working at the intersection of quantitative marine ecology, fisheries science and "
+    "scientific computing. His research focuses on pelagic resources, stock assessment, "
+    "spatiotemporal analysis and reproducible ocean- and fisheries-data workflows in the "
+    "Humboldt Current system."
+)
+
 
 def refine_static_readme(text: str) -> str:
-    """Apply the canonical renderer and enforce public-only portfolio wording."""
+    """Apply canonical master text and enforce public-only portfolio wording."""
     text = _ORIGINAL_REFINE_STATIC_README(text)
+
+    text = re.sub(
+        r'<h1 align="center">.*?</h1>',
+        f'<h1 align="center">{CANONICAL_HEADLINE}</h1>',
+        text,
+        count=1,
+        flags=re.S,
+    )
+
+    text = re.sub(
+        r'<p align="justify">\s*.*?</p>',
+        '<p align="justify">\n  ' + CANONICAL_SHORT_BIO + '\n</p>',
+        text,
+        count=1,
+        flags=re.S,
+    )
+
     return text.replace(
         "Public and private repositories are both listed below; visibility is shown in each table with 🔓 or 🔒. "
         "Forks and archived repositories are excluded from the active portfolio.",
@@ -35,7 +64,7 @@ def render_projects() -> str:
         return "_Repository inventory will be populated on the next profile Action run._"
 
     # Public profile = explicit public allow-list. Private repository names must
-    # never reach README.md even when PROFILE_REPO_TOKEN can see them.
+    # never reach README.md even if a future token can see them.
     included = [
         repo
         for repo in repositories
