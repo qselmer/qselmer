@@ -61,7 +61,7 @@
 
 ## Scientific computing & reproducible research
 
-Active original research repositories are organized by their primary scientific or computational function. Public and private repositories are both listed below; visibility is shown in each table with 🔓 or 🔒. Forks and archived repositories are excluded from the active portfolio.
+Active original research repositories are organized by their primary scientific or computational function. Only active public original repositories selected for the profile are listed below. Private repositories remain internal and are never named on this public surface; forks and archived repositories are excluded from the active portfolio.
 
 <!-- PROJECTS:START -->
 ### Packages
@@ -82,10 +82,6 @@ Active original research repositories are organized by their primary scientific 
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
 <tr><td width="247"><a href="https://github.com/qselmer/humboldt-ocean-watch"><code>humboldt-ocean-watch</code></a></td><td width="437">AI-assisted daily sea surface temperature and thermal anomaly monitoring for the Niño 1+2 region.</td><td width="114" align="center">🔓</td><td width="152" align="center"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" title="Python" width="20" height="20"></td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-observatory-app"><code>pelagicPER-observatory-app</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-outlook-app"><code>pelagicPER-outlook-app</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-app"><code>pelagicPER-season-benchmark-app</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-season-monitor-app"><code>pelagicPER-season-monitor-app</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 </tbody>
 </table>
 
@@ -95,10 +91,6 @@ Active original research repositories are organized by their primary scientific 
 <thead><tr><th width="247">Repository</th><th width="437">Description</th><th width="114">Visibility</th><th width="152">Main language</th></tr></thead>
 <tbody>
 <tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-availability-risk-paper"><code>pelagicPER-availability-risk-paper</code></a></td><td width="437">-</td><td width="114" align="center">🔓</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/fishcore-paper"><code>fishcore-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/fishstocks-misspecification-ml-paper"><code>fishstocks-misspecification-ml-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-fishery-reorganization-paper"><code>pelagicPER-fishery-reorganization-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
-<tr><td width="247"><a href="https://github.com/qselmer/pelagicPER-season-benchmark-paper"><code>pelagicPER-season-benchmark-paper</code></a></td><td width="437">Private repository</td><td width="114" align="center">🔒</td><td width="152" align="center">-</td></tr>
 </tbody>
 </table>
 
