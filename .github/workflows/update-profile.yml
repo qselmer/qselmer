@@ -44,10 +44,11 @@ jobs:
       - name: Install profile dependencies
         run: python -m pip install --disable-pip-version-check -r requirements-profile.txt
 
-      - name: Refresh scholarly outputs, research metrics and public repository portfolio
+      - name: Refresh scholarly outputs, research metrics and repository portfolio
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INCLUDE_PRIVATE_REPOS: "false"
+          PROFILE_REPO_TOKEN: ${{ secrets.PROFILE_REPO_TOKEN }}
+          INCLUDE_PRIVATE_REPOS: "true"
           GITHUB_USER: qselmer
           ORCID_ID: 0000-0001-9229-6379
           OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
@@ -78,20 +79,6 @@ jobs:
           python -m py_compile scripts/update_profile.py scripts/render_profile.py scripts/profile_refresh.py scripts/profile_render.py scripts/repository_contracts.py
           python -m unittest discover -s tests -v
 
-      - name: Assert public profile contains no private repository inventory
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          catalog = json.loads(Path("assets/data/repository-catalog.json").read_text(encoding="utf-8"))
-          private = [r.get("name") for r in catalog.get("repositories", []) if r.get("private")]
-          if private:
-              raise SystemExit(f"Private repositories leaked into public catalog: {private}")
-          if "Private repository" in Path("README.md").read_text(encoding="utf-8"):
-              raise SystemExit("Private repository placeholder leaked into public README")
-          PY
-
       - name: Commit changes
         run: |
           if git diff --quiet; then
@@ -100,6 +87,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/data/publications.json assets/data/research-metrics.json assets/data/repository-catalog.json assets/data/repository-types.json assets/generated/*.svg
+          git add README.md assets/data/publications.json assets/data/research-metrics.json assets/data/repository-catalog.json assets/generated/*.svg
           git commit -m "chore: refresh academic profile"
           git push
