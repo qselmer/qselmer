@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T16:59:50.947640+00:00",
+  "updated_at": "2026-09-21T17:08:06.007343+00:00",
   "orcid": "0000-0001-9229-6379",
   "public_orcid_works": 5,
   "journal_articles": 1,
@@ -17,7 +17,7 @@
   "openalex": {
     "available": true,
     "source": "OpenAlex",
-    "resolution": "doi-authorship",
+    "resolution": "orcid",
     "author_id": "https://openalex.org/A5122828742",
     "display_name": "Elmer Quispe-Salazar",
     "works_count": 3,
