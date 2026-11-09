@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T20:50:27.747531+00:00",
+  "updated_at": "2026-11-09T21:31:52.422984+00:00",
   "orcid": "0000-0001-9229-6379",
   "public_orcid_works": 5,
   "journal_articles": 1,
@@ -20,9 +20,9 @@
     "resolution": "orcid",
     "author_id": "https://openalex.org/A5122828742",
     "display_name": "Elmer Quispe-Salazar",
-    "works_count": 4,
-    "cited_by_count": 0,
-    "h_index": 0,
+    "works_count": 3,
+    "cited_by_count": 1,
+    "h_index": 1,
     "i10_index": 0
   },
   "google_scholar_role": "profile-link-only"

@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "updated_at": "2026-11-02T20:50:37.183593+00:00",
+  "updated_at": "2026-11-09T21:32:01.790550+00:00",
   "owner": "qselmer",
   "scope": "all original repositories visible to PROFILE_REPO_TOKEN; forks excluded; private metadata redacted",
   "classification_precedence": [
@@ -1047,7 +1047,7 @@
       "html_url": "https://github.com/qselmer/qselmer",
       "description": "Automated academic GitHub profile integrating research outputs, bibliometric metrics, and a reproducible scientific repository portfolio.",
       "language": "Python",
-      "updated_at": "2026-10-26T17:30:34Z",
+      "updated_at": "2026-11-02T20:50:47Z",
       "archived": false,
       "active": true,
       "private": false,
@@ -1080,7 +1080,7 @@
       "html_url": "https://github.com/qselmer/qselmer.github.io",
       "description": "Fisheries scientist & marine quantitative ecologist | Stock assessment, spatio-temporal analytics, reproducible science",
       "language": "Python",
-      "updated_at": "2026-10-26T19:18:05Z",
+      "updated_at": "2026-11-02T22:19:23Z",
       "archived": false,
       "active": true,
       "private": false,
