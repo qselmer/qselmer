@@ -1,10 +1,10 @@
 {
   "orcid": "0000-0001-9229-6379",
-  "updated_at": "2026-11-09T21:31:51.885554+00:00",
-  "count": 5,
+  "updated_at": "2026-11-16T21:08:17.656085+00:00",
+  "count": 8,
   "publishing_since": "2024",
   "output_counts": {
-    "Journal articles": 1,
+    "Journal articles": 4,
     "Preprints & working papers": 0,
     "Books & chapters": 0,
     "Theses": 1,
@@ -15,6 +15,28 @@
   },
   "publications": [
     {
+      "title": "Spatiotemporal patterns of interactions between the industrial purse-seine fleet and associated marine fauna in an upwelling system",
+      "year": "2026",
+      "journal": "Fishing logbooks 1974–2026: a platform for monitoring the pelagic subsystem of the Peruvian marine ecosystem",
+      "type": "Journal Article",
+      "doi": "",
+      "url": "https://hdl.handle.net/20.500.12958/11398",
+      "authors": [],
+      "source": "ORCID",
+      "output_category": "Journal articles"
+    },
+    {
+      "title": "Schooling behavior of the Peruvian anchovy (Engraulis ringens): characterization of aggregation types based on onboard observations",
+      "year": "2026",
+      "journal": "Fishing logbooks 1974–2026: a platform for monitoring the pelagic subsystem of the Peruvian marine ecosystem",
+      "type": "Journal Article",
+      "doi": "",
+      "url": "https://hdl.handle.net/20.500.12958/11397",
+      "authors": [],
+      "source": "ORCID",
+      "output_category": "Journal articles"
+    },
+    {
       "title": "Multivariate Health Index of the anchovy: Understanding the dynamics of small pelagic fish under environmental variability",
       "year": "2026",
       "journal": "SPF-2026 Book of Abstracts: 2026 Small Pelagic Fish International Symposium",
@@ -24,6 +46,17 @@
       "authors": [],
       "source": "ORCID",
       "output_category": "Conference outputs"
+    },
+    {
+      "title": "Marine fauna associated with the industrial purse-seine fishery based on data from the Fishing Logbooks onboard observer program",
+      "year": "2026",
+      "journal": "Fishing logbooks 1974–2026: a platform for monitoring the pelagic subsystem of the Peruvian marine ecosystem",
+      "type": "Journal Article",
+      "doi": "",
+      "url": "https://hdl.handle.net/20.500.12958/11399",
+      "authors": [],
+      "source": "ORCID",
+      "output_category": "Journal articles"
     },
     {
       "title": "Critical points of natural and anthropogenic pressures and responses in the state of the north--central anchovy stock in the pelagic system of the Peruvian sea",
